@@ -8,4 +8,10 @@
     <string name="dashboard">Dashboard</string>
     <string name="drawer_open">Open</string>
     <string name="drawer_close">Close</string>
+    <!--RISK-->
+    <string name="lower">Lowest</string>
+    <string name="moderated">Moderated</string>
+    <string name="high">High</string>
+    <string name="veryHigh">Very High</string>
+    <string name="max">Max</string>
 </resources>
