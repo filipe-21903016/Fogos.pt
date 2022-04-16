@@ -8,7 +8,7 @@ object NavigationManager {
         val transition = fm.beginTransaction()
         transition.replace(R.id.frame, fragment)
         transition.addToBackStack(null)
-        transition.commit(
+        transition.commit()
     }
 
 }
