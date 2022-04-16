@@ -10,8 +10,8 @@ class FireUi(
     val name: String,
     val cc: String,
     val district: String,
-    val freguesia: String = "",
-    val concelho: String = "",
+    val freguesia: String,
+    val concelho: String,
     val status: String,
     val timestamp: Long,
 ) : Parcelable {
