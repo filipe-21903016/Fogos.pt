@@ -6,19 +6,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import com.filipe.tomas.fogos.databinding.FragmentFireListBinding
-import com.filipe.tomas.fogos.models.Fire
+import com.filipe.tomas.fogos.databinding.FragmentDashboardBinding
 
-private const val ARG_FIRES = "param1"
+// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+private const val ARG_PARAM1 = "param1"
 
-class FireListFragment : Fragment() {
-    private lateinit var binding: FragmentFireListBinding
-    private var fires: ArrayList<Fire>? = null
+class DashboardFragment : Fragment() {
+    private lateinit var binding : FragmentDashboardBinding
+    private var param1: String? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            fires = it.getParcelableArrayList(ARG_FIRES)
+            param1 = it.getString(ARG_PARAM1)
         }
     }
 
@@ -27,19 +28,19 @@ class FireListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         //set screen name
-        (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.fire_list)
+        (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.dashboard)
         // Inflate the layout for this fragment
-        val view =  inflater.inflate(R.layout.fragment_fire_list, container, false)
-        binding = FragmentFireListBinding.bind(view)
+        val view = inflater.inflate(R.layout.fragment_dashboard, container, false)
+        binding = FragmentDashboardBinding.bind(view)
         return binding.root
     }
 
     companion object {
         @JvmStatic
-        fun newInstance(fires: ArrayList<Fire>) =
-            FireListFragment().apply {
+        fun newInstance(param1: String, param2: String) =
+            DashboardFragment().apply {
                 arguments = Bundle().apply {
-                    putParcelableArrayList(ARG_FIRES, fires)
+                    putString(ARG_PARAM1, param1)
                 }
             }
     }

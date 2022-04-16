@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         if (!screenRotated(savedInstanceState)) {
-            NavigationManager.goToFireListFragment(supportFragmentManager)
+            NavigationManager.goToDashboardFragment(supportFragmentManager)
         }
 
     }
@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
     private fun onClickNavigationItem(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.nav_fire_list -> NavigationManager.goToFireListFragment(supportFragmentManager)
-            //R.id.nav_history -> NavigationManager.goToHistoryFragment(supportFragmentManager)
+            R.id.nav_dashboard -> NavigationManager.goToDashboardFragment(supportFragmentManager)
         }
         binding.drawer.closeDrawer(GravityCompat.START)
         return true

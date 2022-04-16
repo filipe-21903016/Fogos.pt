@@ -2,6 +2,7 @@ package com.filipe.tomas.fogos.models
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import com.filipe.tomas.fogos.DashboardFragment
 import com.filipe.tomas.fogos.FireListFragment
 import com.filipe.tomas.fogos.R
 
@@ -15,6 +16,10 @@ object NavigationManager {
 
     fun goToFireListFragment(supportFragmentManager: FragmentManager) {
         placeFragment(supportFragmentManager, FireListFragment())
+    }
+
+    fun goToDashboardFragment(supportFragmentManager: FragmentManager){
+        placeFragment(supportFragmentManager, DashboardFragment())
     }
 
 }
