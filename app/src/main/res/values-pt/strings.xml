@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Fogos.pt</string>
+    <string name="hello_blank_fragment">Ola fragmento em branco</string>
+    <!--Drawer-->
+    <string name="fire_list">Lista de Fogos</string>
+    <string name="fire_map">Mapa de Fogos</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="drawer_open">Aberto</string>
+    <string name="drawer_close">Fechado</string>
+</resources>
