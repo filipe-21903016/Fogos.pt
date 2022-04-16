@@ -6,7 +6,6 @@ import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import com.filipe.tomas.fogos.databinding.ActivityMainBinding
-import com.filipe.tomas.fogos.models.NavigationManager
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
