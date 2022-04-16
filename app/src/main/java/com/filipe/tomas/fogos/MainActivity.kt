@@ -18,13 +18,13 @@ class MainActivity : AppCompatActivity() {
         if (!screenRotated(savedInstanceState)) {
             NavigationManager.goToDashboardFragment(supportFragmentManager)
         }
-
     }
 
     override fun onStart() {
         super.onStart()
         setSupportActionBar(binding.toolbar)
         setupDrawerMenu()
+        supportActionBar?.title = getString(R.string.dashboard)
     }
 
     private fun onClickNavigationItem(item: MenuItem): Boolean {
