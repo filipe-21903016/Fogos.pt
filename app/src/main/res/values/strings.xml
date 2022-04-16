@@ -14,4 +14,9 @@
     <string name="high">High</string>
     <string name="veryHigh">Very High</string>
     <string name="max">Max</string>
+    <!--Registration-->
+    <string name="id_number">Id Number</string>
+    <string name="name">Name</string>
+    <string name="district">District</string>
+    <string name="submit">Submit</string>
 </resources>

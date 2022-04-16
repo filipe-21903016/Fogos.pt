@@ -3,8 +3,8 @@ import kotlinx.parcelize.Parcelize
 import java.util.*
 
 class Fire(
-    val name: String,
-    val cc: String,
+    val name: String = "Informação não disponível",
+    val cc: String = "Informação não disponível",
     val district: String,
     val freguesia: String = "",
     val concelho: String = "",

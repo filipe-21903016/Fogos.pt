@@ -23,5 +23,4 @@ class FireUi(
         val formatter = SimpleDateFormat("dd/MM/yyyy - hh:mm:ss")
         return formatter.format(timestamp)
     }
-
 }

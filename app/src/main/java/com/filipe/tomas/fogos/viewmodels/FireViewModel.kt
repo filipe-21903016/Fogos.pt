@@ -3,9 +3,10 @@ package com.filipe.tomas.fogos.viewmodels
 import androidx.lifecycle.ViewModel
 import com.filipe.tomas.fogos.data.DataSource
 import com.filipe.tomas.fogos.FireUi
+import com.filipe.tomas.fogos.models.Fire
 
 class FireViewModel : ViewModel() {
-    fun getAllFires() : List<FireUi> {
+    fun getAllFires(): List<FireUi> {
         return DataSource.fires.map {
             FireUi(
                 id = it.id,
@@ -22,5 +23,17 @@ class FireViewModel : ViewModel() {
                 timestamp = it.timestamp
             )
         }.toList()
+    }
+
+    fun onNewRegistration(name: String, cc:String, district:String){
+        DataSource.addNewFire(
+            Fire(
+                name = name,
+                cc = cc,
+                district = district,
+                status = "Por Confirmar"
+                // todo add photo
+            )
+        )
     }
 }

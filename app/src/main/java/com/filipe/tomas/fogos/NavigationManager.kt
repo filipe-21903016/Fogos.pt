@@ -29,4 +29,8 @@ object NavigationManager {
         placeFragment(supportFragmentManager, FireMapFragment())
     }
 
+    fun goToFireRegistrationFragment(supportFragmentManager: FragmentManager) {
+        placeFragment(supportFragmentManager, FireRegistrationFragment())
+    }
+
 }

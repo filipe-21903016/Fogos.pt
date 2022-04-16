@@ -14,4 +14,9 @@
     <string name="high">Elevado</string>
     <string name="veryHigh">Muito Elevado</string>
     <string name="max">Máximo</string>
+    <!--Registration-->
+    <string name="id_number">Nº CC</string>
+    <string name="name">Nome</string>
+    <string name="district">Distrito</string>
+    <string name="submit">Submeter</string>
 </resources>

@@ -31,6 +31,7 @@ class FireDetailsFragment : Fragment() {
         binding.cc.text = "CC: ${fireUi?.cc}"
         binding.status.text = "Status: ${fireUi?.status}"
         binding.concelho.text = "Concelho: ${fireUi?.concelho}"
+        binding.observacoes.text = "Observações: ${fireUi?.observacoes}"
         binding.aereos.text = "Aereos: ${fireUi?.aereos.toString()}"
         binding.datetime.text = fireUi?.getDateTime()
         binding.freguesia.text = "Distrito: ${fireUi?.freguesia}"

@@ -16,8 +16,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         if (!screenRotated(savedInstanceState)) {
-            NavigationManager.goToDashboardFragment(supportFragmentManager)
+            //NavigationManager.goToDashboardFragment(supportFragmentManager)
+            NavigationManager.goToFireRegistrationFragment(supportFragmentManager)
         }
+
+
     }
 
     override fun onStart() {
