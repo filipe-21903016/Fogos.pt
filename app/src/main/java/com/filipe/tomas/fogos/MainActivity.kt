@@ -2,6 +2,7 @@ package com.filipe.tomas.fogos
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import com.filipe.tomas.fogos.databinding.ActivityMainBinding
@@ -29,8 +30,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun onClickNavigationItem(item: MenuItem): Boolean {
         when (item.itemId) {
-            //todo setup routes
-            //R.id.nav_calculator -> NavigationManager.goToCalculatorFragment(supportFragmentManager)
+            R.id.nav_fire_list -> NavigationManager.goToFireListFragment(supportFragmentManager)
             //R.id.nav_history -> NavigationManager.goToHistoryFragment(supportFragmentManager)
         }
         binding.drawer.closeDrawer(GravityCompat.START)
