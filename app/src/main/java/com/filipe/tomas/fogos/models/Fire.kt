@@ -1,7 +1,6 @@
 package com.filipe.tomas.fogos.models
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
-import java.sql.Timestamp
 
 @Parcelize
 class Fire(

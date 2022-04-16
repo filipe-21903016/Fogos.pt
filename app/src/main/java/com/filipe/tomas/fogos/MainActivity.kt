@@ -16,8 +16,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         if (!screenRotated(savedInstanceState)) {
-            //todo change to navigation manager gotoDashboard
-            //NavigationManager.goToCalculatorFragment(supportFragmentManager)
+            NavigationManager.goToFireListFragment(supportFragmentManager)
         }
 
     }

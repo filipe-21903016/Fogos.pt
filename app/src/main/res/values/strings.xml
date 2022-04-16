@@ -1,5 +1,10 @@
 <resources>
-    <string name="app_name">Fogos</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="app_name">Fogos.pt</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!--Drawer-->
+    <string name="fire_list">Lista de Fogos</string>
+    <string name="fire_map">Mapa de Fogos</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="drawer_open">Aberto</string>
+    <string name="drawer_close">Fechado</string>
 </resources>
