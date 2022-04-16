@@ -6,7 +6,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import com.filipe.tomas.fogos.databinding.ItemFireBinding
-import com.filipe.tomas.fogos.views.FireUi
+import com.filipe.tomas.fogos.FireUi
+import com.filipe.tomas.fogos.NavigationManager
 
 class FireListAdapter(
     private val supportFragmentManager: FragmentManager,
@@ -23,6 +24,7 @@ class FireListAdapter(
 
     override fun onBindViewHolder(holder: FireListViewHolder, position: Int) {
         holder.itemView.setOnClickListener{
+            NavigationManager.goToFireDetails(supportFragmentManager, items[position])
         }
         holder.binding.distrito.text = items[position].district
         holder.binding.freguesia.text = items[position].district //todo change

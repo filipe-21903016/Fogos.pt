@@ -9,6 +9,10 @@ class Fire(
     val freguesia: String = "",
     val concelho: String = "",
     val status: String,
+    val operacionais : Int = 0,
+    val aereos : Int = 0,
+    val veiculos : Int = 0,
+    val observacoes : String = ""
 ){
     val id: String = UUID.randomUUID().toString()
     val timestamp: Long = System.currentTimeMillis()

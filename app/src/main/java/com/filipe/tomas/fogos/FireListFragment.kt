@@ -11,9 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.filipe.tomas.fogos.adapters.FireListAdapter
 import com.filipe.tomas.fogos.databinding.FragmentFireListBinding
-import com.filipe.tomas.fogos.models.Fire
 import com.filipe.tomas.fogos.viewmodels.FireViewModel
-import com.filipe.tomas.fogos.views.FireUi
 
 private const val ARG_FIRES = "param1"
 

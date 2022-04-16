@@ -31,6 +31,7 @@ class MainActivity : AppCompatActivity() {
         when (item.itemId) {
             R.id.nav_fire_list -> NavigationManager.goToFireListFragment(supportFragmentManager)
             R.id.nav_dashboard -> NavigationManager.goToDashboardFragment(supportFragmentManager)
+            R.id.nav_fire_map -> NavigationManager.goToFireMapFragment(supportFragmentManager)
         }
         binding.drawer.closeDrawer(GravityCompat.START)
         return true

@@ -1,4 +1,4 @@
-package com.filipe.tomas.fogos.views
+package com.filipe.tomas.fogos
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
@@ -14,9 +14,14 @@ class FireUi(
     val concelho: String,
     val status: String,
     val timestamp: Long,
+    val operacionais : Int,
+    val aereos : Int,
+    val veiculos : Int,
+    val observacoes : String
 ) : Parcelable {
     fun getDateTime(): String{
         val formatter = SimpleDateFormat("dd/MM/yyyy - hh:mm:ss")
         return formatter.format(timestamp)
     }
+
 }
