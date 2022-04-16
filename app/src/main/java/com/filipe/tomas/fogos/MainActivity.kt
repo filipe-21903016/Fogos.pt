@@ -10,21 +10,18 @@ import com.filipe.tomas.fogos.models.NavigationManager
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        /*
+
         if (!screenRotated(savedInstanceState)) {
             //todo change to navigation manager gotoDashboard
             //NavigationManager.goToCalculatorFragment(supportFragmentManager)
         }
-         */
 
     }
 
-    /*
     override fun onStart() {
         super.onStart()
         setSupportActionBar(binding.toolbar)
@@ -59,15 +56,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        if (binding.drawer.isDrawerOpen(GravityCompat.START))
-        {
+        if (binding.drawer.isDrawerOpen(GravityCompat.START)) {
             binding.drawer.closeDrawer(GravityCompat.START)
-        } else if (supportFragmentManager.backStackEntryCount == 1)
-        {
+        } else if (supportFragmentManager.backStackEntryCount == 1) {
             finish()
         } else {
             super.onBackPressed()
         }
     }
-     */
 }
