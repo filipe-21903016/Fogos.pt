@@ -3,8 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Tomas/AndroidStudioProjects/projeto-android-nativo-filipe-21903016/app/src/main/res/layout/fragment_fire_list.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/Tomas/AndroidStudioProjects/projeto-android-nativo-filipe-21903016/app/src/main/res/layout/item_fire.xml" value="0.358695652173913" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.22056159420289856" />
-        <entry key="app/src/main/res/layout/fragment_fire_list.xml" value="0.19791666666666666" />
       </map>
     </option>
   </component>
