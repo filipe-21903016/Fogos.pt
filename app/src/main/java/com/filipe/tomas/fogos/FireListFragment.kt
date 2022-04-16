@@ -1,19 +1,26 @@
 package com.filipe.tomas.fogos
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.filipe.tomas.fogos.adapters.FireListAdapter
 import com.filipe.tomas.fogos.databinding.FragmentFireListBinding
 import com.filipe.tomas.fogos.models.Fire
+import com.filipe.tomas.fogos.viewmodels.FireViewModel
+import com.filipe.tomas.fogos.views.FireUi
 
 private const val ARG_FIRES = "param1"
 
 class FireListFragment : Fragment() {
     private lateinit var binding: FragmentFireListBinding
-    private var fires: ArrayList<Fire>? = null
+    private lateinit var viewModel : FireViewModel
+    private var fires: ArrayList<FireUi>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,13 +37,20 @@ class FireListFragment : Fragment() {
         (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.fire_list)
         // Inflate the layout for this fragment
         val view =  inflater.inflate(R.layout.fragment_fire_list, container, false)
+        viewModel = ViewModelProvider(this).get(FireViewModel::class.java)
         binding = FragmentFireListBinding.bind(view)
         return binding.root
     }
 
+    override fun onStart() {
+        super.onStart()
+        binding.rvFires.layoutManager = LinearLayoutManager(activity as Context)
+        binding.rvFires.adapter = FireListAdapter(parentFragmentManager, viewModel.getAllFires())
+    }
+
     companion object {
         @JvmStatic
-        fun newInstance(fires: ArrayList<Fire>) =
+        fun newInstance(fires: ArrayList<FireUi>) =
             FireListFragment().apply {
                 arguments = Bundle().apply {
                     putParcelableArrayList(ARG_FIRES, fires)

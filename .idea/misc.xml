@@ -3,10 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Tomas/AndroidStudioProjects/projeto-android-nativo-filipe-21903016/app/src/main/res/layout/fragment_fire_list.xml" value="0.358695652173913" />
-        <entry key="..\:/Users/Tomas/AndroidStudioProjects/projeto-android-nativo-filipe-21903016/app/src/main/res/layout/fragment_risk_zone.xml" value="0.358695652173913" />
-        <entry key="..\:/Users/Tomas/AndroidStudioProjects/projeto-android-nativo-filipe-21903016/app/src/main/res/layout/item_fire.xml" value="0.358695652173913" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.22056159420289856" />
+        <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.23369565217391305" />
+        <entry key="app/src/main/res/layout/fragment_fire_list.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/item_fire.xml" value="0.1" />
+        <entry key="app/src/main/res/menu/drawer_menu.xml" value="0.3333333333333333" />
       </map>
     </option>
   </component>
