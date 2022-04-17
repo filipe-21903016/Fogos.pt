@@ -1,12 +1,14 @@
 package com.filipe.tomas.fogos
 
 import android.annotation.SuppressLint
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import com.filipe.tomas.fogos.R
 import com.filipe.tomas.fogos.databinding.FragmentFireDetailsBinding
 import com.filipe.tomas.fogos.FireUi
@@ -38,6 +40,7 @@ class FireDetailsFragment : Fragment() {
         binding.operacionais.text = "Operacionais: ${fireUi?.operacionais.toString()}"
         binding.veiculos.text = "Veiculos: ${fireUi?.veiculos.toString()}"
         binding.distrito.text = "Distrito: ${fireUi?.district}"
+        binding.ivFirePicture.setImageBitmap(fireUi?.pictureBitmap)
 
     }
 

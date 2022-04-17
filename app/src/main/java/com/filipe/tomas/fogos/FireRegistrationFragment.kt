@@ -1,7 +1,15 @@
 package com.filipe.tomas.fogos
 
+import android.app.Activity
+import android.app.Activity.RESULT_OK
+import android.content.ActivityNotFoundException
 import android.content.Context
+import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
+import android.provider.MediaStore
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +17,7 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.core.graphics.drawable.toBitmap
 import androidx.core.text.isDigitsOnly
 import androidx.lifecycle.ViewModelProvider
 import com.filipe.tomas.fogos.R
@@ -16,8 +25,11 @@ import com.filipe.tomas.fogos.databinding.FragmentFireRegistrationBinding
 import com.filipe.tomas.fogos.viewmodels.FireViewModel
 
 class FireRegistrationFragment : Fragment() {
+    private val TAG = MainActivity::class.java.simpleName
+    private val REQUEST_IMAGE_CAPTURE = 1
     private lateinit var binding: FragmentFireRegistrationBinding
     private lateinit var viewModel: FireViewModel
+    private lateinit var imageBitmap: Bitmap
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,6 +53,11 @@ class FireRegistrationFragment : Fragment() {
             binding.spinnerDistrito.adapter = arrayAdapter
         }
 
+
+        binding.btTakePicture.setOnClickListener{
+            dispatchTakePictureIntent()
+        }
+
         binding.btSubmit.setOnClickListener {
             val name: String = binding.etNome.text.toString()
             val cc: String = binding.etCc.text.toString()
@@ -49,12 +66,30 @@ class FireRegistrationFragment : Fragment() {
             binding.etCc.hideKeyboard()
             if (validateEntries(name, cc))
             {
-                viewModel.onNewRegistration(name, cc, district, null)
+                viewModel.onNewRegistration(name, cc, district, imageBitmap)
                 NavigationManager.goToFireListFragment(parentFragmentManager)
             }
 
         }
     }
+
+    fun dispatchTakePictureIntent() {
+        val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        try {
+            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
+        }catch (e : ActivityNotFoundException){
+            Log.wtf(TAG, "activity not found")
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK)
+        {
+            imageBitmap = data?.extras?.get("data") as Bitmap
+            binding.ivPicture.setImageBitmap(imageBitmap)
+        }
+    }
+
     private fun validateEntries(name: String, cc: String): Boolean {
         //todo implement
         //val nameRegex = "([a-z])".toRegex()

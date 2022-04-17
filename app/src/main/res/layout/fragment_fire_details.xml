@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".viewmodels.FireDetailsFragment">
+    tools:context=".FireDetailsFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -58,6 +58,11 @@
             android:id="@+id/aereos"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
+
+        <ImageView
+            android:id="@+id/iv_fire_picture"
+            android:layout_width="300dp"
+            android:layout_height="300dp"/>
     </LinearLayout>
 
 </FrameLayout>
