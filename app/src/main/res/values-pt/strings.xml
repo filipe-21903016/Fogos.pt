@@ -19,4 +19,5 @@
     <string name="name">Nome</string>
     <string name="district">Distrito</string>
     <string name="submit">Submeter</string>
+    <string name="risk">Risco</string>
 </resources>

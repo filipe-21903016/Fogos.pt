@@ -11,6 +11,13 @@ object NavigationManager {
         transition.commit()
     }
 
+    fun placeRiskZoneFragment(fm: FragmentManager) {
+        val transition = fm.beginTransaction()
+        transition.replace(R.id.frame_risk, RiskZoneFragment())
+        transition.addToBackStack(null)
+        transition.commit()
+    }
+
     fun goToFireListFragment(supportFragmentManager: FragmentManager) {
         placeFragment(supportFragmentManager, FireListFragment())
     }

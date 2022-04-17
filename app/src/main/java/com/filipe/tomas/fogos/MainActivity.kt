@@ -16,10 +16,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         if (!screenRotated(savedInstanceState)) {
+            NavigationManager.placeRiskZoneFragment(supportFragmentManager)
             NavigationManager.goToDashboardFragment(supportFragmentManager)
         }
-
-
     }
 
     override fun onStart() {
