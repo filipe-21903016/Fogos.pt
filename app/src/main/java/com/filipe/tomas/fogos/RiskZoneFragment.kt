@@ -37,7 +37,7 @@ class RiskZoneFragment : Fragment() {
     @SuppressLint("SetTextI18n")
     override fun onStart() {
         super.onStart()
-        binding.textViewRisk.text = "${getString(R.string.risk)}: ${Risk.getHighRisk()}"
+        binding.textViewRisk.text = "${getString(R.string.risk)}: ${getString(Risk.getHighRisk())}"
     }
 
     companion object {
