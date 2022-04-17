@@ -17,6 +17,7 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.drawable.toBitmap
 import androidx.core.text.isDigitsOnly
 import androidx.lifecycle.ViewModelProvider
@@ -35,6 +36,7 @@ class FireRegistrationFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.fire_registry)
         viewModel = ViewModelProvider(this).get(FireViewModel::class.java)
         val view = inflater.inflate(R.layout.fragment_fire_registration, container, false)
         binding = FragmentFireRegistrationBinding.bind(view)

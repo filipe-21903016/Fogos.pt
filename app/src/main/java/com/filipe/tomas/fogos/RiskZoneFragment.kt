@@ -34,6 +34,6 @@ class RiskZoneFragment : Fragment() {
     @SuppressLint("SetTextI18n")
     override fun onStart() {
         super.onStart()
-        Timer().scheduleAtFixedRate(RiskTimerTask(binding.textViewRisk, ::getString), 0, 20 * 1000)
+        Timer().scheduleAtFixedRate(RiskTimerTask(binding.textViewRisk, ::getString), 0, (20 * 1000).toLong() )
     }
 }
