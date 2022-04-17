@@ -80,7 +80,7 @@ class FireRegistrationFragment : Fragment() {
         try {
             startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
         }catch (e : ActivityNotFoundException){
-            Log.wtf(TAG, "activity not found")
+            Log.wtf(TAG, "Activity not found")
         }
     }
 

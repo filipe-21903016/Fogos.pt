@@ -1,8 +1,11 @@
 package com.filipe.tomas.fogos
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.Toolbar
+import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import com.filipe.tomas.fogos.databinding.ActivityMainBinding
@@ -25,7 +28,14 @@ class MainActivity : AppCompatActivity() {
         super.onStart()
         setSupportActionBar(binding.toolbar)
         setupDrawerMenu()
+        setupActionBar(supportActionBar)
+
+    }
+
+    @SuppressLint("UseCompatLoadingForDrawables")
+    private fun setupActionBar(supportActionBar: ActionBar?) {
         supportActionBar?.title = getString(R.string.dashboard)
+        supportActionBar?.setBackgroundDrawable(getDrawable(R.drawable.gradient))
     }
 
     private fun onClickNavigationItem(item: MenuItem): Boolean {
