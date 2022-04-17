@@ -29,7 +29,7 @@ class FireRegistrationFragment : Fragment() {
     private val REQUEST_IMAGE_CAPTURE = 1
     private lateinit var binding: FragmentFireRegistrationBinding
     private lateinit var viewModel: FireViewModel
-    private lateinit var imageBitmap: Bitmap
+    private var imageBitmap: Bitmap? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

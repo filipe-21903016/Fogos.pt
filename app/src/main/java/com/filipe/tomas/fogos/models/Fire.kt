@@ -13,7 +13,7 @@ class Fire(
     val aereos : Int = 0,
     val veiculos : Int = 0,
     val observacoes : String = "Informação não disponível",
-    val picture: ByteArray? = null
+    var picture: ByteArray? = null
 ){
     val id: String = UUID.randomUUID().toString()
     val timestamp: Long = System.currentTimeMillis()

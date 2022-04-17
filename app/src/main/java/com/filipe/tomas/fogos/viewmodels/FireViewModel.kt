@@ -33,17 +33,16 @@ class FireViewModel : ViewModel() {
     }
 
     fun onNewRegistration(name: String, cc:String, district:String, picture: Bitmap?){
-        val blob : ByteArrayOutputStream = ByteArrayOutputStream()
-        picture?.compress(Bitmap.CompressFormat.PNG, 0, blob)
-
-        DataSource.addNewFire(
-            Fire(
-                name = name,
-                cc = cc,
-                district = district,
-                status = "Por Confirmar",
-                picture = blob.toByteArray()
-            )
+        var fire = Fire(
+            name = name,
+            cc = cc,
+            district = district,
+            status = "Por Confirmar",
         )
+        if (picture != null){
+            val blob : ByteArrayOutputStream = ByteArrayOutputStream()
+            picture.compress(Bitmap.CompressFormat.PNG, 0, blob)
+            fire.picture = blob.toByteArray()
+        }
     }
 }
