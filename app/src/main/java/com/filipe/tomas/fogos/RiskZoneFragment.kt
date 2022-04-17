@@ -4,33 +4,24 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.provider.Settings.Global.getString
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.filipe.tomas.fogos.databinding.FragmentRiskZoneBinding
 import java.util.*
 import kotlin.concurrent.schedule
 
-
-private const val ARG_RISKZONE = "param1"
-
-
-
 class RiskZoneFragment : Fragment() {
     private lateinit var binding: FragmentRiskZoneBinding
-    //private var riskZone: String = Risk.Lower.value.toString()
-
-    /*
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            riskZone = it.getString(ARG_RISKZONE).toString()
+    class RiskTimerTask(val textView: TextView, val getStr:(Int) -> String) : TimerTask() {
+        @SuppressLint("SetTextI18n")
+        override fun run() {
+            this.textView.text = "${getStr(R.string.risk)}: ${getStr(Risk.getRandomRisk())}"
         }
     }
-     */
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -40,44 +31,9 @@ class RiskZoneFragment : Fragment() {
         return binding.root
     }
 
-
     @SuppressLint("SetTextI18n")
     override fun onStart() {
         super.onStart()
-        loopRisk()
-        loopRisk()
+        Timer().scheduleAtFixedRate(RiskTimerTask(binding.textViewRisk, ::getString), 0, 20 * 1000)
     }
-
-    @SuppressLint("SetTextI18n")
-     fun loopRisk() {
-        binding.textViewRisk.text = "${getString(R.string.risk)}: ${getString(Risk.getLowerRisk())}"
-        Timer().scheduleAtFixedRate(,0,2000){
-            binding.textViewRisk.text = "${getString(R.string.risk)}: ${getString(Risk.getModeratedRisk())}"
-        }
-        Timer().scheduleAtFixedRate(4000){
-            binding.textViewRisk.text = "${getString(R.string.risk)}: ${getString(Risk.getHighRisk())}"
-        }
-        Timer().scheduleAtFixedRate(6000){
-            binding.textViewRisk.text = "${getString(R.string.risk)}: ${getString(Risk.getVeryHighRisk())}"
-        }
-        Timer().scheduleAtFixedRate(8000){
-            binding.textViewRisk.text = "${getString(R.string.risk)}: ${getString(Risk.getMaxRisk())}"
-        }
-
-    }
-
-
-    companion object {
-
-        @JvmStatic
-        fun newInstance(risk: String) =
-            RiskZoneFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_RISKZONE, risk)
-                }
-            }
-    }
-
-
-
 }
