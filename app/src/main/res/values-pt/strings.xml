@@ -18,7 +18,9 @@
     <!--Registration-->
     <string name="id_number">Nº CC</string>
     <string name="name">Nome</string>
+    <string name="date">Data e Horas</string>
     <string name="district">Distrito</string>
+    <string name="picture">Fotografia</string>
     <string name="submit">Submeter</string>
     <string name="risk">Risco</string>
 </resources>
