@@ -4,4 +4,5 @@
     <color name="gradient_right">#E0FB8802</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="lightGray">#F9F9F9</color>
 </resources>

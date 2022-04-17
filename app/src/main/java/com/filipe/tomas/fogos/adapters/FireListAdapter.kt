@@ -22,12 +22,12 @@ class FireListAdapter(
         )
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: FireListViewHolder, position: Int) {
         holder.itemView.setOnClickListener{
             NavigationManager.goToFireDetails(supportFragmentManager, items[position])
         }
-        holder.binding.distrito.text = items[position].district
-        holder.binding.freguesia.text = items[position].district //todo change
+        holder.binding.distritoFreguesia.text = "${items[position].district}, ${items[position].district}"
         holder.binding.datetime.text =  items[position].getDateTime()
     }
 

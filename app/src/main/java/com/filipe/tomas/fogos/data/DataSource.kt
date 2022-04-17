@@ -7,9 +7,9 @@ object DataSource {
         Fire(
             "Filipe Coutinho",
             "12345678",
-            "Salvaterra de Magos",
-            "Salvaterra de Magos",
-            "Salvaterra de Magos",
+            "S. Magos",
+            "S. Magos",
+            "S. Magos",
             "Por Confirmar",
             10, 20, 30,
             "Fogo urgente venham "
@@ -19,7 +19,7 @@ object DataSource {
             "12345678",
             "Lisboa",
             "Alvalade",
-            "Salvaterra de Magos",
+            "S. Magos",
             "Por Confirmar",
             1, 1, 1,
             "Fogo urgente venham "
@@ -29,7 +29,7 @@ object DataSource {
             "12345678",
             "Porto",
             "Gaia",
-            "Salvaterra de Magos",
+            "S. Magos",
             "Por Confirmar",
             observacoes = "Fogo urgente venham"
         ),
@@ -38,7 +38,7 @@ object DataSource {
             "12345678",
             "Lisboa",
             "VF Xira",
-            "Salvaterra de Magos",
+            "S. Magos",
             "Por Confirmar",
             3, 4, 5,
             "Fogo urgente venham "
@@ -48,7 +48,7 @@ object DataSource {
             "12345678",
             "Lisboa",
             "Marvila",
-            "Salvaterra de Magos",
+            "S. Magos",
             "Por Confirmar",
             1, 2, 3,
             "Fogo urgente venham "
@@ -58,7 +58,7 @@ object DataSource {
             "12345678",
             "Porto",
             "Vizela",
-            "Salvaterra de Magos",
+            "S. Magos",
             "Por Confirmar",
             8, 9, 10,
             "Fogo urgente venham "

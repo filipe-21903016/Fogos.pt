@@ -11,6 +11,7 @@
         android:id="@+id/text_view_risk"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textColor="@color/white"/>
+        android:textColor="@color/white"
+        android:textStyle="bold"/>
 
 </FrameLayout>

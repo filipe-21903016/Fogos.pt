@@ -2,6 +2,7 @@ package com.filipe.tomas.fogos.viewmodels
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.provider.ContactsContract
 import androidx.lifecycle.ViewModel
 import com.filipe.tomas.fogos.data.DataSource
 import com.filipe.tomas.fogos.FireUi
@@ -33,7 +34,7 @@ class FireViewModel : ViewModel() {
     }
 
     fun onNewRegistration(name: String, cc:String, district:String, picture: Bitmap?){
-        var fire = Fire(
+        val fire = Fire(
             name = name,
             cc = cc,
             district = district,
@@ -44,5 +45,6 @@ class FireViewModel : ViewModel() {
             picture.compress(Bitmap.CompressFormat.PNG, 0, blob)
             fire.picture = blob.toByteArray()
         }
+        DataSource.addNewFire(fire)
     }
 }

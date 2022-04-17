@@ -22,7 +22,7 @@ class FireUi(
     val pictureBitmap: Bitmap?
 ) : Parcelable {
     fun getDateTime(): String{
-        val formatter = SimpleDateFormat("dd/MM/yyyy - hh:mm:ss")
+        val formatter = SimpleDateFormat("dd-MM-yyyy - hh:mm")
         return formatter.format(timestamp)
     }
 }
