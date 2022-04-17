@@ -3,6 +3,7 @@
     <string name="app_name">Fogos.pt</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <!--Drawer-->
+    <string name="fire_registry">Fire Registry</string>
     <string name="fire_list">Fire List</string>
     <string name="fire_map">Map Fire</string>
     <string name="dashboard">Dashboard</string>
