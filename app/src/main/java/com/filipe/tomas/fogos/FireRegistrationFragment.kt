@@ -6,31 +6,18 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
+import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.core.text.isDigitsOnly
 import androidx.lifecycle.ViewModelProvider
 import com.filipe.tomas.fogos.R
 import com.filipe.tomas.fogos.databinding.FragmentFireRegistrationBinding
 import com.filipe.tomas.fogos.viewmodels.FireViewModel
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
 class FireRegistrationFragment : Fragment() {
-    private lateinit var binding : FragmentFireRegistrationBinding
-    private lateinit var viewModel : FireViewModel
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var binding: FragmentFireRegistrationBinding
+    private lateinit var viewModel: FireViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,24 +32,40 @@ class FireRegistrationFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        binding.btSubmit.setOnClickListener{
-            //todo validate entries
+        ArrayAdapter.createFromResource(
+            activity as Context,
+            R.array.distritos,
+            android.R.layout.simple_spinner_item
+        ).also {
+                arrayAdapter -> arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            binding.spinnerDistrito.adapter = arrayAdapter
+        }
+
+        binding.btSubmit.setOnClickListener {
             val name: String = binding.etNome.text.toString()
             val cc: String = binding.etCc.text.toString()
-            val district : String = binding.etDistrito.text.toString()
-            viewModel.onNewRegistration(name, cc, district)
-            NavigationManager.goToFireListFragment(parentFragmentManager)
+            val district: String = binding.spinnerDistrito.selectedItem.toString()
+            binding.etNome.hideKeyboard()
+            binding.etCc.hideKeyboard()
+            if (validateEntries(name, cc))
+            {
+                viewModel.onNewRegistration(name, cc, district, null)
+                NavigationManager.goToFireListFragment(parentFragmentManager)
+            }
+
         }
     }
+    private fun validateEntries(name: String, cc: String): Boolean {
+        //todo implement
+        //val nameRegex = "([a-z])".toRegex()
+        //return nameRegex.matches(name)
+          //      && cc.isDigitsOnly()
+        return true
+    }
 
-    companion object {
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            FireRegistrationFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    fun View.hideKeyboard() {
+        val imm =
+            (activity as Context).getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(windowToken, 0)
     }
 }

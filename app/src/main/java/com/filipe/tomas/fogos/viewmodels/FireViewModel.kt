@@ -1,9 +1,12 @@
 package com.filipe.tomas.fogos.viewmodels
 
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import androidx.lifecycle.ViewModel
 import com.filipe.tomas.fogos.data.DataSource
 import com.filipe.tomas.fogos.FireUi
 import com.filipe.tomas.fogos.models.Fire
+import java.io.ByteArrayOutputStream
 
 class FireViewModel : ViewModel() {
     fun getAllFires(): List<FireUi> {
@@ -20,19 +23,26 @@ class FireViewModel : ViewModel() {
                 operacionais = it.operacionais,
                 veiculos = it.veiculos,
                 observacoes = it.observacoes,
-                timestamp = it.timestamp
+                timestamp = it.timestamp,
+                pictureBitmap = it.picture?.let { it1 ->
+                    BitmapFactory.decodeByteArray(it.picture,0,
+                        it1.size)
+                }
             )
-        }.toList()
+        }.sortedByDescending { it.timestamp }.toList()
     }
 
-    fun onNewRegistration(name: String, cc:String, district:String){
+    fun onNewRegistration(name: String, cc:String, district:String, picture: Bitmap?){
+        val blob : ByteArrayOutputStream = ByteArrayOutputStream()
+        picture?.compress(Bitmap.CompressFormat.PNG, 0, blob)
+
         DataSource.addNewFire(
             Fire(
                 name = name,
                 cc = cc,
                 district = district,
-                status = "Por Confirmar"
-                // todo add photo
+                status = "Por Confirmar",
+                picture = blob.toByteArray()
             )
         )
     }

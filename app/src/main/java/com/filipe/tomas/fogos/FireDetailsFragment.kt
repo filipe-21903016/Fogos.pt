@@ -1,4 +1,4 @@
-package com.filipe.tomas.fogos.viewmodels
+package com.filipe.tomas.fogos
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -37,7 +37,7 @@ class FireDetailsFragment : Fragment() {
         binding.freguesia.text = "Distrito: ${fireUi?.freguesia}"
         binding.operacionais.text = "Operacionais: ${fireUi?.operacionais.toString()}"
         binding.veiculos.text = "Veiculos: ${fireUi?.veiculos.toString()}"
-       binding.distrito.text = "Distrito: ${fireUi?.district}"
+        binding.distrito.text = "Distrito: ${fireUi?.district}"
 
     }
 

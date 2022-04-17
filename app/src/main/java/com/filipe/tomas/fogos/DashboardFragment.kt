@@ -35,6 +35,13 @@ class DashboardFragment : Fragment() {
         return binding.root
     }
 
+    override fun onStart() {
+        super.onStart()
+        binding.btAddFire.setOnClickListener{
+            NavigationManager.goToFireRegistrationFragment(parentFragmentManager)
+        }
+    }
+
     companion object {
         @JvmStatic
         fun newInstance(param1: String, param2: String) =

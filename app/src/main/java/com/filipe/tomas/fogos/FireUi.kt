@@ -1,5 +1,6 @@
 package com.filipe.tomas.fogos
 
+import android.graphics.Bitmap
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 import java.text.SimpleDateFormat
@@ -17,7 +18,8 @@ class FireUi(
     val operacionais : Int,
     val aereos : Int,
     val veiculos : Int,
-    val observacoes : String
+    val observacoes : String,
+    val pictureBitmap: Bitmap?
 ) : Parcelable {
     fun getDateTime(): String{
         val formatter = SimpleDateFormat("dd/MM/yyyy - hh:mm:ss")

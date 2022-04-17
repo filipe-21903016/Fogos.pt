@@ -13,16 +13,10 @@ import com.filipe.tomas.fogos.models.Risk
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_RISKZONE = "param1"
 
-
-/**
- * A simple [Fragment] subclass.
- * Use the [RiskZoneFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class RiskZoneFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private lateinit var binding: FragmentRiskZoneBinding
-    private var riskZone: String = Risk.lower.value.toString()
+    private var riskZone: String = Risk.Lower.value.toString()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

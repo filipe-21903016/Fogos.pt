@@ -2,8 +2,6 @@ package com.filipe.tomas.fogos
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import com.filipe.tomas.fogos.viewmodels.FireDetailsFragment
-import com.filipe.tomas.fogos.viewmodels.FireMapFragment
 
 object NavigationManager {
     private fun placeFragment(fm: FragmentManager, fragment: Fragment){

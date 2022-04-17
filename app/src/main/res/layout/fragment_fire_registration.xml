@@ -22,9 +22,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <EditText
-            android:id="@+id/et_distrito"
-            android:hint="@string/district"
+        <Spinner
+            android:id="@+id/spinner_distrito"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
