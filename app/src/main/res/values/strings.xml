@@ -18,6 +18,8 @@
     <!--Registration-->
     <string name="id_number">Id Number</string>
     <string name="name">Name</string>
+    <string name="date">Date Time</string>
+    <string name="picture">Picture</string>
     <string name="district">District</string>
     <string name="submit">Submit</string>
     <string name="risk">Risk</string>
