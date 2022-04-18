@@ -150,6 +150,7 @@
             android:layout_height="wrap_content"
             android:text="Take picture"
             android:layout_marginHorizontal="20dp"
+            android:drawableBottom="@drawable/ic_photo"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             />
 
