@@ -31,6 +31,7 @@
     <string name="operational">Operational</string>
     <string name="vehicle">Vehicle</string>
     <string name="town">Town</string>
+    <string name="takePicture">Take Picture</string>
     <!--Fields-->
     <string name="personalInformation">Personal Information</string>
     <string name="location">Location</string>
