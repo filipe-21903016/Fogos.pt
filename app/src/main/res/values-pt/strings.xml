@@ -2,6 +2,7 @@
 <resources>
     <string name="app_name">Fogos.pt</string>
     <string name="hello_blank_fragment">Ola fragmento em branco</string>
+    <string name="fogos_pt_logo_description">Fogos.pt Logo</string>
     <!--Drawer-->
     <string name="fire_registry">Registo de Fogo</string>
     <string name="fire_list">Lista de Fogos</string>
