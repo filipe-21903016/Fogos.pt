@@ -98,7 +98,6 @@
                 android:id="@+id/tv_date_time"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="2022/04/17 - 20:09:02"
                 android:textColor="@color/black"
                 android:layout_margin="20dp"
                 />

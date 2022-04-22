@@ -30,4 +30,11 @@
     <string name="operational">Operacionais</string>
     <string name="vehicle">Veículo</string>
     <string name="town">Freguesia</string>
+    <!--Campos-->
+    <string name="personalInformation">Infromações Pessoais</string>
+    <string name="location">Localização</string>
+    <string name="resources">Meios Usados</string>
+    <string name="otherInformation">Outras Informações</string>
+    <!--Não Disponível-->
+    <string name="unavailableInformation">Informação não disponível</string>
 </resources>

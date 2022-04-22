@@ -24,6 +24,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.filipe.tomas.fogos.R
 import com.filipe.tomas.fogos.databinding.FragmentFireRegistrationBinding
 import com.filipe.tomas.fogos.viewmodels.FireViewModel
+import java.text.SimpleDateFormat
+import java.util.*
 
 class FireRegistrationFragment : Fragment() {
     private val TAG = MainActivity::class.java.simpleName
@@ -53,6 +55,8 @@ class FireRegistrationFragment : Fragment() {
         ).also {
                 arrayAdapter -> arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             binding.spinnerDistrito.adapter = arrayAdapter
+            val answer: String = SimpleDateFormat("dd-MM-yyyy - hh:mm").format(Date())
+            binding.tvDateTime.text =  answer
         }
 
 
