@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".FireRegistrationFragment">
 
     <LinearLayout
@@ -28,19 +29,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
+            app:hintEnabled="false"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-            <EditText
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_nome"
                 android:hint="@string/name"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:color/transparent"
-                android:layout_margin="20dp"
+                android:layout_height="54dp"
+                android:inputType="text"
                 />
 
         </com.google.android.material.textfield.TextInputLayout>
-
 
 
         <Space
@@ -56,15 +56,23 @@
             android:textStyle="bold"
             />
 
-
-        <EditText
-            android:id="@+id/et_cc"
-            android:hint="@string/id_number"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:layout_margin="20dp"
-            />
+            android:layout_marginHorizontal="20dp"
+            app:hintEnabled="false"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_cc"
+                android:hint="@string/id_number"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:inputType="number"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
 
         <Space
             android:layout_width="match_parent"
@@ -80,14 +88,22 @@
             android:textStyle="bold"
             />
 
-
-        <TextView
-            android:id="@+id/tv_date_time"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="2022/04/17 - 20:09:02"
-            android:layout_margin="20dp"
-            />
+            android:layout_marginHorizontal="20dp"
+            android:background="@drawable/border">
+
+            <TextView
+                android:id="@+id/tv_date_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="2022/04/17 - 20:09:02"
+                android:textColor="@color/black"
+                android:layout_margin="20dp"
+                />
+
+        </LinearLayout>
 
         <Space
             android:layout_width="match_parent"
@@ -103,13 +119,16 @@
             android:textStyle="bold"
             />
 
-
         <Spinner
             android:id="@+id/spinner_distrito"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_height="48dp"
+            android:layout_marginHorizontal="20dp"
+            android:contentDescription="Enter How Much Cookies You Want"
+            android:background="@drawable/spiner"
+
             />
+
 
         <Space
             android:layout_width="match_parent"
@@ -130,19 +149,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Take picture"
-            android:layout_margin="20dp"
-            android:background="@android:color/transparent"
+            android:layout_marginHorizontal="20dp"
+            android:drawableBottom="@drawable/ic_photo"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             />
 
         <ImageView
             android:id="@+id/iv_picture"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
             />
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="20dp"
+            android:layout_height="30dp"
             />
 
         <Button
@@ -151,6 +172,7 @@
             android:layout_width="150dp"
             android:layout_height="50dp"
             android:text="@string/submit"
+
             />
 
     </LinearLayout>

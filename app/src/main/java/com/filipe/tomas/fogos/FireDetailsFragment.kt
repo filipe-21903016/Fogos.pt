@@ -29,17 +29,17 @@ class FireDetailsFragment : Fragment() {
     @SuppressLint("SetTextI18n")
     override fun onStart() {
         super.onStart()
-        binding.nome.text = "Nome: ${fireUi?.name}"
-        binding.cc.text = "CC: ${fireUi?.cc}"
-        binding.status.text = "Status: ${fireUi?.status}"
-        binding.concelho.text = "Concelho: ${fireUi?.concelho}"
-        binding.observacoes.text = "Observações: ${fireUi?.observacoes}"
-        binding.aereos.text = "Aereos: ${fireUi?.aereos.toString()}"
-        binding.datetime.text = fireUi?.getDateTime()
-        binding.freguesia.text = "Distrito: ${fireUi?.freguesia}"
-        binding.operacionais.text = "Operacionais: ${fireUi?.operacionais.toString()}"
-        binding.veiculos.text = "Veiculos: ${fireUi?.veiculos.toString()}"
-        binding.distrito.text = "Distrito: ${fireUi?.district}"
+        binding.nome.text = "${getString(R.string.name)}: ${fireUi?.name}"
+        binding.cc.text = "${getString(R.string.id_number)}: ${fireUi?.cc}"
+        binding.status.text = "${getString(R.string.status)}: ${fireUi?.status}"
+        binding.concelho.text = "${getString(R.string.county)}: ${fireUi?.concelho}"
+        binding.observacoes.text = "${getString(R.string.observations)}: ${fireUi?.observacoes}"
+        binding.aereos.text = "${getString(R.string.aerial)}: ${fireUi?.aereos.toString()}"
+        binding.datetime.text = "${getString(R.string.date)}: ${fireUi?.getDateTime()}"
+        binding.freguesia.text = "${getString(R.string.town)}: ${fireUi?.freguesia}"
+        binding.operacionais.text = "${getString(R.string.operational)}: ${fireUi?.operacionais.toString()}"
+        binding.veiculos.text = "${getString(R.string.vehicle)}: ${fireUi?.veiculos.toString()}"
+        binding.distrito.text = "${getString(R.string.district)}: ${fireUi?.district}"
         binding.ivFirePicture.setImageBitmap(fireUi?.pictureBitmap)
 
     }

@@ -23,5 +23,11 @@
     <string name="district">District</string>
     <string name="submit">Submit</string>
     <string name="risk">Risk</string>
-    <string name="fogos_pt_logo_description">Fogos.pt Logo</string>
+    <string name="status">Status</string>
+    <string name="county">County</string>
+    <string name="observations">Observations</string>
+    <string name="aerial">Aerial</string>
+    <string name="operational">Operational</string>
+    <string name="vehicle">Vehicle</string>
+    <string name="town">Town</string>
 </resources>

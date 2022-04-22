@@ -23,5 +23,11 @@
     <string name="picture">Fotografia</string>
     <string name="submit">Submeter</string>
     <string name="risk">Risco</string>
-    <string name="fogos_pt_logo_description">Fogos.pt Logo</string>
+    <string name="status">Estado</string>
+    <string name="county">Concelho</string>
+    <string name="observations">Observações</string>
+    <string name="aerial">Aéreos</string>
+    <string name="operational">Operacionais</string>
+    <string name="vehicle">Veículo</string>
+    <string name="town">Freguesia</string>
 </resources>
