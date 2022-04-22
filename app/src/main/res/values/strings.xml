@@ -31,4 +31,11 @@
     <string name="operational">Operational</string>
     <string name="vehicle">Vehicle</string>
     <string name="town">Town</string>
+    <!--Fields-->
+    <string name="personalInformation">Personal Information</string>
+    <string name="location">Location</string>
+    <string name="resources">Used Resources</string>
+    <string name="otherInformation">Other Information</string>
+    <!--Unavailable-->
+    <string name="unavailableInformation">Unavailable Information</string>
 </resources>
