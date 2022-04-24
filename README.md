@@ -1,6 +1,7 @@
 # Projeto Computação Movel - Fogos.pt
 
 Filipe Coutinho - a21903016
+&nbsp;
 Tomás Neto - a21903361
 
 ## Screenshots dos ecrãs
