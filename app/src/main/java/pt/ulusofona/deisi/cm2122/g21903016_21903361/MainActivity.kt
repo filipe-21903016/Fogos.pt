@@ -28,7 +28,6 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
         setupDrawerMenu()
         setupActionBar(supportActionBar)
-
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")
