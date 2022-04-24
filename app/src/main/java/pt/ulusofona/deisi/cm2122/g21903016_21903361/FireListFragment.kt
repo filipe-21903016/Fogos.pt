@@ -36,5 +36,8 @@ class FireListFragment : Fragment() {
         super.onStart()
         binding.rvFires.layoutManager = LinearLayoutManager(activity as Context)
         binding.rvFires.adapter = FireListAdapter(parentFragmentManager, viewModel.getAllFires())
+        binding.btAddFire?.setOnClickListener{
+
+        }
     }
 }
