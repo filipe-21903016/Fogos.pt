@@ -8,8 +8,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import com.filipe.tomas.fogos.R
 import com.filipe.tomas.fogos.databinding.FragmentDashboardBinding
+
 
 class DashboardFragment : Fragment() {
     private lateinit var binding : FragmentDashboardBinding

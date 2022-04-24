@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.filipe.tomas.g21903016_21903361">
+    package="pt.ulusofona.deisi.cm2122.g21903016_21903361.MainActivity">
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-feature android:name="android.hardware.camera"
         android:required="true" />
@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Fogos">
         <activity
-            android:name="com.filipe.tomas.pt.ulusofona.deisi.cm2122.g21903016_21903361.MainActivity"
+            android:name="pt.ulusofona.deisi.cm2122.g21903016_21903361.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
