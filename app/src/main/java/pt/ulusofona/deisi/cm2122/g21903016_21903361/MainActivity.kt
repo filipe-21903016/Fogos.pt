@@ -66,12 +66,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        if (binding.drawer.isDrawerOpen(GravityCompat.START)) {
-            binding.drawer.closeDrawer(GravityCompat.START)
-        } else if (supportFragmentManager.backStackEntryCount == 1) {
-            finish()
-        } else {
-            super.onBackPressed()
+        when {
+            binding.drawer.isDrawerOpen(GravityCompat.START) -> {
+                binding.drawer.closeDrawer(GravityCompat.START)
+            }
+            supportFragmentManager.backStackEntryCount == 1 -> {
+                finish()
+            }
+            else -> {
+                super.onBackPressed()
+            }
         }
     }
 }
