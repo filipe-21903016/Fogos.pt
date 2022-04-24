@@ -24,6 +24,8 @@ Tomás Neto - a21903361
 ![](screenshots/mapa.png)
 
 
+![](screenshots/rotation.png)
+
 
 ## Funcionalidades
 
