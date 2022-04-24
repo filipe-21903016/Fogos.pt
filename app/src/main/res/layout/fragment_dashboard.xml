@@ -39,7 +39,16 @@
                     android:layout_height="wrap_content"
                     android:text="@string/burnt"
                     android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="120"
+                    android:textColor="@color/black"
                     android:textSize="14sp" />
+
 
 
             </LinearLayout>
@@ -70,6 +79,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/totalResources"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="17"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
 
@@ -103,6 +120,14 @@
                     android:layout_height="wrap_content"
                     android:text="@string/currentDistrict"
                     android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lisboa"
+                    android:textColor="@color/black"
                     android:textSize="14sp" />
 
 
@@ -135,6 +160,14 @@
                     android:layout_height="wrap_content"
                     android:text="@string/totalFires"
                     android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="4"
+                    android:textColor="@color/black"
                     android:textSize="14sp" />
 
 
@@ -151,16 +184,20 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center_horizontal"
-        android:layout_marginTop="570dp"
+        android:layout_marginTop="580dp"
+        android:layout_marginHorizontal="130dp"
         android:orientation="vertical" >
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/bt_add_fire"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:background="@drawable/ic_add"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
         android:gravity="center"
+        android:text="@string/submit"
         android:contentDescription="@string/hello_blank_fragment"
+        app:icon="@drawable/ic_add"
+        app:iconGravity="textStart"
+        android:textStyle="bold"
         />
 
     </LinearLayout>
