@@ -39,4 +39,9 @@
     <string name="otherInformation">Other Information</string>
     <!--Unavailable-->
     <string name="unavailableInformation">Unavailable Information</string>
+    <!--Drawer-->
+    <string name="burnt">Total Burnt Hectare:</string>
+    <string name="currentDistrict">Current District:</string>
+    <string name="totalResources">Total Used Resources:</string>
+    <string name="totalFires">Total Number of Fires:</string>
 </resources>

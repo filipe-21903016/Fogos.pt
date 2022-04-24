@@ -39,4 +39,9 @@
     <string name="otherInformation">Outras Informações</string>
     <!--Não Disponível-->
     <string name="unavailableInformation">Informação não disponível</string>
+    <!--Drawer-->
+    <string name="burnt">Total de Hectares Ardidos:</string>
+    <string name="currentDistrict">Distrito Atual:</string>
+    <string name="totalResources">Total de Meios Usados:</string>
+    <string name="totalFires">Número Total de Fogos:</string>
 </resources>
