@@ -2,7 +2,6 @@ package pt.ulusofona.deisi.cm2122.g21903016_21903361
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import com.filipe.tomas.fogos.R
 
 object NavigationManager {
     private fun placeFragment(fm: FragmentManager, fragment: Fragment){

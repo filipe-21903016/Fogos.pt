@@ -7,8 +7,7 @@ import android.view.MenuItem
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
-import com.filipe.tomas.fogos.R
-import com.filipe.tomas.fogos.databinding.ActivityMainBinding
+import pt.ulusofona.deisi.cm2122.g21903016_21903361.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding

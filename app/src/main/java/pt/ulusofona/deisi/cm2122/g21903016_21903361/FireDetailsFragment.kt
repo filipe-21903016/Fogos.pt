@@ -8,8 +8,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.filipe.tomas.fogos.R
-import com.filipe.tomas.fogos.databinding.FragmentFireDetailsBinding
+import pt.ulusofona.deisi.cm2122.g21903016_21903361.databinding.FragmentFireDetailsBinding
+
 
 private const val ARG_FIRE = "param1"
 

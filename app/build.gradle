@@ -8,7 +8,7 @@ android {
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.filipe.tomas.fogos"
+        applicationId "pt.ulusofona.deisi.cm2122.g21903016_21903361"
         minSdk 23
         targetSdk 32
         versionCode 1

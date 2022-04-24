@@ -18,8 +18,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.filipe.tomas.fogos.R
-import com.filipe.tomas.fogos.databinding.FragmentFireRegistrationBinding
+import pt.ulusofona.deisi.cm2122.g21903016_21903361.databinding.FragmentFireRegistrationBinding
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.viewmodels.FireViewModel
 import java.text.SimpleDateFormat
 import java.util.*

@@ -9,9 +9,8 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.filipe.tomas.fogos.R
-import com.filipe.tomas.fogos.databinding.FragmentFireListBinding
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.adapters.FireListAdapter
+import pt.ulusofona.deisi.cm2122.g21903016_21903361.databinding.FragmentFireListBinding
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.viewmodels.FireViewModel
 
 private const val ARG_FIRES = "param1"

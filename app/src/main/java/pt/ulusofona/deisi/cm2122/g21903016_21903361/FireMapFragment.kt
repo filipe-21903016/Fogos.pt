@@ -8,8 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import com.filipe.tomas.fogos.R
-import com.filipe.tomas.fogos.databinding.FragmentFireMapBinding
+import pt.ulusofona.deisi.cm2122.g21903016_21903361.databinding.FragmentFireMapBinding
 
 
 class FireMapFragment : Fragment() {

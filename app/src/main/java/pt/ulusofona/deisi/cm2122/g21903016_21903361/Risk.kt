@@ -1,4 +1,5 @@
 package pt.ulusofona.deisi.cm2122.g21903016_21903361
+
 object Risk{
     fun getLowerRisk() = R.string.lower
     fun getModeratedRisk() = R.string.moderated

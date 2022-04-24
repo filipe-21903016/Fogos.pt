@@ -8,8 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import com.filipe.tomas.fogos.R
-import com.filipe.tomas.fogos.databinding.FragmentRiskZoneBinding
+import pt.ulusofona.deisi.cm2122.g21903016_21903361.databinding.FragmentRiskZoneBinding
 import java.util.*
 
 class RiskZoneFragment : Fragment() {
