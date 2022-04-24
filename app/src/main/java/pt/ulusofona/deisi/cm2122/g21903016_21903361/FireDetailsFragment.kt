@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.databinding.FragmentFireDetailsBinding
 
 
@@ -50,6 +51,8 @@ class FireDetailsFragment : Fragment() {
         binding.veiculos.text = "${getString(R.string.vehicle)}: ${fireUi?.veiculos.toString()}"
         binding.distrito.text = "${getString(R.string.district)}: ${fireUi?.district}"
         binding.ivFirePicture.setImageBitmap(fireUi?.pictureBitmap)
+        if (fireUi?.pictureBitmap != null)
+            binding.tvOtherPictureLabel.text = getString(R.string.picture)
 
     }
 
@@ -57,6 +60,7 @@ class FireDetailsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.fire_details)
         val view = inflater.inflate(R.layout.fragment_fire_details, container, false)
         binding = FragmentFireDetailsBinding.bind(view)
         return binding.root
