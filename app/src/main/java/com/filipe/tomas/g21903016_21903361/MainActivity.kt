@@ -1,14 +1,13 @@
-package com.filipe.tomas.fogos
+package com.filipe.tomas.g21903016_21903361
 
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
-import android.widget.Toolbar
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
-import com.filipe.tomas.fogos.databinding.ActivityMainBinding
+import com.filipe.tomas.g21903016_21903361.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding

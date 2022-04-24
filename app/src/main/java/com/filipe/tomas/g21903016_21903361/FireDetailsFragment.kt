@@ -1,17 +1,13 @@
-package com.filipe.tomas.fogos
+package com.filipe.tomas.g21903016_21903361
 
 import android.annotation.SuppressLint
-import android.graphics.BitmapFactory
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import com.filipe.tomas.fogos.R
-import com.filipe.tomas.fogos.databinding.FragmentFireDetailsBinding
-import com.filipe.tomas.fogos.FireUi
+import com.filipe.tomas.g21903016_21903361.R
+import com.filipe.tomas.g21903016_21903361.databinding.FragmentFireDetailsBinding
 
 private const val ARG_FIRE = "param1"
 

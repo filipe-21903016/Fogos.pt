@@ -1,12 +1,11 @@
-package com.filipe.tomas.fogos.viewmodels
+package com.filipe.tomas.g21903016_21903361.viewmodels
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.provider.ContactsContract
 import androidx.lifecycle.ViewModel
-import com.filipe.tomas.fogos.data.DataSource
-import com.filipe.tomas.fogos.FireUi
-import com.filipe.tomas.fogos.models.Fire
+import com.filipe.tomas.g21903016_21903361.data.DataSource
+import com.filipe.tomas.g21903016_21903361.FireUi
+import com.filipe.tomas.g21903016_21903361.models.Fire
 import java.io.ByteArrayOutputStream
 
 class FireViewModel : ViewModel() {

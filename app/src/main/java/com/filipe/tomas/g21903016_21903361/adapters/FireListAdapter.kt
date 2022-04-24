@@ -1,13 +1,13 @@
-package com.filipe.tomas.fogos.adapters
+package com.filipe.tomas.g21903016_21903361.adapters
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
-import com.filipe.tomas.fogos.databinding.ItemFireBinding
-import com.filipe.tomas.fogos.FireUi
-import com.filipe.tomas.fogos.NavigationManager
+import com.filipe.tomas.g21903016_21903361.databinding.ItemFireBinding
+import com.filipe.tomas.g21903016_21903361.FireUi
+import com.filipe.tomas.g21903016_21903361.NavigationManager
 
 class FireListAdapter(
     private val supportFragmentManager: FragmentManager,

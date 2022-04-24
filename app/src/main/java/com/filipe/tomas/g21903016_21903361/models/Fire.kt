@@ -1,5 +1,4 @@
-package com.filipe.tomas.fogos.models
-import kotlinx.parcelize.Parcelize
+package com.filipe.tomas.g21903016_21903361.models
 import java.util.*
 
 class Fire(

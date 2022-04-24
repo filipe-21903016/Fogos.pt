@@ -1,6 +1,6 @@
-package com.filipe.tomas.fogos.data
+package com.filipe.tomas.g21903016_21903361.data
 
-import com.filipe.tomas.fogos.models.Fire
+import com.filipe.tomas.g21903016_21903361.models.Fire
 
 object DataSource {
     var fires: ArrayList<Fire> = arrayListOf(

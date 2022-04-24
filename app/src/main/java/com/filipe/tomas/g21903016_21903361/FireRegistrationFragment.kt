@@ -1,12 +1,10 @@
-package com.filipe.tomas.fogos
+package com.filipe.tomas.g21903016_21903361
 
-import android.app.Activity
 import android.app.Activity.RESULT_OK
 import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
-import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
@@ -16,14 +14,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.ArrayAdapter
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.graphics.drawable.toBitmap
-import androidx.core.text.isDigitsOnly
 import androidx.lifecycle.ViewModelProvider
-import com.filipe.tomas.fogos.R
-import com.filipe.tomas.fogos.databinding.FragmentFireRegistrationBinding
-import com.filipe.tomas.fogos.viewmodels.FireViewModel
+import com.filipe.tomas.g21903016_21903361.R
+import com.filipe.tomas.g21903016_21903361.databinding.FragmentFireRegistrationBinding
+import com.filipe.tomas.g21903016_21903361.viewmodels.FireViewModel
 import java.text.SimpleDateFormat
 import java.util.*
 

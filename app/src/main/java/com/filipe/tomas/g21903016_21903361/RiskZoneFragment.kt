@@ -1,18 +1,14 @@
-package com.filipe.tomas.fogos
+package com.filipe.tomas.g21903016_21903361
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import android.provider.Settings.Global.getString
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import com.filipe.tomas.fogos.databinding.FragmentRiskZoneBinding
+import com.filipe.tomas.g21903016_21903361.databinding.FragmentRiskZoneBinding
 import java.util.*
-import kotlin.concurrent.schedule
 
 class RiskZoneFragment : Fragment() {
     private lateinit var binding: FragmentRiskZoneBinding

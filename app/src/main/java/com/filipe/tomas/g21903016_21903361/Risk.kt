@@ -1,4 +1,4 @@
-package com.filipe.tomas.fogos
+package com.filipe.tomas.g21903016_21903361
 object Risk{
     fun getLowerRisk() = R.string.lower
     fun getModeratedRisk() = R.string.moderated
