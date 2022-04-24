@@ -18,14 +18,6 @@ private const val ARG_FIRES = "param1"
 class FireListFragment : Fragment() {
     private lateinit var binding: FragmentFireListBinding
     private lateinit var viewModel : FireViewModel
-    private var fires: ArrayList<FireUi>? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            fires = it.getParcelableArrayList(ARG_FIRES)
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,15 +36,5 @@ class FireListFragment : Fragment() {
         super.onStart()
         binding.rvFires.layoutManager = LinearLayoutManager(activity as Context)
         binding.rvFires.adapter = FireListAdapter(parentFragmentManager, viewModel.getAllFires())
-    }
-
-    companion object {
-        @JvmStatic
-        fun newInstance(fires: ArrayList<FireUi>) =
-            FireListFragment().apply {
-                arguments = Bundle().apply {
-                    putParcelableArrayList(ARG_FIRES, fires)
-                }
-            }
     }
 }
