@@ -66,7 +66,7 @@ class FireRegistrationFragment : Fragment() {
             val district: String = binding.spinnerDistrito.selectedItem.toString()
             binding.etNome.hideKeyboard()
             binding.etCc.hideKeyboard()
-            if (isAlpha(binding.etNome.text.toString()))
+            if (isAlpha(binding.etNome.text.toString()) && !binding.etCc.text.isNullOrEmpty())
             {
                 viewModel.onNewRegistration(name, cc, district, imageBitmap)
                 NavigationManager.goToFireListFragment(parentFragmentManager)
