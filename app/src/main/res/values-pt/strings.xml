@@ -44,4 +44,5 @@
     <string name="currentDistrict">Distrito Atual:</string>
     <string name="totalResources">Total de Meios Usados:</string>
     <string name="totalFires">Número Total de Fogos:</string>
+    <string name="fire_details">Detalhes Fogo</string>
 </resources>
