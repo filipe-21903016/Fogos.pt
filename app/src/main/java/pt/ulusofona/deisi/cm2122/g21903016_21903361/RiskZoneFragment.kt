@@ -13,12 +13,15 @@ import java.util.*
 
 class RiskZoneFragment : Fragment() {
     private lateinit var binding: FragmentRiskZoneBinding
-    class RiskTimerTask(val textView: TextView, val getStr:(Int) -> String) : TimerTask() {
+    private var timer = Timer()
+
+    class RiskTimerTask(val textView: TextView, val getStr: (Int) -> String) : TimerTask() {
         @SuppressLint("SetTextI18n")
         override fun run() {
             this.textView.text = "${getStr(R.string.risk)}: ${getStr(Risk.getRandomRisk())}"
         }
     }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -31,6 +34,15 @@ class RiskZoneFragment : Fragment() {
     @SuppressLint("SetTextI18n")
     override fun onStart() {
         super.onStart()
-        Timer().scheduleAtFixedRate(RiskTimerTask(binding.textViewRisk, ::getString), 0, (20 * 1000).toLong() )
+        timer.scheduleAtFixedRate(
+            RiskTimerTask(binding.textViewRisk, ::getString),
+            0,
+            (20 * 1000).toLong()
+        )
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        timer.cancel()
     }
 }
