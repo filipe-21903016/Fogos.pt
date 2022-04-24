@@ -5,160 +5,164 @@
     android:layout_height="match_parent"
     tools:context=".FireDetailsFragment">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="20dp"/>
-
-        <TextView
-            android:id="@+id/tv_personal_info_label"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/personalInformation"
-            android:layout_marginHorizontal="20dp"
-            android:paddingBottom="5dp"
-            android:textStyle="bold"
-            />
+            android:orientation="vertical">
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp"/>
+
+            <TextView
+                android:id="@+id/tv_personal_info_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/personalInformation"
+                android:layout_marginHorizontal="20dp"
+                android:paddingBottom="5dp"
+                android:textStyle="bold"
+                />
 
 
-        <TextView
-            android:id="@+id/nome"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginHorizontal="20dp"/>
-        <TextView
-            android:id="@+id/cc"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginHorizontal="20dp"/>
+            <TextView
+                android:id="@+id/nome"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="20dp"/>
+            <TextView
+                android:id="@+id/cc"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="20dp"/>
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="20dp"/>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp"/>
 
-        <TextView
-            android:id="@+id/tv_date_time_label"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/date"
-            android:layout_marginHorizontal="20dp"
-            android:paddingBottom="5dp"
-            android:textStyle="bold"
-            />
+            <TextView
+                android:id="@+id/tv_date_time_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/date"
+                android:layout_marginHorizontal="20dp"
+                android:paddingBottom="5dp"
+                android:textStyle="bold"
+                />
 
-        <TextView
-            android:id="@+id/datetime"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginHorizontal="20dp"/>
+            <TextView
+                android:id="@+id/datetime"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="20dp"/>
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="20dp"/>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp"/>
 
-        <TextView
-            android:id="@+id/tv_location_label"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/location"
-            android:layout_marginHorizontal="20dp"
-            android:paddingBottom="5dp"
-            android:textStyle="bold"
-            />
+            <TextView
+                android:id="@+id/tv_location_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/location"
+                android:layout_marginHorizontal="20dp"
+                android:paddingBottom="5dp"
+                android:textStyle="bold"
+                />
 
-        <TextView
-            android:id="@+id/distrito"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginHorizontal="20dp"/>
-        <TextView
-            android:id="@+id/concelho"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginHorizontal="20dp"/>
-        <TextView
-            android:id="@+id/freguesia"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginHorizontal="20dp"/>
+            <TextView
+                android:id="@+id/distrito"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="20dp"/>
+            <TextView
+                android:id="@+id/concelho"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="20dp"/>
+            <TextView
+                android:id="@+id/freguesia"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="20dp"/>
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="20dp"/>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp"/>
 
-        <TextView
-            android:id="@+id/tv_resource_label"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/resources"
-            android:layout_marginHorizontal="20dp"
-            android:paddingBottom="5dp"
-            android:textStyle="bold"
-            />
+            <TextView
+                android:id="@+id/tv_resource_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/resources"
+                android:layout_marginHorizontal="20dp"
+                android:paddingBottom="5dp"
+                android:textStyle="bold"
+                />
 
-        <TextView
-            android:id="@+id/operacionais"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginHorizontal="20dp"/>
-        <TextView
-            android:id="@+id/veiculos"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginHorizontal="20dp"/>
-        <TextView
-            android:id="@+id/aereos"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginHorizontal="20dp"/>
+            <TextView
+                android:id="@+id/operacionais"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="20dp"/>
+            <TextView
+                android:id="@+id/veiculos"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="20dp"/>
+            <TextView
+                android:id="@+id/aereos"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="20dp"/>
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="20dp"/>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp"/>
 
-        <TextView
-            android:id="@+id/tv_other_info_label"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/otherInformation"
-            android:layout_marginHorizontal="20dp"
-            android:paddingBottom="5dp"
-            android:textStyle="bold"
-            />
+            <TextView
+                android:id="@+id/tv_other_info_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/otherInformation"
+                android:layout_marginHorizontal="20dp"
+                android:paddingBottom="5dp"
+                android:textStyle="bold"
+                />
 
-        <TextView
-            android:id="@+id/status"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginHorizontal="20dp"/>
-        <TextView
-            android:id="@+id/observacoes"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginHorizontal="20dp"/>
+            <TextView
+                android:id="@+id/status"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="20dp"/>
+            <TextView
+                android:id="@+id/observacoes"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="20dp"/>
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="20dp"/>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp"/>
 
-        <TextView
-            android:id="@+id/tv_other_picture_label"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:paddingBottom="5dp"
-            android:textStyle="bold"
-            />
+            <TextView
+                android:id="@+id/tv_other_picture_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:paddingBottom="5dp"
+                android:textStyle="bold"
+                />
 
-        <ImageView
-            android:id="@+id/iv_fire_picture"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_marginHorizontal="20dp"/>
-    </LinearLayout>
-
+            <ImageView
+                android:id="@+id/iv_fire_picture"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_marginHorizontal="20dp"/>
+        </LinearLayout>
+    </ScrollView>
 </FrameLayout>

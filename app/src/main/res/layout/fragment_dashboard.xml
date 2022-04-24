@@ -7,10 +7,12 @@
     tools:context=".DashboardFragment">
 
     <GridLayout
-        android:layout_width="384dp"
-        android:layout_height="548dp"
-        android:layout_margin="20dp"
+        android:id="@+id/grid_layout"
+        android:layout_width="386dp"
+        android:layout_height="497dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
         android:columnCount="2"
         android:rowCount="3">
@@ -40,7 +42,7 @@
                     android:text="@string/burnt"
                     android:textColor="@color/black"
                     android:textSize="14sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -48,7 +50,6 @@
                     android:text="120"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
-
 
 
             </LinearLayout>
@@ -81,7 +82,7 @@
                     android:text="@string/totalResources"
                     android:textColor="@color/black"
                     android:textSize="14sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -121,7 +122,7 @@
                     android:text="@string/currentDistrict"
                     android:textColor="@color/black"
                     android:textSize="14sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -161,7 +162,7 @@
                     android:text="@string/totalFires"
                     android:textColor="@color/black"
                     android:textSize="14sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -184,21 +185,20 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center_horizontal"
-        android:layout_marginTop="580dp"
         android:layout_marginHorizontal="130dp"
+        android:layout_below="@id/grid_layout"
         android:orientation="vertical" >
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/bt_add_fire"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:gravity="center"
-        android:text="@string/submit"
-        android:contentDescription="@string/hello_blank_fragment"
-        app:icon="@drawable/ic_add"
-        app:iconGravity="textStart"
-        android:textStyle="bold"
-        />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bt_add_fire"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:contentDescription="@string/hello_blank_fragment"
+            android:gravity="center"
+            android:text="@string/submit"
+            android:textStyle="bold"
+            app:icon="@drawable/ic_add"
+            app:iconGravity="textStart" />
 
     </LinearLayout>
 
