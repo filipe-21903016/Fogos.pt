@@ -1,4 +1,4 @@
-package com.filipe.tomas.g21903016_21903361
+package pt.ulusofona.deisi.cm2122.g21903016_21903361
 
 import android.app.Activity.RESULT_OK
 import android.content.ActivityNotFoundException
@@ -16,9 +16,9 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.filipe.tomas.g21903016_21903361.R
-import com.filipe.tomas.g21903016_21903361.databinding.FragmentFireRegistrationBinding
-import com.filipe.tomas.g21903016_21903361.viewmodels.FireViewModel
+import com.filipe.tomas.fogos.R
+import com.filipe.tomas.fogos.databinding.FragmentFireRegistrationBinding
+import pt.ulusofona.deisi.cm2122.g21903016_21903361.viewmodels.FireViewModel
 import java.text.SimpleDateFormat
 import java.util.*
 

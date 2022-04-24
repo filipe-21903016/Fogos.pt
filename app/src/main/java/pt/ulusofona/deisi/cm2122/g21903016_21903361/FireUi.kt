@@ -1,4 +1,4 @@
-package com.filipe.tomas.g21903016_21903361
+package pt.ulusofona.deisi.cm2122.g21903016_21903361
 
 import android.graphics.Bitmap
 import android.os.Parcelable

@@ -1,4 +1,4 @@
-package com.filipe.tomas.g21903016_21903361
+package pt.ulusofona.deisi.cm2122.g21903016_21903361
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,7 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import com.filipe.tomas.g21903016_21903361.databinding.FragmentDashboardBinding
+import com.filipe.tomas.fogos.R
+import com.filipe.tomas.fogos.databinding.FragmentDashboardBinding
+
 class DashboardFragment : Fragment() {
     private lateinit var binding : FragmentDashboardBinding
 

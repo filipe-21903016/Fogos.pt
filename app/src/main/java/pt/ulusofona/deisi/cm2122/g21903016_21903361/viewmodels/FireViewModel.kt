@@ -1,11 +1,11 @@
-package com.filipe.tomas.g21903016_21903361.viewmodels
+package pt.ulusofona.deisi.cm2122.g21903016_21903361.viewmodels
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import androidx.lifecycle.ViewModel
-import com.filipe.tomas.g21903016_21903361.data.DataSource
-import com.filipe.tomas.g21903016_21903361.FireUi
-import com.filipe.tomas.g21903016_21903361.models.Fire
+import pt.ulusofona.deisi.cm2122.g21903016_21903361.data.DataSource
+import pt.ulusofona.deisi.cm2122.g21903016_21903361.FireUi
+import pt.ulusofona.deisi.cm2122.g21903016_21903361.models.Fire
 import java.io.ByteArrayOutputStream
 
 class FireViewModel : ViewModel() {

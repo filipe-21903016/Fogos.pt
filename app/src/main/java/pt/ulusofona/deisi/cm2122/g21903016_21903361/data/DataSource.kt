@@ -1,6 +1,6 @@
-package com.filipe.tomas.g21903016_21903361.data
+package pt.ulusofona.deisi.cm2122.g21903016_21903361.data
 
-import com.filipe.tomas.g21903016_21903361.models.Fire
+import pt.ulusofona.deisi.cm2122.g21903016_21903361.models.Fire
 
 object DataSource {
     var fires: ArrayList<Fire> = arrayListOf(

@@ -1,4 +1,4 @@
-package com.filipe.tomas.g21903016_21903361
+package pt.ulusofona.deisi.cm2122.g21903016_21903361
 
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
@@ -7,7 +7,8 @@ import android.view.MenuItem
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
-import com.filipe.tomas.g21903016_21903361.databinding.ActivityMainBinding
+import com.filipe.tomas.fogos.R
+import com.filipe.tomas.fogos.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
