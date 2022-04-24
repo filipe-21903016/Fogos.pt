@@ -66,7 +66,7 @@ class FireRegistrationFragment : Fragment() {
             val district: String = binding.spinnerDistrito.selectedItem.toString()
             binding.etNome.hideKeyboard()
             binding.etCc.hideKeyboard()
-            if (validateEntries(name, cc))
+            if (isAlpha(binding.etNome.text.toString()))
             {
                 viewModel.onNewRegistration(name, cc, district, imageBitmap)
                 NavigationManager.goToFireListFragment(parentFragmentManager)
@@ -92,14 +92,6 @@ class FireRegistrationFragment : Fragment() {
         }
     }
 
-    private fun validateEntries(name: String, cc: String): Boolean {
-        //todo implement
-        //val nameRegex = "([a-z])".toRegex()
-        //return nameRegex.matches(name)
-          //      && cc.isDigitsOnly()
-        return true
-    }
-
     fun View.hideKeyboard() {
         val imm =
             (activity as Context).getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
@@ -115,5 +107,13 @@ class FireRegistrationFragment : Fragment() {
     override fun onPause() {
         super.onPause()
         requireActivity().requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_FULL_SENSOR
+    }
+
+    private fun isAlpha(str: String): Boolean{
+        for (c in str){
+            if (!c.isLetter() && c != ' ')
+                return false
+        }
+        return true
     }
 }
