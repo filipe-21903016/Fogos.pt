@@ -5,14 +5,15 @@ import android.graphics.Picture
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 import java.text.SimpleDateFormat
+import java.util.*
 
 @Parcelize
 class FireUi(
-    val id: String,
+    val id: String = UUID.randomUUID().toString(),
     val name: String,
     val cc: String,
     val district: String,
-    val freguesia: String,
+    val freguesia: String = "Informação não disponível",
     val concelho: String,
     val status: String,
     val timestamp: Long,

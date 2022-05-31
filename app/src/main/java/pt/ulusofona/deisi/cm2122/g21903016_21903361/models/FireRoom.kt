@@ -5,11 +5,11 @@ import java.util.*
 
 @Entity(tableName = "fire")
 data class FireRoom(
-    @PrimaryKey val id: String = UUID.randomUUID().toString(),
+    @PrimaryKey val id: String,
     val name: String = "Informação não disponível",
     val cc: String = "Informação não disponível",
     val district: String,
-    val freguesia: String = "Informação não disponível",
+    val freguesia: String,
     val concelho: String = "Informação não disponível",
     val status: String,
     val operacionais : Int = 0,
