@@ -9,6 +9,7 @@ import pt.ulusofona.deisi.cm2122.g21903016_21903361.interfaces.FireDao
 class FireManagerRoom(private val dao: FireDao): FireManager() {
     override fun insertFire(fireUi: FireUi, onFinished: () -> Unit) {
         val fire = FireRoom(
+            id = fireUi.id,
             name = fireUi.name,
             cc = fireUi.cc,
             district = fireUi.district,
@@ -31,6 +32,7 @@ class FireManagerRoom(private val dao: FireDao): FireManager() {
         CoroutineScope(Dispatchers.IO).launch {
             val fires = firesUi.map { fireUi ->
                 FireRoom(
+                    id = fireUi.id,
                     name = fireUi.name,
                     cc = fireUi.cc,
                     district = fireUi.district,

@@ -11,6 +11,7 @@ import pt.ulusofona.deisi.cm2122.g21903016_21903361.models.FireDatabase
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.models.FireManagerRoom
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.models.FireRoom
 import java.io.ByteArrayOutputStream
+import java.util.*
 
 class FireViewModel(application: Application) : AndroidViewModel(application) {
     private val model = FireManagerRoom(FireDatabase.getInstance(application).fireDao())
@@ -37,9 +38,17 @@ class FireViewModel(application: Application) : AndroidViewModel(application) {
 
     fun onNewRegistration(name: String, cc: String, district: String, picture: Bitmap?) {
         val fire = FireUi(
+            id = UUID.randomUUID().toString(),
             name = name,
             cc = cc,
             district = district,
+            freguesia = "Informação não disponível",
+            concelho = "Informação não disponível",
+            status = "Informação não disponível",
+            aereos = 0,
+            operacionais = 0,
+            veiculos = 0,
+            observacoes = "Informação não disponível",
             timestamp = System.currentTimeMillis(),
             picture = null
         )

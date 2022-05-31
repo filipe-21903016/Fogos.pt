@@ -50,8 +50,8 @@ class FireDetailsFragment : Fragment() {
         binding.operacionais.text = "${getString(R.string.operational)}: ${fireUi?.operacionais.toString()}"
         binding.veiculos.text = "${getString(R.string.vehicle)}: ${fireUi?.veiculos.toString()}"
         binding.distrito.text = "${getString(R.string.district)}: ${fireUi?.district}"
-        binding.ivFirePicture.setImageBitmap(fireUi?.pictureBitmap)
-        if (fireUi?.pictureBitmap != null)
+        //binding.ivFirePicture.setImageBitmap(fireUi?.pictureBitmap)
+        //if (fireUi?.pictureBitmap != null)
             binding.tvOtherPictureLabel.text = getString(R.string.picture)
 
     }

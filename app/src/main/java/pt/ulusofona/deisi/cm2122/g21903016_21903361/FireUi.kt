@@ -10,17 +10,17 @@ import java.util.*
 @Parcelize
 class FireUi(
     val id: String = UUID.randomUUID().toString(),
-    val name: String,
-    val cc: String,
+    val name: String = "Informação não disponível",
+    val cc: String = "Informação não disponível",
     val district: String,
     val freguesia: String = "Informação não disponível",
-    val concelho: String,
+    val concelho: String = "Informação não disponível",
     val status: String,
     val timestamp: Long,
     val operacionais : Int,
     val aereos : Int,
     val veiculos : Int,
-    val observacoes : String,
+    val observacoes : String = "Informação não disponível",
     val picture: Bitmap?
 ) : Parcelable {
     fun getDateTime(): String{
