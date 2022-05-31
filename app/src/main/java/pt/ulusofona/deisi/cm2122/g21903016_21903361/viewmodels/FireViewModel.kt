@@ -1,14 +1,20 @@
 package pt.ulusofona.deisi.cm2122.g21903016_21903361.viewmodels
 
+import android.app.Application
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.data.DataSource
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.FireUi
-import pt.ulusofona.deisi.cm2122.g21903016_21903361.models.Fire
+import pt.ulusofona.deisi.cm2122.g21903016_21903361.models.FireDatabase
+import pt.ulusofona.deisi.cm2122.g21903016_21903361.models.FireManagerRoom
+import pt.ulusofona.deisi.cm2122.g21903016_21903361.models.FireRoom
 import java.io.ByteArrayOutputStream
 
-class FireViewModel : ViewModel() {
+class FireViewModel(application: Application) : AndroidViewModel(application) {
+    private val model = FireManagerRoom(FireDatabase.getInstance(application).fireDao())
+
     fun getAllFires(): List<FireUi> {
         return DataSource.fires.map {
             FireUi(
@@ -24,26 +30,19 @@ class FireViewModel : ViewModel() {
                 veiculos = it.veiculos,
                 observacoes = it.observacoes,
                 timestamp = it.timestamp,
-                pictureBitmap = it.picture?.let { it1 ->
-                    BitmapFactory.decodeByteArray(it.picture,0,
-                        it1.size)
-                }
+                picture = null
             )
         }.sortedByDescending { it.timestamp }.toList()
     }
 
-    fun onNewRegistration(name: String, cc:String, district:String, picture: Bitmap?){
-        val fire = Fire(
+    fun onNewRegistration(name: String, cc: String, district: String, picture: Bitmap?) {
+        val fire = FireUi(
             name = name,
             cc = cc,
             district = district,
-            status = "Por Confirmar",
+            timestamp = System.currentTimeMillis(),
+            picture = null
         )
-        if (picture != null){
-            val blob : ByteArrayOutputStream = ByteArrayOutputStream()
-            picture.compress(Bitmap.CompressFormat.PNG, 0, blob)
-            fire.picture = blob.toByteArray()
-        }
-        DataSource.addNewFire(fire)
+        model.insertFire(fire) {}
     }
 }

@@ -1,10 +1,10 @@
 package pt.ulusofona.deisi.cm2122.g21903016_21903361.data
 
-import pt.ulusofona.deisi.cm2122.g21903016_21903361.models.Fire
+import pt.ulusofona.deisi.cm2122.g21903016_21903361.models.FireRoom
 
 object DataSource {
-    var fires: ArrayList<Fire> = arrayListOf(
-        Fire(
+    var fires: ArrayList<FireRoom> = arrayListOf(
+        FireRoom(
             "Filipe Coutinho",
             "12345678",
             "S. Magos",
@@ -14,7 +14,7 @@ object DataSource {
             10, 20, 30,
             "Fogo urgente venham "
         ),
-        Fire(
+        FireRoom(
             "Filipe Coutinho",
             "12345678",
             "Lisboa",
@@ -24,7 +24,7 @@ object DataSource {
             1, 1, 1,
             "Fogo urgente venham "
         ),
-        Fire(
+        FireRoom(
             "Filipe Coutinho",
             "12345678",
             "Porto",
@@ -33,7 +33,7 @@ object DataSource {
             "Por Confirmar",
             observacoes = "Fogo urgente venham"
         ),
-        Fire(
+        FireRoom(
             "Filipe Coutinho",
             "12345678",
             "Lisboa",
@@ -43,7 +43,7 @@ object DataSource {
             3, 4, 5,
             "Fogo urgente venham "
         ),
-        Fire(
+        FireRoom(
             "Filipe Coutinho",
             "12345678",
             "Lisboa",
@@ -53,7 +53,7 @@ object DataSource {
             1, 2, 3,
             "Fogo urgente venham "
         ),
-        Fire(
+        FireRoom(
             "Filipe Coutinho",
             "12345678",
             "Porto",
@@ -65,7 +65,7 @@ object DataSource {
         ),
     )
 
-    fun addNewFire(fire: Fire) {
+    fun addNewFire(fire: FireRoom) {
         fires.add(fire)
     }
 }

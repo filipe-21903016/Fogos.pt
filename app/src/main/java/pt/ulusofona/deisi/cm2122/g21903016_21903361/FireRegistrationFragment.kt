@@ -39,7 +39,6 @@ class FireRegistrationFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_fire_registration, container, false)
         binding = FragmentFireRegistrationBinding.bind(view)
         return binding.root
-
     }
 
     override fun onStart() {
