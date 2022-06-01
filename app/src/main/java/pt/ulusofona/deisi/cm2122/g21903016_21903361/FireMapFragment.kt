@@ -2,21 +2,26 @@ package pt.ulusofona.deisi.cm2122.g21903016_21903361
 
 import android.annotation.SuppressLint
 import android.content.pm.ActivityInfo
+import android.graphics.Bitmap
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.Paint
 import android.location.Geocoder
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.ColorInt
+import androidx.annotation.DrawableRes
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.res.ResourcesCompat
+import androidx.core.graphics.drawable.DrawableCompat
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
-import com.google.android.gms.maps.model.CameraPosition
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.Marker
-import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.gms.maps.model.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -89,13 +94,16 @@ class FireMapFragment : Fragment(), OnLocationChangedListener, GoogleMap.OnMarke
         map.addMarker(
             MarkerOptions()
                 .position(LatLng(fireUi.lat, fireUi.lng))
+                .icon(
+                    vectorToBitmap(R.drawable.ic_logo, Color.parseColor("#FF${fireUi.statusColor}"))
+                )
         )
         map.setOnMarkerClickListener(this)
     }
 
     override fun onMarkerClick(marker: Marker): Boolean {
         var consumed = false
-        viewModel.onFireMarkerClick(marker.position.latitude, marker.position.longitude){
+        viewModel.onFireMarkerClick(marker.position.latitude, marker.position.longitude) {
             if (it != null) {
                 consumed = true
                 NavigationManager.goToFireDetails(parentFragmentManager, it)
@@ -112,6 +120,29 @@ class FireMapFragment : Fragment(), OnLocationChangedListener, GoogleMap.OnMarke
                 }
             }
         }
+    }
+
+    private fun vectorToBitmap(@DrawableRes id: Int, @ColorInt color: Int): BitmapDescriptor {
+        val vectorDrawable = ResourcesCompat.getDrawable(
+            resources, id, null
+        )
+        val bitmap = Bitmap.createBitmap(
+            150,
+            150, Bitmap.Config.ARGB_8888
+        )
+        val canvas = Canvas(bitmap)
+        var paint = Paint()
+        paint.color = color
+        paint.isAntiAlias = true
+        canvas.drawCircle(canvas.width / 2f, canvas.height / 2f,canvas.width / 2f, paint)
+
+        val quarterVertical = canvas.height / 4
+        val quarterHorizontal = canvas.width / 4
+
+        vectorDrawable!!.setBounds(quarterHorizontal, quarterVertical, quarterHorizontal * 3,  quarterVertical * 3)
+
+        vectorDrawable.draw(canvas)
+        return BitmapDescriptorFactory.fromBitmap(bitmap)
     }
 
 }
