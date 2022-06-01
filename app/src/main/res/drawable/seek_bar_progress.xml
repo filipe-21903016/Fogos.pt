@@ -19,17 +19,21 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@android:id/background"
-        android:height="5dp"
+        android:height="4dp"
         android:drawable="@drawable/rounded_corner_no_progress"
         android:gravity="center"
         />
 
     <item
         android:id="@android:id/progress"
-        android:height="5dp"
+        android:height="4dp"
         android:gravity="center">
         <scale
-            android:drawable="@drawable/rounded_corner_no_progress"
+            android:drawable="@drawable/rounded_corner_progress"
             android:scaleWidth="100%" />
     </item>
 </layer-list>
+
+
+
+
