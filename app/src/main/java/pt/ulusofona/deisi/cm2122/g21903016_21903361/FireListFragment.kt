@@ -15,13 +15,10 @@ import pt.ulusofona.deisi.cm2122.g21903016_21903361.adapters.FireListAdapter
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.databinding.FragmentFireListBinding
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.viewmodels.FireViewModel
 
-private const val ARG_FIRES = "param1"
-
 class FireListFragment : Fragment() {
     private lateinit var binding: FragmentFireListBinding
     private lateinit var viewModel : FireViewModel
 
-    private var firesUi: List<FireUi>? = null
     private var adapter = FireListAdapter(::onFireClick)
 
     override fun onCreateView(

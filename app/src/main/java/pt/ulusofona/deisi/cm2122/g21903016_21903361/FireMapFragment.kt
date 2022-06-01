@@ -9,16 +9,26 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.Marker
+import com.google.android.gms.maps.model.MarkerOptions
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.databinding.FragmentFireMapBinding
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.interfaces.OnLocationChangedListener
+import pt.ulusofona.deisi.cm2122.g21903016_21903361.viewmodels.FireViewModel
 import java.util.*
 
 
-class FireMapFragment : Fragment(), OnLocationChangedListener{
+class FireMapFragment : Fragment(), OnLocationChangedListener, GoogleMap.OnMarkerClickListener,
+    OnMapReadyCallback {
+    private lateinit var viewModel: FireViewModel
     private lateinit var binding: FragmentFireMapBinding
     private lateinit var geocoder: Geocoder
     private var map: GoogleMap? = null
@@ -33,11 +43,13 @@ class FireMapFragment : Fragment(), OnLocationChangedListener{
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_fire_map, container, false)
         binding = FragmentFireMapBinding.bind(view)
+        viewModel = ViewModelProvider(this).get(FireViewModel::class.java)
         geocoder = Geocoder(context, Locale.getDefault())
         binding.map.onCreate(savedInstanceState)
         binding.map.getMapAsync {
             this.map = it
             FusedLocation.registerListener(this)
+            onMapReady(it)
         }
         return binding.root
     }
@@ -60,8 +72,8 @@ class FireMapFragment : Fragment(), OnLocationChangedListener{
 
     private fun placeCamera(latitude: Double, longitude: Double) {
         val cameraPosition = CameraPosition.Builder()
-            .target(LatLng(latitude,longitude))
-            .zoom(12f)
+            .target(LatLng(latitude, longitude))
+            .zoom(10f)
             .build()
         map?.animateCamera(
             CameraUpdateFactory.newCameraPosition(cameraPosition)
@@ -72,4 +84,35 @@ class FireMapFragment : Fragment(), OnLocationChangedListener{
         super.onDestroy()
         FusedLocation.unregisterListener(this)
     }
+
+    private fun createMarker(map: GoogleMap, fireUi: FireUi) {
+        map.addMarker(
+            MarkerOptions()
+                .position(LatLng(fireUi.lat, fireUi.lng))
+        )
+        map.setOnMarkerClickListener(this)
+    }
+
+    override fun onMarkerClick(marker: Marker): Boolean {
+        var consumed = false
+        viewModel.onFireMarkerClick(marker.position.latitude, marker.position.longitude){
+            if (it != null) {
+                consumed = true
+                NavigationManager.goToFireDetails(parentFragmentManager, it)
+            }
+        }
+        return consumed
+    }
+
+    override fun onMapReady(map: GoogleMap) {
+        viewModel.onGetFires {
+            it.forEach { fireUi ->
+                CoroutineScope(Dispatchers.Main).launch {
+                    createMarker(map, fireUi)
+                }
+            }
+
+        }
+    }
+
 }

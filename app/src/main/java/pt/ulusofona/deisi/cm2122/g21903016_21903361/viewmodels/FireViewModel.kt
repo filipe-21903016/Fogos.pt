@@ -39,4 +39,13 @@ class FireViewModel(application: Application) : AndroidViewModel(application) {
             Log.i(TAG, "Fire:$fire was inserted")
         }
     }
+
+    fun onFireMarkerClick(latitute: Double, longitude: Double, onFinished: (FireUi?) -> Unit){
+        onGetFires {
+           val selectedFire = it.find {
+                   fireUi -> fireUi.lat == latitute && fireUi.lng == longitude
+           }
+            onFinished(selectedFire)
+        }
+    }
 }
