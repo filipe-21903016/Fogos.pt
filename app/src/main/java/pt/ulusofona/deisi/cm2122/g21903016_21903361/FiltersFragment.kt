@@ -59,7 +59,6 @@ class FiltersFragment : Fragment() {
     }
 
 
-
     @SuppressLint("SourceLockedOrientationActivity")
     override fun onResume() {
         super.onResume()

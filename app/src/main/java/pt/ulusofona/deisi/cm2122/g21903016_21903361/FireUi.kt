@@ -21,7 +21,7 @@ class FireUi(
     val aereos: Int = 0,
     val veiculos: Int = 0,
     val observacoes: String = "Informação não disponível",
-    val statusColor: String? = null,
+    val statusColor: String = "848484",
     val picture: Bitmap? = null,
     val lat:Double,
     val lng:Double
