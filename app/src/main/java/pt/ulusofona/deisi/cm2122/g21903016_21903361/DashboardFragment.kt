@@ -28,7 +28,7 @@ class DashboardFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        binding.btAddFire.setOnClickListener{
+        binding.fabAddFire.setOnClickListener{
             NavigationManager.goToFireRegistrationFragment(parentFragmentManager)
         }
     }

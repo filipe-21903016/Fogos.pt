@@ -85,6 +85,13 @@ class FireMapFragment : Fragment(), OnLocationChangedListener, GoogleMap.OnMarke
         )
     }
 
+    override fun onStart() {
+        super.onStart()
+        binding.fabAddFire.setOnClickListener{
+            NavigationManager.goToFireRegistrationFragment(parentFragmentManager)
+        }
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         FusedLocation.unregisterListener(this)
@@ -95,7 +102,7 @@ class FireMapFragment : Fragment(), OnLocationChangedListener, GoogleMap.OnMarke
             MarkerOptions()
                 .position(LatLng(fireUi.lat, fireUi.lng))
                 .icon(
-                    vectorToBitmap(R.drawable.ic_logo, Color.parseColor("#FF${fireUi.statusColor}"))
+                    vectorToBitmap(R.drawable.ic_logo, Color.parseColor("#ff${fireUi.statusColor}"))
                 )
         )
         map.setOnMarkerClickListener(this)

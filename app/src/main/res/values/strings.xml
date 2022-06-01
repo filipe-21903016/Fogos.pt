@@ -22,7 +22,8 @@
     <string name="date">Date Time</string>
     <string name="picture">Picture</string>
     <string name="district">District</string>
-    <string name="submit">Submit</string>
+    <string name="submit">Report</string>
+    <string name="register_fire">Register Fire</string>
     <string name="risk">Risk</string>
     <string name="status">Status</string>
     <string name="county">County</string>

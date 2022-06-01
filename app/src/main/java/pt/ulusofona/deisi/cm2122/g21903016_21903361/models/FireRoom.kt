@@ -17,6 +17,7 @@ data class FireRoom(
     val observacoes : String,
     var picture: String?,
     val timestamp: Long,
+    val statusColor: String,
     val lng: Double,
     val lat: Double
 )

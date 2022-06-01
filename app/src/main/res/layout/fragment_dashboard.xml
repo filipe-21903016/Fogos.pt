@@ -182,13 +182,13 @@
 
     <LinearLayout
         android:id="@+id/LinearLayout1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center_horizontal"
-        android:layout_marginHorizontal="130dp"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
         android:layout_below="@id/grid_layout"
-        android:orientation="vertical" >
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
+        <!--
         <com.google.android.material.button.MaterialButton
             android:id="@+id/bt_add_fire"
             android:layout_width="match_parent"
@@ -198,7 +198,19 @@
             android:text="@string/submit"
             android:textStyle="bold"
             app:icon="@drawable/ic_add"
-            app:iconGravity="textStart" />
+            app:iconGravity="textStart"
+            app:cornerRadius="10dp"/>
+            -->
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/fab_add_fire"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|bottom"
+            android:layout_margin="40dp"
+            android:text="@string/register_fire"
+            android:textColor="@color/white"
+            app:icon="@drawable/ic_logo"
+            app:iconTint="@color/white" />
 
     </LinearLayout>
 

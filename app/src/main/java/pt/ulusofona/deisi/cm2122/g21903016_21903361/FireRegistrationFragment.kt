@@ -52,7 +52,6 @@ class FireRegistrationFragment : Fragment() {
             binding.spinnerDistrito.adapter = arrayAdapter
         }
 
-
         binding.btTakePicture.setOnClickListener{
             dispatchTakePictureIntent()
         }

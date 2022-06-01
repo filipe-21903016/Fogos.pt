@@ -29,12 +29,12 @@
         <entry key="app/src/main/res/layout-land/fragment_fire_list.xml" value="0.20416666666666666" />
         <entry key="app/src/main/res/layout-land/fragment_risk_zone.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.22056159420289856" />
-        <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.10238342285156249" />
+        <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_filters.xml" value="0.1828774062816616" />
         <entry key="app/src/main/res/layout/fragment_fire_details.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_fire_list.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_fire_map.xml" value="0.2006340579710145" />
-        <entry key="app/src/main/res/layout/fragment_fire_registration.xml" value="0.4666439819335938" />
+        <entry key="app/src/main/res/layout/fragment_fire_map.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_fire_registration.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_risk_zone.xml" value="0.4036458333333333" />
         <entry key="app/src/main/res/layout/item_fire.xml" value="0.4073272705078125" />
         <entry key="app/src/main/res/layout/nav_header_layout.xml" value="0.1" />

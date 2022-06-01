@@ -22,7 +22,8 @@
     <string name="date">Data e Horas</string>
     <string name="district">Distrito</string>
     <string name="picture">Fotografia</string>
-    <string name="submit">Submeter</string>
+    <string name="submit">Reportar</string>
+    <string name="register_fire">Registar Fogo</string>
     <string name="risk">Risco</string>
     <string name="status">Estado</string>
     <string name="county">Concelho</string>

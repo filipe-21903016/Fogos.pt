@@ -24,7 +24,8 @@ class FireManagerRoom(private val dao: FireDao) : FireManager() {
             picture = null,
             //TODO photo bitmap conversion
             lat = fireUi.lat,
-            lng = fireUi.lng
+            lng = fireUi.lng,
+            statusColor = fireUi.statusColor
         )
         CoroutineScope(Dispatchers.IO).launch {
             dao.insert(fire)
@@ -50,7 +51,8 @@ class FireManagerRoom(private val dao: FireDao) : FireManager() {
                     picture = null, //TODO photo bitmap conversion
                     timestamp = fireUi.timestamp,
                     lat = fireUi.lat,
-                    lng = fireUi.lng
+                    lng = fireUi.lng,
+                    statusColor = fireUi.statusColor
                 )
             }
             dao.insertAll(fires)
@@ -76,6 +78,7 @@ class FireManagerRoom(private val dao: FireDao) : FireManager() {
                         veiculos = it.veiculos,
                         observacoes = it.observacoes,
                         timestamp = it.timestamp,
+                        statusColor = it.statusColor,
                         picture = null, //TODO CHANGE
                         lat = it.lat,
                         lng = it.lng
