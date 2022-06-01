@@ -11,5 +11,6 @@ class FireApplication: Application() {
             FireManagerRoom(FireDatabase.getInstance(this).fireDao()),
             FireManagerRetrofit(RetrofitBuilder.getInstance("https://api-dev.fogos.pt"))
         )
+        FusedLocation.start(this)
     }
 }

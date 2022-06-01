@@ -1,13 +1,16 @@
 package pt.ulusofona.deisi.cm2122.g21903016_21903361
 
+import android.Manifest
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
+import com.fondesa.kpermissions.allGranted
+import com.fondesa.kpermissions.extension.permissionsBuilder
+import com.fondesa.kpermissions.extension.send
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -17,10 +20,19 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        if (!screenRotated(savedInstanceState)) {
-            NavigationManager.placeRiskZoneFragment(supportFragmentManager)
-            NavigationManager.goToDashboardFragment(supportFragmentManager)
+        permissionsBuilder(
+            Manifest.permission.ACCESS_FINE_LOCATION,
+            Manifest.permission.ACCESS_COARSE_LOCATION).build().send{
+                result ->
+            if (result.allGranted())
+            {
+                if (!screenRotated(savedInstanceState)) {
+                    NavigationManager.placeRiskZoneFragment(supportFragmentManager)
+                    NavigationManager.goToDashboardFragment(supportFragmentManager)
+                }
+            } else {
+                finish()
+            }
         }
     }
 
