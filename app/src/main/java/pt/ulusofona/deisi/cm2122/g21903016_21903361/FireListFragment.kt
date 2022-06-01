@@ -3,10 +3,8 @@ package pt.ulusofona.deisi.cm2122.g21903016_21903361
 import android.content.Context
 import android.os.Bundle
 import android.service.autofill.FillResponse
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -32,11 +30,18 @@ class FireListFragment : Fragment() {
     ): View {
         //set screen name
         (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.fire_list)
+
         // Inflate the layout for this fragment
         val view =  inflater.inflate(R.layout.fragment_fire_list, container, false)
         viewModel = ViewModelProvider(this).get(FireViewModel::class.java)
         binding = FragmentFireListBinding.bind(view)
+        setHasOptionsMenu(true)
         return binding.root
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.filter_menu, menu)
+        super.onCreateOptionsMenu(menu, inflater)
     }
 
     override fun onStart() {
