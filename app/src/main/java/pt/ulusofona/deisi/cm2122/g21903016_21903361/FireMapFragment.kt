@@ -111,7 +111,6 @@ class FireMapFragment : Fragment(), OnLocationChangedListener, GoogleMap.OnMarke
                     createMarker(map, fireUi)
                 }
             }
-
         }
     }
 

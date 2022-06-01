@@ -35,7 +35,7 @@ class FiltersFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.filters)
         viewModel = ViewModelProvider(this).get(FireViewModel::class.java)
         val view = inflater.inflate(R.layout.fragment_filters, container, false)

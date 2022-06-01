@@ -3,6 +3,9 @@
     <color name="gradient_left">#9EBD0000</color>
     <color name="gradient_right">#E0FB8802</color>
     <color name="black">#FF000000</color>
+    <color name="green">#B2FF59</color>
     <color name="white">#FFFFFFFF</color>
     <color name="lightGray">#F9F9F9</color>
+    <color name="progress_gray">#FFD2D1D1</color>
+    <color name="thumb_gray">#FFF7F7F7</color>
 </resources>
