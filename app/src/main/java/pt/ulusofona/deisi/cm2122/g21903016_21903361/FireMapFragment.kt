@@ -9,7 +9,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.gms.maps.CameraUpdate
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.CameraPosition
@@ -36,8 +35,8 @@ class FireMapFragment : Fragment(), OnLocationChangedListener{
         binding = FragmentFireMapBinding.bind(view)
         geocoder = Geocoder(context, Locale.getDefault())
         binding.map.onCreate(savedInstanceState)
-        binding.map.getMapAsync { map ->
-            this.map = map
+        binding.map.getMapAsync {
+            this.map = it
             FusedLocation.registerListener(this)
         }
         return binding.root
@@ -46,6 +45,7 @@ class FireMapFragment : Fragment(), OnLocationChangedListener{
     @SuppressLint("SourceLockedOrientationActivity")
     override fun onResume() {
         super.onResume()
+        binding.map.onResume()
         requireActivity().requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
     }
 
