@@ -18,6 +18,7 @@
         <entry key="app/src/main/res/drawable/logo.xml" value="0.2" />
         <entry key="app/src/main/res/drawable/rounded_corner.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/seek_bar_progress.xml" value="0.152" />
+        <entry key="app/src/main/res/drawable/seek_thumb.xml" value="0.2605" />
         <entry key="app/src/main/res/layout-land/fragment_fire_list.xml" value="0.20416666666666666" />
         <entry key="app/src/main/res/layout-land/fragment_risk_zone.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.22056159420289856" />

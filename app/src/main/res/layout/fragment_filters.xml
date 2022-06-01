@@ -53,12 +53,12 @@
             />
 
         <SeekBar
-            android:id="@+id/seekbar_radius"
+            android:id="@+id/seekbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:progressDrawable="@drawable/seek_bar_progress"
-            android:thumbTint="@color/thumb_gray"
+            android:thumb="@drawable/seek_thumb"
             />
 
 
