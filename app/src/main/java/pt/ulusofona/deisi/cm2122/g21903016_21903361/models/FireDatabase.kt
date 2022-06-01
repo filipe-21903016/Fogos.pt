@@ -7,7 +7,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.interfaces.FireDao
 
-@Database(entities = [FireRoom::class], version = 1)
+@Database(entities = [FireRoom::class], version = 2)
 abstract class FireDatabase : RoomDatabase() {
     abstract fun fireDao(): FireDao
 
@@ -21,10 +21,12 @@ abstract class FireDatabase : RoomDatabase() {
                         applicationContext,
                         FireDatabase::class.java,
                         "fire_db"
-                    ).fallbackToDestructiveMigration().build()
+                    )
+                        .fallbackToDestructiveMigration()
+                        .build()
                 }
+                return instance as FireDatabase
             }
-            return instance as FireDatabase
         }
     }
 }

@@ -3,55 +3,38 @@ package pt.ulusofona.deisi.cm2122.g21903016_21903361.viewmodels
 import android.app.Application
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
-import pt.ulusofona.deisi.cm2122.g21903016_21903361.data.DataSource
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.FireUi
-import pt.ulusofona.deisi.cm2122.g21903016_21903361.models.FireDatabase
-import pt.ulusofona.deisi.cm2122.g21903016_21903361.models.FireManagerRoom
-import pt.ulusofona.deisi.cm2122.g21903016_21903361.models.FireRoom
+import pt.ulusofona.deisi.cm2122.g21903016_21903361.models.*
 import java.io.ByteArrayOutputStream
 import java.util.*
 
 class FireViewModel(application: Application) : AndroidViewModel(application) {
-    private val model = FireManagerRoom(FireDatabase.getInstance(application).fireDao())
+    private val model = FireRepository.getInstance()
+    private val TAG = FireViewModel::class.java.simpleName
 
-    fun getAllFires(): List<FireUi> {
-        return DataSource.fires.map {
-            FireUi(
-                id = it.id,
-                name = it.name,
-                cc = it.cc,
-                district = it.district,
-                freguesia = it.freguesia,
-                concelho = it.concelho,
-                status = it.status,
-                aereos = it.aereos,
-                operacionais = it.operacionais,
-                veiculos = it.veiculos,
-                observacoes = it.observacoes,
-                timestamp = it.timestamp,
-                picture = null
-            )
-        }.sortedByDescending { it.timestamp }.toList()
+    fun onGetFires(onFinished: (List<FireUi>) -> Unit) {
+        model.getAllFires(onFinished)
     }
 
     fun onNewRegistration(name: String, cc: String, district: String, picture: Bitmap?) {
+        val districtEnum = District.valueOf(
+            district.uppercase().replace(" ", "_")
+        )
         val fire = FireUi(
             id = UUID.randomUUID().toString(),
             name = name,
             cc = cc,
             district = district,
-            freguesia = "Informação não disponível",
-            concelho = "Informação não disponível",
-            status = "Informação não disponível",
-            aereos = 0,
-            operacionais = 0,
-            veiculos = 0,
-            observacoes = "Informação não disponível",
             timestamp = System.currentTimeMillis(),
-            picture = null
+            picture = null,
+            lat = districtEnum.lat,
+            lng = districtEnum.lng
         )
-        model.insertFire(fire) {}
+        model.insertFire(fire) {
+            Log.i(TAG, "Fire:$fire was inserted")
+        }
     }
 }

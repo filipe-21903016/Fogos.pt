@@ -1,7 +1,6 @@
 package pt.ulusofona.deisi.cm2122.g21903016_21903361.models
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.util.*
 
 @Entity(tableName = "fire")
 data class FireRoom(
@@ -16,9 +15,8 @@ data class FireRoom(
     val aereos : Int = 0,
     val veiculos : Int = 0,
     val observacoes : String,
-    var picture: String? = null,
-    val timestamp: Long = System.currentTimeMillis()
-){
-
-
-}
+    var picture: String?,
+    val timestamp: Long,
+    val lng: Double,
+    val lat: Double
+)

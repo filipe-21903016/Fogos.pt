@@ -2,10 +2,13 @@ package pt.ulusofona.deisi.cm2122.g21903016_21903361.interfaces
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import androidx.room.Update
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.models.FireRoom
+import retrofit2.http.DELETE
 
 @Dao
 interface FireDao {
+
     @Insert
     suspend fun insert(fire: FireRoom)
 
@@ -17,4 +20,7 @@ interface FireDao {
 
     @Query("SELECT * FROM fire WHERE id = :id")
     suspend fun getById(id:String): FireRoom
+
+    @Query("DELETE FROM fire")
+    suspend fun deleteAll() : Int
 }

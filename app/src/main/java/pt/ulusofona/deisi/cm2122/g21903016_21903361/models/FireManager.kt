@@ -6,4 +6,5 @@ abstract class FireManager {
     abstract fun insertFire(fireUi: FireUi, onFinished: () -> Unit)
     abstract fun insertFires(firesUi: List<FireUi>, onFinished:(List<FireUi>) -> Unit)
     abstract fun getAllFires(onFinished:(List<FireUi>) -> Unit)
+    abstract fun deleteAllFires(onFinished: () -> Unit)
 }

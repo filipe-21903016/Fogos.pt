@@ -10,7 +10,7 @@ import pt.ulusofona.deisi.cm2122.g21903016_21903361.NavigationManager
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.databinding.ItemFireBinding
 
 class FireListAdapter(
-    private val supportFragmentManager: FragmentManager,
+    private val onClick: (FireUi) -> Unit,
     private var items: List<FireUi> = listOf(),
 ) : RecyclerView.Adapter<FireListAdapter.FireListViewHolder>(){
     class FireListViewHolder(val binding: ItemFireBinding):
@@ -25,7 +25,7 @@ class FireListAdapter(
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: FireListViewHolder, position: Int) {
         holder.itemView.setOnClickListener{
-            NavigationManager.goToFireDetails(supportFragmentManager, items[position])
+            onClick(items[position])
         }
         holder.binding.distritoFreguesia.text = "${items[position].district}, ${items[position].district}"
         holder.binding.datetime.text =  items[position].getDateTime()

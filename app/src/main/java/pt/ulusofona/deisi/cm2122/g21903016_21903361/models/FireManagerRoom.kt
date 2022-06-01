@@ -6,7 +6,7 @@ import kotlinx.coroutines.launch
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.FireUi
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.interfaces.FireDao
 
-class FireManagerRoom(private val dao: FireDao): FireManager() {
+class FireManagerRoom(private val dao: FireDao) : FireManager() {
     override fun insertFire(fireUi: FireUi, onFinished: () -> Unit) {
         val fire = FireRoom(
             id = fireUi.id,
@@ -19,8 +19,12 @@ class FireManagerRoom(private val dao: FireDao): FireManager() {
             operacionais = fireUi.operacionais,
             aereos = fireUi.aereos,
             veiculos = fireUi.veiculos,
-            observacoes = fireUi.observacoes
+            observacoes = fireUi.observacoes,
+            timestamp = fireUi.timestamp,
+            picture = null,
             //TODO photo bitmap conversion
+            lat = fireUi.lat,
+            lng = fireUi.lng
         )
         CoroutineScope(Dispatchers.IO).launch {
             dao.insert(fire)
@@ -42,8 +46,11 @@ class FireManagerRoom(private val dao: FireDao): FireManager() {
                     operacionais = fireUi.operacionais,
                     aereos = fireUi.aereos,
                     veiculos = fireUi.veiculos,
-                    observacoes = fireUi.observacoes
-                    //TODO photo bitmap conversion
+                    observacoes = fireUi.observacoes,
+                    picture = null, //TODO photo bitmap conversion
+                    timestamp = fireUi.timestamp,
+                    lat = fireUi.lat,
+                    lng = fireUi.lng
                 )
             }
             dao.insertAll(fires)
@@ -69,10 +76,19 @@ class FireManagerRoom(private val dao: FireDao): FireManager() {
                         veiculos = it.veiculos,
                         observacoes = it.observacoes,
                         timestamp = it.timestamp,
-                        picture = null //TODO CHANGE
+                        picture = null, //TODO CHANGE
+                        lat = it.lat,
+                        lng = it.lng
                     )
                 }
             )
+        }
+    }
+
+    override fun deleteAllFires(onFinished: () -> Unit) {
+        CoroutineScope(Dispatchers.IO).launch {
+            dao.deleteAll()
+            onFinished()
         }
     }
 
