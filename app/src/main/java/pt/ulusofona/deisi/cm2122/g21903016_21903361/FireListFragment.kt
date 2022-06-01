@@ -3,7 +3,11 @@ package pt.ulusofona.deisi.cm2122.g21903016_21903361
 import android.content.Context
 import android.os.Bundle
 import android.service.autofill.FillResponse
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.*
+import android.widget.ArrayAdapter
+import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -24,6 +28,8 @@ class FireListFragment : Fragment() {
     private var firesUi: List<FireUi>? = null
     private var adapter = FireListAdapter(::onFireClick)
 
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -36,6 +42,8 @@ class FireListFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(FireViewModel::class.java)
         binding = FragmentFireListBinding.bind(view)
         setHasOptionsMenu(true)
+
+
         return binding.root
     }
 
@@ -51,9 +59,20 @@ class FireListFragment : Fragment() {
         viewModel.onGetFires { updateFires(it) }
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean = when (item.itemId) {
+        R.id.action_filter -> {
+            NavigationManager.goToFilterFragment(parentFragmentManager)
+            true
+        }
+        else -> {
+            super.onOptionsItemSelected(item)
+        }
+    }
+
     private fun onFireClick(fireUi: FireUi){
         NavigationManager.goToFireDetails(parentFragmentManager, fireUi)
     }
+
 
     private fun updateFires(fireList: List<FireUi>) {
         val fires = fireList
