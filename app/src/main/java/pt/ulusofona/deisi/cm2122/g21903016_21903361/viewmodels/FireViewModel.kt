@@ -31,7 +31,9 @@ class FireViewModel(application: Application) : AndroidViewModel(application) {
             timestamp = System.currentTimeMillis(),
             picture = null,
             lat = districtEnum.lat,
-            lng = districtEnum.lng
+            lng = districtEnum.lng,
+            concelho = district,
+            freguesia = district
         )
         model.insertFire(fire) {
             Log.i(TAG, "Fire:$fire was inserted")

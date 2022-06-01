@@ -27,7 +27,7 @@ class FireUi(
     val lng:Double
 ) : Parcelable {
     fun getDateTime(): String {
-        val formatter = SimpleDateFormat("dd-MM-yyyy - hh:mm")
+        val formatter = SimpleDateFormat("dd-MM-yyyy hh:mm")
         return formatter.format(timestamp)
     }
 
