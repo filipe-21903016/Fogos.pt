@@ -50,8 +50,6 @@ class FireRegistrationFragment : Fragment() {
         ).also {
                 arrayAdapter -> arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             binding.spinnerDistrito.adapter = arrayAdapter
-            val answer: String = SimpleDateFormat("dd-MM-yyyy - hh:mm").format(Date())
-            binding.tvDateTime.text =  answer
         }
 
 
