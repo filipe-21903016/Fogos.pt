@@ -83,11 +83,11 @@ class FireListFragment : Fragment() {
     {
         if (show)
         {
-            binding.tvErrorMessage?.visibility = View.GONE
+            binding.tvErrorMessage.visibility = View.GONE
             binding.rvFires.visibility = View.VISIBLE
         } else {
             binding.rvFires.visibility = View.GONE
-            binding.tvErrorMessage?.visibility = View.VISIBLE
+            binding.tvErrorMessage.visibility = View.VISIBLE
         }
     }
 }

@@ -6,6 +6,12 @@
     tools:context=".FireListFragment"
     android:background="@color/white">
 
+    <TextView
+        android:id="@+id/tv_error_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/no_fires"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_fires"
         android:layout_width="match_parent"

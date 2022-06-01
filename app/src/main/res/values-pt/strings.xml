@@ -45,7 +45,7 @@
     <string name="totalResources">Total de Meios Usados:</string>
     <string name="totalFires">Número Total de Fogos:</string>
     <string name="fire_details">Detalhes Fogo</string>
-    <string name="loading">A carregar</string>
+    <string name="no_fires">Não existem fogos ativos</string>
     <string name="filters">Filtros</string>
     <!--filters-->
     <string name="radius">Raio</string>

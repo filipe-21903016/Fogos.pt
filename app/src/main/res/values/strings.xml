@@ -45,7 +45,7 @@
     <string name="totalResources">Total Used Resources:</string>
     <string name="totalFires">Total Number of Fires:</string>
     <string name="fire_details">Fire Details</string>
-    <string name="loading">Loading</string>
+    <string name="no_fires">No active fires</string>
     <string name="filters">Filters</string>
     <!--filters-->
     <string name="radius">Radius</string>

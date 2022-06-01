@@ -9,14 +9,15 @@
 
     <TextView
         android:id="@+id/tv_error_message"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/loading"/>
+        android:text="@string/no_fires"
+        android:textSize="24sp"
+        android:layout_gravity="center"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_fires"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/item_fire"
-        android:layout_marginTop="70dp"/>
+        tools:listitem="@layout/item_fire" />
 </FrameLayout>
