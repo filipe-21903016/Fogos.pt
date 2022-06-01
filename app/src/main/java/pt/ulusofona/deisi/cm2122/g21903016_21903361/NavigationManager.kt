@@ -41,4 +41,8 @@ object NavigationManager {
         placeFragment(supportFragmentManager, FireRegistrationFragment())
     }
 
+    fun goToFilterFragment(supportFragmentManager: FragmentManager) {
+        placeFragment(supportFragmentManager, FiltersFragment())
+    }
+
 }

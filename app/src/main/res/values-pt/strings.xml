@@ -47,4 +47,6 @@
     <string name="fire_details">Detalhes Fogo</string>
     <string name="loading">A carregar</string>
     <string name="filters">Filtros</string>
+    <!--filters-->
+    <string name="radius">Raio</string>
 </resources>
