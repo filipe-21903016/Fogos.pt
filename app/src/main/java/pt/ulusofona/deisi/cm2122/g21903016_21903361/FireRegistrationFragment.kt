@@ -7,6 +7,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
@@ -20,6 +21,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.databinding.FragmentFireRegistrationBinding
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.viewmodels.FireViewModel
+import java.io.ByteArrayOutputStream
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -28,7 +30,7 @@ class FireRegistrationFragment : Fragment() {
     private val REQUEST_IMAGE_CAPTURE = 1
     private lateinit var binding: FragmentFireRegistrationBinding
     private lateinit var viewModel: FireViewModel
-    private var imageBitmap: Bitmap? = null
+    private var image: ByteArray? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -64,7 +66,7 @@ class FireRegistrationFragment : Fragment() {
             binding.etCc.hideKeyboard()
             if (isAlpha(binding.etNome.text.toString()) && !binding.etCc.text.isNullOrEmpty())
             {
-                viewModel.onNewRegistration(name, cc, district, imageBitmap)
+                viewModel.onNewRegistration(name, cc, district, image)
                 NavigationManager.goToFireListFragment(parentFragmentManager)
             }
 
@@ -83,8 +85,11 @@ class FireRegistrationFragment : Fragment() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK)
         {
-            imageBitmap = data?.extras?.get("data") as Bitmap
-            binding.ivPicture.setImageBitmap(imageBitmap)
+            val bitmap = data?.extras?.get("data") as Bitmap
+            val baos = ByteArrayOutputStream()
+            bitmap.compress(Bitmap.CompressFormat.PNG,100, baos)
+            image = baos.toByteArray()
+            binding.ivPicture.setImageBitmap(bitmap)
         }
     }
 

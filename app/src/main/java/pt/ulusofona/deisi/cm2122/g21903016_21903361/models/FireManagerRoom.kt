@@ -1,9 +1,9 @@
 package pt.ulusofona.deisi.cm2122.g21903016_21903361.models
 
-import android.util.Base64
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import org.apache.commons.codec.binary.Base64
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.FireUi
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.interfaces.FireDao
 
@@ -22,17 +22,13 @@ class FireManagerRoom(private val dao: FireDao) : FireManager() {
             veiculos = fireUi.veiculos,
             observacoes = fireUi.observacoes,
             timestamp = fireUi.timestamp,
-            picture = null,
+            picture = if (fireUi.picture != null) Base64().encode(fireUi.picture)
+                .toString(Charsets.UTF_8) else null,
             lat = fireUi.lat,
             lng = fireUi.lng,
             statusColor = fireUi.statusColor
         )
         CoroutineScope(Dispatchers.IO).launch {
-            if (fireUi.picture != null) {
-                val pictureEncoded =
-                    Base64.encode(fireUi.picture, Base64.DEFAULT).toString(Charsets.UTF_8)
-                fire.picture = pictureEncoded
-            }
             dao.insert(fire)
             onFinished()
         }
@@ -53,7 +49,8 @@ class FireManagerRoom(private val dao: FireDao) : FireManager() {
                     aereos = fireUi.aereos,
                     veiculos = fireUi.veiculos,
                     observacoes = fireUi.observacoes,
-                    picture = null, //TODO photo bitmap conversion
+                    picture = if (fireUi.picture != null) Base64().encode(fireUi.picture)
+                        .toString(Charsets.UTF_8) else null,
                     timestamp = fireUi.timestamp,
                     lat = fireUi.lat,
                     lng = fireUi.lng,
@@ -84,10 +81,9 @@ class FireManagerRoom(private val dao: FireDao) : FireManager() {
                         observacoes = it.observacoes,
                         timestamp = it.timestamp,
                         statusColor = it.statusColor,
-                        picture = if (it.picture != null) Base64.decode(
-                            it.picture,
-                            Base64.DEFAULT
-                        ) else null,
+                        picture = if (it.picture != null)
+                            Base64().decode(it.picture!!.toByteArray())
+                            else null,
                         lat = it.lat,
                         lng = it.lng
                     )
