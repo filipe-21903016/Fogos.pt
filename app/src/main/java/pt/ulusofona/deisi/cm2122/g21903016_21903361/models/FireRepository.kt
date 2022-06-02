@@ -31,9 +31,8 @@ class FireRepository(
         local.insertFire(fireUi, onFinished)
     }
 
-    fun getRiskForDistrict(district: String, onFinished: (String) -> Unit)
-    {
-        remote.getRiskForDistrict(district){
+    fun getRiskForDistrict(district: String, onFinished: (String) -> Unit) {
+        remote.getRiskForDistrict(district) {
             onFinished(it)
         }
     }

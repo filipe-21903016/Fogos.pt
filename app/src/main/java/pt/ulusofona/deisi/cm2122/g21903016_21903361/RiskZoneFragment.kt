@@ -10,12 +10,13 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.databinding.FragmentRiskZoneBinding
+import pt.ulusofona.deisi.cm2122.g21903016_21903361.interfaces.OnBatteryCurrentListener
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.interfaces.OnLocationChangedListener
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.viewmodels.FireViewModel
 import java.util.*
 import kotlin.concurrent.timerTask
 
-class RiskZoneFragment : Fragment(), OnLocationChangedListener{
+class RiskZoneFragment : Fragment(), OnLocationChangedListener, OnBatteryCurrentListener{
     private lateinit var binding: FragmentRiskZoneBinding
     private lateinit var viewModel: FireViewModel
     private var risk: String = "Não disponível"
@@ -37,6 +38,7 @@ class RiskZoneFragment : Fragment(), OnLocationChangedListener{
     override fun onStart() {
         super.onStart()
         FusedLocation.registerListener(this)
+        Battery.registerListener(this)
         timer.scheduleAtFixedRate(
             timerTask {
                 updateRisk()
@@ -61,6 +63,15 @@ class RiskZoneFragment : Fragment(), OnLocationChangedListener{
         val district = viewModel.getDistrictByLatLng(latitude,longitude)
         viewModel.onGetRisk(district){
             risk = it
+        }
+    }
+
+    override fun onCapacityChanged(capacity: Int) {
+        if (capacity <= 20) {
+            binding.textViewRisk.setBackgroundResource(R.color.darkGray)
+        }
+        else {
+            binding.textViewRisk.setBackgroundResource(R.drawable.gradient)
         }
     }
 }

@@ -30,7 +30,7 @@
         <entry key="app/src/main/res/layout-land/fragment_risk_zone.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.22056159420289856" />
         <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_filters.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_filters.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_fire_details.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_fire_list.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_fire_map.xml" value="0.25" />

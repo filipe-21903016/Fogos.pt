@@ -12,5 +12,6 @@ class FireApplication: Application() {
             FireManagerRetrofit(RetrofitBuilder.getInstance("https://api-dev.fogos.pt"))
         )
         FusedLocation.start(this)
+        Battery.start(this)
     }
 }

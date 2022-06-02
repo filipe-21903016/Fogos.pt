@@ -54,7 +54,7 @@ class FireListAdapter(
             val i = words.indexOf(it)
             if (i == words.size - 1)
                 trimmedName.append(it)
-            else if (it.uppercase() != "DA" && it.uppercase() != "DO")
+            else if (it.uppercase() != "DA" && it.uppercase() != "DO" && it.uppercase() != "DE")
                 trimmedName.append("${it[0]}. ")
         }
         return trimmedName.toString()

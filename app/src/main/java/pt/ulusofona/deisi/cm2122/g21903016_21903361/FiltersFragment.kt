@@ -39,7 +39,7 @@ class FiltersFragment() : Fragment() {
     }
 
     override fun onStart() {
-        val seekbar_radius = 0
+        var seekbar_radius = 0
 
         super.onStart()
         ArrayAdapter.createFromResource(
@@ -50,16 +50,27 @@ class FiltersFragment() : Fragment() {
             arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             binding.spinnerDistrito.adapter = arrayAdapter
         }
-        setupSeekbar()
+        if (Filter.districtFilterIsSet())
+        {
+            val districts = context?.resources?.getStringArray(R.array.distritos_com_none)
+            binding.spinnerDistrito.setSelection(districts?.indexOf(Filter.district)?:0)
+        }
 
+        setupSeekbar{
+            seekbar_radius = it
+        }
 
-
+        binding.btClearFilters.setOnClickListener {
+            binding.seekbar.progress = 0
+            binding.spinnerDistrito.setSelection(0)
+            Filter.reset()
+            NavigationManager.goToFireListFragment(parentFragmentManager)
+        }
 
         binding.btSubmit.setOnClickListener {
-
-
             Filter.district = if (binding.spinnerDistrito.selectedItem.toString() == "----") ""
             else binding.spinnerDistrito.selectedItem.toString()
+            Filter.radius = seekbar_radius
             NavigationManager.goToFireListFragment(parentFragmentManager)
         }
     }
@@ -75,11 +86,12 @@ class FiltersFragment() : Fragment() {
         requireActivity().requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_FULL_SENSOR
     }
 
-    private fun setupSeekbar() {
+    private fun setupSeekbar(onStop:(Int)->Unit) {
         val step = 10
         val seek = binding.seekbar
         seek.max = 300 / step
-        seek.progress = 150 / step
+        seek.progress = if (Filter.radiusFilterIsSet()) Filter.radius / step else 0
+        var cProgress = 0
 
         seek.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(
@@ -87,13 +99,14 @@ class FiltersFragment() : Fragment() {
                 progress: Int,
                 fromUser: Boolean
             ) {
-
+                cProgress = progress * step
+                binding.progressValue.text = "${getString(R.string.radius)}: ${(cProgress)}km"
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {}
 
             override fun onStopTrackingTouch(seekBar: SeekBar?) {
-
+                onStop(cProgress)
             }
         })
     }

@@ -1,16 +1,12 @@
 package pt.ulusofona.deisi.cm2122.g21903016_21903361
 
 import android.content.Context
-import android.content.IntentSender
+import android.location.Location
 import android.os.Bundle
-import android.service.autofill.FillResponse
-import android.text.Editable
-import android.text.TextWatcher
+import android.util.Log
 import android.view.*
-import android.widget.ArrayAdapter
-import android.widget.EditText
-import androidx.fragment.app.Fragment
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.coroutines.CoroutineScope
@@ -18,13 +14,18 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.adapters.FireListAdapter
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.databinding.FragmentFireListBinding
+import pt.ulusofona.deisi.cm2122.g21903016_21903361.interfaces.OnLocationChangedListener
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.models.Filter
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.viewmodels.FireViewModel
+import kotlin.math.acos
+import kotlin.math.cos
+import kotlin.math.sin
 
-class FireListFragment : Fragment() {
+class FireListFragment : Fragment(), OnLocationChangedListener {
     private lateinit var binding: FragmentFireListBinding
     private lateinit var viewModel: FireViewModel
     private var adapter = FireListAdapter(::onFireClick)
+    private val TAG = FireListFragment::class.java.simpleName
 
 
     override fun onCreateView(
@@ -52,14 +53,18 @@ class FireListFragment : Fragment() {
         super.onStart()
         binding.rvFires.layoutManager = LinearLayoutManager(activity as Context)
         binding.rvFires.adapter = adapter
-        if (Filter.isSet()) {
-            viewModel.onGetFires {
-                val fires = it.filter { it.district == Filter.district }
-                updateFires(fires)
-            }
-        } else {
-            viewModel.onGetFires { updateFires(it) }
+        FusedLocation.registerListener(this)
+
+        viewModel.onGetFires {
+            val d = filterByDistrict(it)
+            updateFires(filterByRadius(d, lat, lng))
         }
+    }
+
+    override fun onLocationChanged(latitude: Double, longitude: Double) {
+        lat = latitude
+        lng = longitude
+        Log.i(TAG, "OnLocationChanged: Companion $lat,$lng")
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean = when (item.itemId) {
@@ -93,5 +98,42 @@ class FireListFragment : Fragment() {
             binding.rvFires.visibility = View.GONE
             binding.tvErrorMessage.visibility = View.VISIBLE
         }
+    }
+
+    private fun distance(lat1: Double, lon1: Double, lat2: Double, lon2: Double): Double {
+        val results = FloatArray(10)
+        Location.distanceBetween(lat1, lon1, lat2, lon2, results)
+        return results[0].toDouble()
+    }
+
+    private fun filterByDistrict(fires: List<FireUi>): List<FireUi> {
+        if (Filter.districtFilterIsSet()) {
+            return fires.filter {
+                it.district
+                    .lowercase()
+                    .replace("ç", "c")
+                    .replace("é", "e") == Filter.district.lowercase()
+            }
+        }
+        return fires
+    }
+
+    private fun filterByRadius(
+        fires: List<FireUi>,
+        latitude: Double?,
+        longitude: Double?
+    ): List<FireUi> {
+        if (Filter.radiusFilterIsSet() && latitude != null && longitude != null) {
+            val filtered =  fires.filter { f ->
+                distance(latitude, longitude, f.lat, f.lng) <= Filter.radius * 1000
+            }
+            return filtered
+        }
+        return fires
+    }
+
+    companion object {
+        var lat: Double? = null
+        var lng: Double? = null
     }
 }

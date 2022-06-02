@@ -51,4 +51,5 @@
     <!--filters-->
     <string name="radius">Raio</string>
     <string name="apply">Aplicar</string>
+    <string name="clear_filters">Limpar</string>
 </resources>
