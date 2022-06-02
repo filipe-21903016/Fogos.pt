@@ -18,7 +18,7 @@ import kotlin.concurrent.timerTask
 class RiskZoneFragment : Fragment(), OnLocationChangedListener{
     private lateinit var binding: FragmentRiskZoneBinding
     private lateinit var viewModel: FireViewModel
-    private var risk: String = "Máximo"
+    private var risk: String = "Não disponível"
 
     private var timer = Timer()
 
@@ -54,6 +54,7 @@ class RiskZoneFragment : Fragment(), OnLocationChangedListener{
     override fun onDestroy() {
         super.onDestroy()
         timer.cancel()
+        FusedLocation.unregisterListener(this)
     }
 
     override fun onLocationChanged(latitude: Double, longitude: Double) {

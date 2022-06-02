@@ -11,7 +11,7 @@ import pt.ulusofona.deisi.cm2122.g21903016_21903361.interfaces.FireResponse
 import retrofit2.HttpException
 import retrofit2.Retrofit
 
-class FireManagerRetrofit(retrofit: Retrofit): FireManager() {
+class FireManagerRetrofit(retrofit: Retrofit) : FireManager() {
     private val TAG = FireManagerRetrofit::class.java.simpleName
     private val service = retrofit.create(FireManagerService::class.java)
 
@@ -37,8 +37,7 @@ class FireManagerRetrofit(retrofit: Retrofit): FireManager() {
                         lng = it.lng
                     )
                 })
-            } catch (ex: HttpException)
-            {
+            } catch (ex: HttpException) {
                 Log.e(TAG, ex.message())
             }
         }
@@ -48,11 +47,16 @@ class FireManagerRetrofit(retrofit: Retrofit): FireManager() {
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 val response = service.getRiskForDistrict(district)
-                val risk = response.data.split("\r\n").get(1).split("-").get(1).trim().replace(",","")
+                val risk =
+                    response.data.split("\r\n").get(1).split("-").get(1).trim().replace(",", "")
                 Log.e(TAG, "Risk in $district: $risk")
                 onFinished(risk)
-            }catch (ex: HttpException){
+            } catch (ex: HttpException) {
+                onFinished("Não disponível")
                 Log.e(TAG, ex.message())
+            } catch (ex: IndexOutOfBoundsException){
+                onFinished("Não disponível")
+                Log.e(TAG, "Risk for $district not found")
             }
         }
     }
