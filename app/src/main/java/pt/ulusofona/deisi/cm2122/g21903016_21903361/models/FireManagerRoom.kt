@@ -1,5 +1,6 @@
 package pt.ulusofona.deisi.cm2122.g21903016_21903361.models
 
+import android.util.Base64
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -8,7 +9,7 @@ import pt.ulusofona.deisi.cm2122.g21903016_21903361.interfaces.FireDao
 
 class FireManagerRoom(private val dao: FireDao) : FireManager() {
     override fun insertFire(fireUi: FireUi, onFinished: () -> Unit) {
-        val fire = FireRoom(
+        var fire = FireRoom(
             id = fireUi.id,
             name = fireUi.name,
             cc = fireUi.cc,
@@ -22,12 +23,16 @@ class FireManagerRoom(private val dao: FireDao) : FireManager() {
             observacoes = fireUi.observacoes,
             timestamp = fireUi.timestamp,
             picture = null,
-            //TODO photo bitmap conversion
             lat = fireUi.lat,
             lng = fireUi.lng,
             statusColor = fireUi.statusColor
         )
         CoroutineScope(Dispatchers.IO).launch {
+            if (fireUi.picture != null) {
+                val pictureEncoded =
+                    Base64.encode(fireUi.picture, Base64.DEFAULT).toString(Charsets.UTF_8)
+                fire.picture = pictureEncoded
+            }
             dao.insert(fire)
             onFinished()
         }
@@ -79,7 +84,10 @@ class FireManagerRoom(private val dao: FireDao) : FireManager() {
                         observacoes = it.observacoes,
                         timestamp = it.timestamp,
                         statusColor = it.statusColor,
-                        picture = null, //TODO CHANGE
+                        picture = if (it.picture != null) Base64.decode(
+                            it.picture,
+                            Base64.DEFAULT
+                        ) else null,
                         lat = it.lat,
                         lng = it.lng
                     )

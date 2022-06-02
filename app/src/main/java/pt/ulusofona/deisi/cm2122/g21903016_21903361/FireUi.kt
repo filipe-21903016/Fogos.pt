@@ -22,7 +22,7 @@ class FireUi(
     val veiculos: Int = 0,
     val observacoes: String? = null,
     val statusColor: String = "848484",
-    val picture: Bitmap? = null,
+    val picture: ByteArray? = null,
     val lat:Double,
     val lng:Double
 ) : Parcelable {

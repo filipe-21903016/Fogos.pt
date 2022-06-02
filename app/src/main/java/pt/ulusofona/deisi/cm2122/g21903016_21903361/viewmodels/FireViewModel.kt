@@ -21,7 +21,7 @@ class FireViewModel(application: Application) : AndroidViewModel(application) {
         model.getAllFires(onFinished)
     }
 
-    fun onNewRegistration(name: String, cc: String, district: String, picture: Bitmap?) {
+    fun onNewRegistration(name: String, cc: String, district: String, picture: ByteArray?) {
         val districtEnum = District.valueOf(
             district.uppercase().replace(" ", "_")
         )
@@ -31,7 +31,7 @@ class FireViewModel(application: Application) : AndroidViewModel(application) {
             cc = cc,
             district = district,
             timestamp = System.currentTimeMillis(),
-            picture = null,
+            picture = picture,
             lat = districtEnum.lat,
             lng = districtEnum.lng,
             concelho = district,
