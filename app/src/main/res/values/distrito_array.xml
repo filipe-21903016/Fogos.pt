@@ -20,4 +20,26 @@
         <item>Vila Real</item>
         <item>Viseu</item>
     </string-array>
+
+    <string-array name="distritos_com_none">
+        <item>----</item>
+        <item>Aveiro</item>
+        <item>Beja</item>
+        <item>Braga</item>
+        <item>Braganca</item>
+        <item>Castelo Branco</item>
+        <item>Coimbra</item>
+        <item>Evora</item>
+        <item>Faro</item>
+        <item>Guarda</item>
+        <item>Leiria</item>
+        <item>Lisboa</item>
+        <item>Portalegre</item>
+        <item>Porto</item>
+        <item>Santarem</item>
+        <item>Setubal</item>
+        <item>Viana do Castelo</item>
+        <item>Vila Real</item>
+        <item>Viseu</item>
+    </string-array>
 </resources>

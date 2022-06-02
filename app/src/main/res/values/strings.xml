@@ -50,5 +50,7 @@
     <string name="filters">Filters</string>
     <!--filters-->
     <string name="radius">Radius</string>
+    <string name="apply">Apply</string>
+
 
 </resources>

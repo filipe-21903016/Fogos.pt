@@ -3,6 +3,7 @@ package pt.ulusofona.deisi.cm2122.g21903016_21903361
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModel
+import pt.ulusofona.deisi.cm2122.g21903016_21903361.models.Filter
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.viewmodels.FireViewModel
 import javax.sql.DataSource
 

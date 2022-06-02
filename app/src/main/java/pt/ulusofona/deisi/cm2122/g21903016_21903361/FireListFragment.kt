@@ -1,6 +1,7 @@
 package pt.ulusofona.deisi.cm2122.g21903016_21903361
 
 import android.content.Context
+import android.content.IntentSender
 import android.os.Bundle
 import android.service.autofill.FillResponse
 import android.text.Editable
@@ -17,13 +18,13 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.adapters.FireListAdapter
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.databinding.FragmentFireListBinding
+import pt.ulusofona.deisi.cm2122.g21903016_21903361.models.Filter
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.viewmodels.FireViewModel
 
 class FireListFragment : Fragment() {
     private lateinit var binding: FragmentFireListBinding
-    private lateinit var viewModel : FireViewModel
+    private lateinit var viewModel: FireViewModel
     private var adapter = FireListAdapter(::onFireClick)
-
 
 
     override fun onCreateView(
@@ -31,15 +32,14 @@ class FireListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         //set screen name
-        (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.fire_list)
+        (requireActivity() as AppCompatActivity).supportActionBar?.title =
+            getString(R.string.fire_list)
 
         // Inflate the layout for this fragment
-        val view =  inflater.inflate(R.layout.fragment_fire_list, container, false)
+        val view = inflater.inflate(R.layout.fragment_fire_list, container, false)
         viewModel = ViewModelProvider(this).get(FireViewModel::class.java)
         binding = FragmentFireListBinding.bind(view)
         setHasOptionsMenu(true)
-
-
         return binding.root
     }
 
@@ -52,7 +52,14 @@ class FireListFragment : Fragment() {
         super.onStart()
         binding.rvFires.layoutManager = LinearLayoutManager(activity as Context)
         binding.rvFires.adapter = adapter
-        viewModel.onGetFires { updateFires(it) }
+        if (Filter.isSet()) {
+            viewModel.onGetFires {
+                val fires = it.filter { it.district == Filter.district }
+                updateFires(fires)
+            }
+        } else {
+            viewModel.onGetFires { updateFires(it) }
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean = when (item.itemId) {
@@ -65,7 +72,7 @@ class FireListFragment : Fragment() {
         }
     }
 
-    private fun onFireClick(fireUi: FireUi){
+    private fun onFireClick(fireUi: FireUi) {
         NavigationManager.goToFireDetails(parentFragmentManager, fireUi)
     }
 
@@ -78,10 +85,8 @@ class FireListFragment : Fragment() {
         }
     }
 
-    private fun showFires(show: Boolean)
-    {
-        if (show)
-        {
+    private fun showFires(show: Boolean) {
+        if (show) {
             binding.tvErrorMessage.visibility = View.GONE
             binding.rvFires.visibility = View.VISIBLE
         } else {

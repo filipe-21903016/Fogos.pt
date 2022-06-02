@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.pm.ActivityInfo
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,21 +14,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.databinding.FragmentFiltersBinding
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.databinding.FragmentFireRegistrationBinding
+import pt.ulusofona.deisi.cm2122.g21903016_21903361.models.Filter
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.viewmodels.FireViewModel
 import java.text.SimpleDateFormat
 import java.util.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [FiltersFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class FiltersFragment : Fragment() {
+class FiltersFragment(): Fragment() {
+    private val TAG = FiltersFragment::class.java.simpleName
     private lateinit var binding: FragmentFiltersBinding
     private lateinit var viewModel: FireViewModel
 
@@ -36,7 +29,8 @@ class FiltersFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.filters)
+        (requireActivity() as AppCompatActivity).supportActionBar?.title =
+            getString(R.string.filters)
         viewModel = ViewModelProvider(this).get(FireViewModel::class.java)
         val view = inflater.inflate(R.layout.fragment_filters, container, false)
         binding = FragmentFiltersBinding.bind(view)
@@ -46,18 +40,21 @@ class FiltersFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-
         ArrayAdapter.createFromResource(
             activity as Context,
-            R.array.distritos,
+            R.array.distritos_com_none,
             android.R.layout.simple_spinner_item
-        ).also {
-                arrayAdapter -> arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        ).also { arrayAdapter ->
+            arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             binding.spinnerDistrito.adapter = arrayAdapter
         }
 
+        binding.btSubmit.setOnClickListener {
+            Filter.district = if (binding.spinnerDistrito.selectedItem.toString() == "----") ""
+                else binding.spinnerDistrito.selectedItem.toString()
+            NavigationManager.goToFireListFragment(parentFragmentManager)
+        }
     }
-
 
     @SuppressLint("SourceLockedOrientationActivity")
     override fun onResume() {
@@ -69,4 +66,5 @@ class FiltersFragment : Fragment() {
         super.onPause()
         requireActivity().requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_FULL_SENSOR
     }
+
 }
