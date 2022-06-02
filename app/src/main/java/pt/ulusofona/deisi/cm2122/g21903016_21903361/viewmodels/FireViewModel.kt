@@ -3,9 +3,11 @@ package pt.ulusofona.deisi.cm2122.g21903016_21903361.viewmodels
 import android.app.Application
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.location.Geocoder
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
+import com.google.android.gms.location.Geofence
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.FireUi
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.models.*
 import java.io.ByteArrayOutputStream
@@ -46,6 +48,19 @@ class FireViewModel(application: Application) : AndroidViewModel(application) {
                    fireUi -> fireUi.lat == latitute && fireUi.lng == longitude
            }
             onFinished(selectedFire)
+        }
+    }
+
+    fun getDistrictByLatLng(latitute: Double, longitude: Double): String
+    {
+        val geocoder = Geocoder(this.getApplication(), Locale.getDefault())
+        val address = geocoder.getFromLocation(latitute,longitude,1).first()
+        return address.adminArea.removeSuffix("District")
+    }
+
+    fun onGetRisk(district: String, onFinished:(String) -> Unit){
+        model.getRiskForDistrict(if (district == "Lisbon") "Lisboa" else district){
+            onFinished(it)
         }
     }
 }

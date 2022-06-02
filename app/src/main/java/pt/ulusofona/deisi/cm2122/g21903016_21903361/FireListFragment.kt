@@ -22,7 +22,6 @@ import pt.ulusofona.deisi.cm2122.g21903016_21903361.viewmodels.FireViewModel
 class FireListFragment : Fragment() {
     private lateinit var binding: FragmentFireListBinding
     private lateinit var viewModel : FireViewModel
-
     private var adapter = FireListAdapter(::onFireClick)
 
 

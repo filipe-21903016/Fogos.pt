@@ -95,4 +95,9 @@ class FireManagerRoom(private val dao: FireDao) : FireManager() {
         }
     }
 
+    override fun getRiskForDistrict(district: String, onFinished: (String) -> Unit) {
+        throw NotImplementedError()
+    }
+
+
 }

@@ -1,6 +1,7 @@
 package pt.ulusofona.deisi.cm2122.g21903016_21903361.interfaces
 
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 class DateTimeResponse(val sec: Int)
 
@@ -8,6 +9,8 @@ data class GetActiveFiresResponse(
     val sucess: Boolean,
     val data: List<FireResponse>
 )
+
+data class RiskResponse(val sucess: Boolean, val data: String)
 
 class FireResponse(
     val id: String,
@@ -29,4 +32,7 @@ class FireResponse(
 interface FireManagerService {
     @GET("new/fires")
     suspend fun getActiveFires(): GetActiveFiresResponse
+
+    @GET("v1/risk")
+    suspend fun getRiskForDistrict(@Query(value = "concelho", encoded = true) concelho: String) : RiskResponse
 }

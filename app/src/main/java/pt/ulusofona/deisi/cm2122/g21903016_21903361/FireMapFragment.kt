@@ -6,8 +6,10 @@ import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
+import android.location.Address
 import android.location.Geocoder
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -33,6 +35,7 @@ import java.util.*
 
 class FireMapFragment : Fragment(), OnLocationChangedListener, GoogleMap.OnMarkerClickListener,
     OnMapReadyCallback {
+    private var TAG = FireMapFragment::class.java.simpleName
     private lateinit var viewModel: FireViewModel
     private lateinit var binding: FragmentFireMapBinding
     private lateinit var geocoder: Geocoder
@@ -72,6 +75,7 @@ class FireMapFragment : Fragment(), OnLocationChangedListener, GoogleMap.OnMarke
     }
 
     override fun onLocationChanged(latitude: Double, longitude: Double) {
+        Log.wtf(TAG, viewModel.getDistrictByLatLng(latitude, longitude))
         placeCamera(latitude, longitude)
     }
 
