@@ -49,7 +49,7 @@ class FireManagerRetrofit(retrofit: Retrofit) : FireManager() {
                 val response = service.getRiskForDistrict(district)
                 val risk =
                     response.data.split("\r\n").get(1).split("-").get(1).trim().replace(",", "")
-                Log.e(TAG, "Risk in $district: $risk")
+                Log.i(TAG, "Risk in $district: $risk")
                 onFinished(risk)
             } catch (ex: HttpException) {
                 onFinished("Não disponível")

@@ -29,7 +29,7 @@ class FireListAdapter(
             onClick(items[position])
         }
         val district = items[position].district
-        val concelho = items[position].concelho
+        val concelho = items[position].concelho ?: items[position].missingInfoString()
 
         holder.binding.distritoFreguesia.text = "${trimLocationName(district)}, ${trimLocationName(concelho)}"
         holder.binding.datetime.text =  items[position].getDateTime()
@@ -55,7 +55,7 @@ class FireListAdapter(
             if (i == words.size - 1)
                 trimmedName.append(it)
             else if (it.uppercase() != "DA" && it.uppercase() != "DO")
-                trimmedName.append("${it[i]}. ")
+                trimmedName.append("${it[0]}. ")
         }
         return trimmedName.toString()
     }

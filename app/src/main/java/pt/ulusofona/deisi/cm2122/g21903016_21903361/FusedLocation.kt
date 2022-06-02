@@ -10,7 +10,7 @@ import pt.ulusofona.deisi.cm2122.g21903016_21903361.interfaces.OnLocationChanged
 @SuppressLint("MissingPermission")
 class FusedLocation private constructor(context: Context) : LocationCallback() {
     private val TAG = FusedLocation::class.java.simpleName
-    private val TIME_BETWEEN_UPDATES = 10 * 1000L
+    private val TIME_BETWEEN_UPDATES = 20 * 1000L
 
     @SuppressLint("VisibleForTests")
     private var client = FusedLocationProviderClient(context)

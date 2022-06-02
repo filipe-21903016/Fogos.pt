@@ -10,17 +10,17 @@ import java.util.*
 @Parcelize
 class FireUi(
     val id: String = UUID.randomUUID().toString(),
-    val name: String = "Informação não disponível",
-    val cc: String = "Informação não disponível",
-    val district: String = "Informação não disponível",
-    val freguesia: String = "Informação não disponível",
-    val concelho: String = "Informação não disponível",
-    val status: String = "Informação não disponível",
+    val name: String? = null,
+    val cc: String? = null,
+    val district: String,
+    val freguesia: String? = null,
+    val concelho: String? = null,
+    val status: String? = null,
     val timestamp: Long,
     val operacionais: Int = 0,
     val aereos: Int = 0,
     val veiculos: Int = 0,
-    val observacoes: String = "Informação não disponível",
+    val observacoes: String? = null,
     val statusColor: String = "848484",
     val picture: Bitmap? = null,
     val lat:Double,
@@ -34,4 +34,6 @@ class FireUi(
     override fun toString(): String {
         return id
     }
+
+    fun missingInfoString() = "Informação não disponível"
 }

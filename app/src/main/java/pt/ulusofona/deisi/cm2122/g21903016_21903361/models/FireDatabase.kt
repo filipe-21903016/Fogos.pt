@@ -7,7 +7,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.interfaces.FireDao
 
-@Database(entities = [FireRoom::class], version = 3)
+@Database(entities = [FireRoom::class], version = 4)
 abstract class FireDatabase : RoomDatabase() {
     abstract fun fireDao(): FireDao
 

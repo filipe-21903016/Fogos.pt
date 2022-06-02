@@ -16,7 +16,8 @@ class FireRepository(
             local.getAllFires { lFires ->
                 remote.getAllFires { rFires ->
                     local.deleteAllFires {
-                        val allFires = (lFires + rFires).distinctBy { it.id }.toList()
+                        //filter out previous remote fires
+                        val allFires = lFires.filter { it.cc != null } + rFires
                         local.insertFires(allFires, onFinished)
                     }
                 }
