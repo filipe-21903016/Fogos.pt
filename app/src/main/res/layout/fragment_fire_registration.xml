@@ -13,7 +13,7 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="20dp"
+            android:layout_height="10dp"
             />
 
         <TextView
@@ -37,7 +37,7 @@
                 android:id="@+id/et_nome"
                 android:hint="@string/name"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="50dp"
                 android:inputType="text"
                 />
         </com.google.android.material.textfield.TextInputLayout>
@@ -68,7 +68,7 @@
                 android:id="@+id/et_cc"
                 android:hint="@string/id_number"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="50dp"
                 android:inputType="number"
                 />
 
@@ -186,7 +186,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_observation"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="90dp"
                 android:inputType="text"
                 />
         </com.google.android.material.textfield.TextInputLayout>
@@ -198,7 +198,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center|bottom"
         android:layout_marginHorizontal="50dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="20dp"
         android:text="@string/submit"
         android:textColor="@color/white"
         app:icon="@drawable/ic_logo"
