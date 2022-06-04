@@ -10,7 +10,7 @@ import pt.ulusofona.deisi.cm2122.g21903016_21903361.interfaces.OnLocationChanged
 @SuppressLint("MissingPermission")
 class FusedLocation private constructor(context: Context) : LocationCallback() {
     private val TAG = FusedLocation::class.java.simpleName
-    private val TIME_BETWEEN_UPDATES = 20 * 1000L
+    private val TIME_BETWEEN_UPDATES = 5 * 1000L
 
     @SuppressLint("VisibleForTests")
     private var client = FusedLocationProviderClient(context)
@@ -22,6 +22,8 @@ class FusedLocation private constructor(context: Context) : LocationCallback() {
 
     override fun onLocationResult(locationResult: LocationResult) {
         Log.i(TAG, locationResult.lastLocation.toString())
+        lat = locationResult.lastLocation.latitude
+        lng = locationResult.lastLocation.longitude
         notifyListeners(locationResult)
     }
 
@@ -41,6 +43,8 @@ class FusedLocation private constructor(context: Context) : LocationCallback() {
     companion object {
         private var listeners: MutableList<OnLocationChangedListener> = mutableListOf()
         private var instance: FusedLocation? = null
+        var lat: Double? = null
+        var lng: Double? = null
 
         fun registerListener(listener: OnLocationChangedListener) {
             Log.i(FusedLocation::class.java.simpleName, "Listener Registered")

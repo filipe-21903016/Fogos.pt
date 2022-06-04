@@ -21,7 +21,7 @@ import kotlin.math.acos
 import kotlin.math.cos
 import kotlin.math.sin
 
-class FireListFragment : Fragment(), OnLocationChangedListener {
+class FireListFragment : Fragment(){
     private lateinit var binding: FragmentFireListBinding
     private lateinit var viewModel: FireViewModel
     private var adapter = FireListAdapter(::onFireClick)
@@ -53,18 +53,11 @@ class FireListFragment : Fragment(), OnLocationChangedListener {
         super.onStart()
         binding.rvFires.layoutManager = LinearLayoutManager(activity as Context)
         binding.rvFires.adapter = adapter
-        FusedLocation.registerListener(this)
 
         viewModel.onGetFires {
             val d = filterByDistrict(it)
-            updateFires(filterByRadius(d, lat, lng))
+            updateFires(filterByRadius(d, FusedLocation.lat, FusedLocation.lng))
         }
-    }
-
-    override fun onLocationChanged(latitude: Double, longitude: Double) {
-        lat = latitude
-        lng = longitude
-        Log.i(TAG, "OnLocationChanged: Companion $lat,$lng")
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean = when (item.itemId) {
@@ -111,7 +104,7 @@ class FireListFragment : Fragment(), OnLocationChangedListener {
             return fires.filter {
                 it.district
                     .lowercase()
-                    .replace("ç", "c")
+                    .replace("ç", "c") //remove special chars from districts received from api
                     .replace("é", "e") == Filter.district.lowercase()
             }
         }
@@ -130,10 +123,5 @@ class FireListFragment : Fragment(), OnLocationChangedListener {
             return filtered
         }
         return fires
-    }
-
-    companion object {
-        var lat: Double? = null
-        var lng: Double? = null
     }
 }

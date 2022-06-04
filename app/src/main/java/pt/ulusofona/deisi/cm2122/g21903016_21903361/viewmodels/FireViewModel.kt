@@ -59,6 +59,7 @@ class FireViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun onGetRisk(district: String, onFinished:(String) -> Unit){
+        //Geocoder return "Lisboa" in english the other districts are in portuguese
         model.getRiskForDistrict(if (district == "Lisbon") "Lisboa" else district){
             onFinished(it)
         }
