@@ -140,19 +140,28 @@
                 android:id="@+id/tv_resources_aerial"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:drawablePadding="10dp"
+                app:drawableStartCompat="@drawable/ic_plane"
+                app:drawableTint="@color/black" />
 
             <TextView
                 android:id="@+id/tv_resources_terrain"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:drawablePadding="10dp"
+                app:drawableStartCompat="@drawable/ic_fire_truck"
+                app:drawableTint="@color/black" />
 
             <TextView
                 android:id="@+id/tv_resources_man"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:drawablePadding="10dp"
+                app:drawableStartCompat="@drawable/ic_man"
+                app:drawableTint="@color/black" />
             <!-- /Resources -->
 
             <Space

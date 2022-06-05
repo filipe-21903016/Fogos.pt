@@ -57,4 +57,5 @@
     <string name="report_datetime">Data/Hora de Relato</string>
     <string name="ups_something_went_wrong">Ups! Algo correu mal</string>
     <string name="last_updated">Atualizado às</string>
+    <string name="active_resources">Recursos Ativos</string>
 </resources>

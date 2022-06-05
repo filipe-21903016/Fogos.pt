@@ -35,7 +35,7 @@
         <entry key="app/src/main/res/layout-land/fragment_risk_zone.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.22056159420289856" />
         <entry key="app/src/main/res/layout/dropdown_item.xml" value="0.11481481481481481" />
-        <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_filters.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_fire_details.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_fire_list.xml" value="0.1" />
@@ -47,6 +47,8 @@
         <entry key="app/src/main/res/menu/drawer_menu.xml" value="0.3333333333333333" />
         <entry key="app/src/main/res/menu/filter_action_button.xml" value="0.33055555555555555" />
         <entry key="app/src/main/res/menu/filter_menu.xml" value="0.33055555555555555" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_app_logo.xml" value="0.19" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_app_logo_round.xml" value="0.2845" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_logo.xml" value="0.2405" />
         <entry key="app/src/main/res/xml/header.xml" value="0.2341485507246377" />
       </map>

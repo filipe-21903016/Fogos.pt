@@ -73,7 +73,7 @@ class FireMapFragment : Fragment(), OnLocationChangedListener, GoogleMap.OnMarke
     }
 
     override fun onLocationChanged(latitude: Double, longitude: Double) {
-        Log.wtf(TAG, viewModel.getDistrictByLatLng(latitude, longitude))
+        Log.wtf(TAG, FusedLocation.district)
         placeCamera(latitude, longitude)
     }
 

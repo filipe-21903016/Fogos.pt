@@ -58,7 +58,7 @@ class RiskZoneFragment : Fragment(), OnLocationChangedListener, OnBatteryCurrent
     }
 
     override fun onLocationChanged(latitude: Double, longitude: Double) {
-        val district = viewModel.getDistrictByLatLng(latitude,longitude)
+        val district = FusedLocation.district?:""
         viewModel.onGetRisk(district){
             risk = it
         }

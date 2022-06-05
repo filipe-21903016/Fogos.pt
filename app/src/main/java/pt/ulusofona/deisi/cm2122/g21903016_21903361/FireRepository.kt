@@ -2,6 +2,7 @@ package pt.ulusofona.deisi.cm2122.g21903016_21903361
 
 import android.annotation.SuppressLint
 import android.content.Context
+import pt.ulusofona.deisi.cm2122.g21903016_21903361.models.ActiveResources
 import java.lang.IllegalStateException
 
 class FireRepository(
@@ -33,6 +34,10 @@ class FireRepository(
         remote.getRiskForDistrict(district) {
             onFinished(it)
         }
+    }
+
+    fun getActiveResources(onFinished: (ActiveResources) -> Unit){
+        remote.getActiveResources { onFinished(it) }
     }
 
     companion object {

@@ -5,6 +5,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.interfaces.FireManagerService
+import pt.ulusofona.deisi.cm2122.g21903016_21903361.models.ActiveResources
 
 import retrofit2.HttpException
 import retrofit2.Retrofit
@@ -59,6 +60,19 @@ class FireManagerRetrofit(retrofit: Retrofit) : FireManager() {
         }
     }
 
+    override fun getActiveResources(onFinished: (ActiveResources) -> Unit) {
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val response = service.getActiveResourcesCount()
+                onFinished(
+                    response.data
+                )
+            } catch (ex: HttpException) {
+                Log.e(TAG, ex.message())
+            }
+        }
+    }
+
     override fun deleteAllFires(onFinished: () -> Unit) {
         throw NotImplementedError()
     }
@@ -70,4 +84,6 @@ class FireManagerRetrofit(retrofit: Retrofit) : FireManager() {
     override fun insertFires(firesUi: List<FireUi>, onFinished: (List<FireUi>) -> Unit) {
         throw NotImplementedError()
     }
+
+
 }

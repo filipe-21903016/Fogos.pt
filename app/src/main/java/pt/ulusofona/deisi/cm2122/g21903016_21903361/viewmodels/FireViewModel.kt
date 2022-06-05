@@ -7,6 +7,7 @@ import androidx.lifecycle.AndroidViewModel
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.District
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.FireRepository
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.FireUi
+import pt.ulusofona.deisi.cm2122.g21903016_21903361.models.ActiveResources
 import java.util.*
 
 class FireViewModel(application: Application) : AndroidViewModel(application) {
@@ -58,16 +59,14 @@ class FireViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    fun getDistrictByLatLng(latitute: Double, longitude: Double): String {
-        val geocoder = Geocoder(this.getApplication(), Locale.getDefault())
-        val address = geocoder.getFromLocation(latitute, longitude, 1).first()
-        return address.adminArea.removeSuffix("District")
-    }
-
     fun onGetRisk(district: String, onFinished: (String) -> Unit) {
         //Geocoder return "Lisboa" in english the other districts are in portuguese
-        model.getRiskForDistrict(if (district == "Lisbon") "Lisboa" else district) {
+        model.getRiskForDistrict(district) {
             onFinished(it)
         }
+    }
+
+    fun onGetActiveResources(onFinished: (ActiveResources) -> Unit){
+        model.getActiveResources(onFinished)
     }
 }

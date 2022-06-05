@@ -23,7 +23,6 @@ class FireDetailsFragment : Fragment(), OnMapReadyCallback {
     private lateinit var binding: FragmentFireDetailsBinding
     private var fireUi: FireUi? = null
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {

@@ -5,6 +5,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.apache.commons.codec.binary.Base64
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.interfaces.FireDao
+import pt.ulusofona.deisi.cm2122.g21903016_21903361.models.ActiveResources
 
 class FireManagerRoom(private val dao: FireDao) : FireManager() {
     override fun insertFire(fireUi: FireUi, onFinished: () -> Unit) {
@@ -102,6 +103,10 @@ class FireManagerRoom(private val dao: FireDao) : FireManager() {
     }
 
     override fun getRiskForDistrict(district: String, onFinished: (String) -> Unit) {
+        throw NotImplementedError()
+    }
+
+    override fun getActiveResources(onFinished: (ActiveResources) -> Unit) {
         throw NotImplementedError()
     }
 

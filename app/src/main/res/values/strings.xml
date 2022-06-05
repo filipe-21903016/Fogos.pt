@@ -57,6 +57,7 @@
     <string name="report_datetime">Date/Time of Report</string>
     <string name="ups_something_went_wrong">Ups! Something went wrong</string>
     <string name="last_updated">Last updated</string>
+    <string name="active_resources">Active Resources</string>
 
 
 </resources>

@@ -79,17 +79,44 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/totalResources"
+                    android:text="@string/active_resources"
                     android:textColor="@color/black"
                     android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:layout_margin="10dp"/>
 
                 <TextView
+                    android:id="@+id/tv_resources_aerial"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="17"
                     android:textColor="@color/black"
-                    android:textSize="14sp" />
+                    android:drawablePadding="10dp"
+                    app:drawableStartCompat="@drawable/ic_plane"
+                    app:drawableTint="@color/black"
+                    android:padding="5dp"
+                    android:text="5"/>
+
+                <TextView
+                    android:id="@+id/tv_resources_terrain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:drawablePadding="10dp"
+                    app:drawableStartCompat="@drawable/ic_fire_truck"
+                    app:drawableTint="@color/black"
+                    android:padding="5dp"
+                    android:text="0"/>
+
+                <TextView
+                    android:id="@+id/tv_resources_man"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:drawablePadding="10dp"
+                    app:drawableStartCompat="@drawable/ic_man"
+                    app:drawableTint="@color/black"
+                    android:padding="5dp"
+                    android:text="30"/>
 
 
             </LinearLayout>
@@ -116,6 +143,15 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
+                <!--
+                    <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_location"
+                    android:backgroundTint="@color/black"/>
+                -->
+
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -125,11 +161,14 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/tv_district"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Lisboa"
                     android:textColor="@color/black"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    android:padding="10dp"
+                    app:drawableStartCompat="@drawable/ic_location"
+                    app:drawableTint="@color/black" />
 
 
             </LinearLayout>
