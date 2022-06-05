@@ -13,6 +13,7 @@ import java.util.*
 class FireViewModel(application: Application) : AndroidViewModel(application) {
     private val model = FireRepository.getInstance()
     private val TAG = FireViewModel::class.java.simpleName
+    private var risk = "Não disponível"
 
     fun onGetFires(onFinished: (List<FireUi>) -> Unit) {
         model.getAllFires(onFinished)
@@ -77,4 +78,9 @@ class FireViewModel(application: Application) : AndroidViewModel(application) {
             onFinished(week,yesterday)
         }
     }
+    fun onUpdatedRisk(risk1: String) {
+        risk = risk1
+    }
+
+    fun onGetRisk() = risk
 }

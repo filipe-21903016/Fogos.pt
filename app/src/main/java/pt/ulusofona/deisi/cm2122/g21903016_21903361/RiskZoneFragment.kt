@@ -17,7 +17,6 @@ import kotlin.concurrent.timerTask
 class RiskZoneFragment : Fragment(), OnLocationChangedListener, OnBatteryCurrentListener{
     private lateinit var binding: FragmentRiskZoneBinding
     private lateinit var viewModel: FireViewModel
-    private var risk: String = "Não disponível"
 
     private var timer = Timer()
 
@@ -48,7 +47,7 @@ class RiskZoneFragment : Fragment(), OnLocationChangedListener, OnBatteryCurrent
 
     @SuppressLint("SetTextI18n")
     private fun updateRisk() {
-        binding.textViewRisk.text = "${getString(R.string.risk)}: $risk"
+        binding.textViewRisk.text = "${getString(R.string.risk)}: ${viewModel.onGetRisk()}"
     }
 
     override fun onDestroy() {
@@ -60,7 +59,7 @@ class RiskZoneFragment : Fragment(), OnLocationChangedListener, OnBatteryCurrent
     override fun onLocationChanged(latitude: Double, longitude: Double) {
         val district = FusedLocation.district?:""
         viewModel.onGetRisk(district){
-            risk = it
+            viewModel.onUpdatedRisk(it)
         }
     }
 
