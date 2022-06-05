@@ -60,6 +60,8 @@
     <string name="active_resources">Active Resources</string>
     <string name="last_7_days">Last 7 days</string>
     <string name="yesterday">Yesterday</string>
+    <string name="active_fires_in">Active Fires In</string>
+    <string name="_0">0</string>
 
 
 </resources>

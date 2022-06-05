@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.ListFragment
 import androidx.lifecycle.ViewModelProvider
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -19,16 +20,18 @@ import pt.ulusofona.deisi.cm2122.g21903016_21903361.interfaces.OnLocationChanged
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.viewmodels.FireViewModel
 
 
-class DashboardFragment : Fragment(), OnLocationChangedListener{
-    private lateinit var binding : FragmentDashboardBinding
+class DashboardFragment : Fragment(), OnLocationChangedListener {
+    private lateinit var binding: FragmentDashboardBinding
     private lateinit var viewModel: FireViewModel
+    private var fires: List<FireUi>? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         //set screen name
-        (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.dashboard)
+        (requireActivity() as AppCompatActivity).supportActionBar?.title =
+            getString(R.string.dashboard)
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_dashboard, container, false)
         binding = FragmentDashboardBinding.bind(view)
@@ -47,6 +50,10 @@ class DashboardFragment : Fragment(), OnLocationChangedListener{
             }
         }
 
+        viewModel.onGetFires {
+            fires = it
+        }
+
         viewModel.onGetWeekTotalFires { week, yesterday ->
             CoroutineScope(Dispatchers.Main).launch {
                 binding.tvYesterdayFires.text = yesterday.toString()
@@ -54,7 +61,7 @@ class DashboardFragment : Fragment(), OnLocationChangedListener{
             }
         }
 
-        binding.fabAddFire.setOnClickListener{
+        binding.fabAddFire.setOnClickListener {
             NavigationManager.goToFireRegistrationFragment(parentFragmentManager)
         }
     }
@@ -72,6 +79,17 @@ class DashboardFragment : Fragment(), OnLocationChangedListener{
 
     override fun onLocationChanged(latitude: Double, longitude: Double) {
         binding.tvDistrict.text = FusedLocation.district
+        binding.tvNFiresInDistrictLabel.text =
+            "${getString(R.string.active_fires_in)} ${FusedLocation.district}"
+
+        fires?.filter {
+            Filter.stripSpecialChars(it.district) == Filter.stripSpecialChars(FusedLocation.district)
+        }?.let {
+            CoroutineScope(Dispatchers.Main).launch {
+                binding.tvNumberFires.text = it?.count().toString()
+            }
+        }
+
     }
 
     override fun onDestroy() {

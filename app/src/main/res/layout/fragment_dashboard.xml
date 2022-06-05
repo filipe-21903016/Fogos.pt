@@ -18,6 +18,7 @@
         android:rowCount="3">
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cv_active_fires"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_row="0"
@@ -37,19 +38,22 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/tv_n_fires_in_district_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/burnt"
+                    android:text="@string/active_fires_in"
                     android:textColor="@color/black"
                     android:textSize="12sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:padding="10dp"/>
 
                 <TextView
+                    android:id="@+id/tv_number_fires"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="120"
-                    android:textColor="@color/black"
-                    android:textSize="12sp" />
+                    android:textColor="@color/gradient_right"
+                    android:textSize="15sp"
+                    android:text="@string/_0"/>
 
 
             </LinearLayout>
@@ -93,7 +97,9 @@
                     android:drawablePadding="10dp"
                     app:drawableStartCompat="@drawable/ic_plane"
                     app:drawableTint="@color/iconGray"
+                    android:textSize="15sp"
                     android:padding="5dp"
+                    android:text="@string/_0"
                     />
 
                 <TextView
@@ -104,7 +110,9 @@
                     android:drawablePadding="10dp"
                     app:drawableStartCompat="@drawable/ic_fire_truck"
                     app:drawableTint="@color/iconGray"
-                    android:padding="5dp" />
+                    android:textSize="15sp"
+                    android:padding="5dp"
+                    android:text="@string/_0"/>
 
                 <TextView
                     android:id="@+id/tv_resources_man"
@@ -114,7 +122,9 @@
                     android:drawablePadding="10dp"
                     app:drawableStartCompat="@drawable/ic_man"
                     app:drawableTint="@color/iconGray"
-                    android:padding="5dp" />
+                    android:textSize="15sp"
+                    android:padding="5dp"
+                    android:text="@string/_0"/>
 
 
             </LinearLayout>
@@ -166,6 +176,7 @@
                     android:padding="10dp"
                     android:gravity="center"
                     app:drawableStartCompat="@drawable/ic_location"
+                    android:textSize="15sp"
                     app:drawableTint="@color/iconGray" />
 
 
@@ -198,7 +209,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/totalFires"
                     android:textColor="@color/black"
-                    android:padding="10sp"
+                    android:padding="10dp"
                     android:textSize="12sp"
                     android:textStyle="bold" />
 
@@ -213,9 +224,9 @@
                     android:id="@+id/tv_yesterday_fires"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="120"
                     android:textColor="@color/gradient_right"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"
+                    android:text="@string/_0"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -227,9 +238,9 @@
                     android:id="@+id/tv_week_fires"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="96"
                     android:textColor="@color/gradient_right"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"
+                    android:text="@string/_0"/>
 
 
             </LinearLayout>

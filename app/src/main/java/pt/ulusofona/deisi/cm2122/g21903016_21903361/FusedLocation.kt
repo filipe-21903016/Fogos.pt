@@ -12,7 +12,7 @@ import java.util.*
 @SuppressLint("MissingPermission")
 class FusedLocation private constructor(context: Context) : LocationCallback() {
     private val TAG = FusedLocation::class.java.simpleName
-    private val TIME_BETWEEN_UPDATES = 5 * 1000L
+    private val TIME_BETWEEN_UPDATES = 10 * 1000L
     private val geocoder: Geocoder
 
     @SuppressLint("VisibleForTests")
@@ -25,14 +25,17 @@ class FusedLocation private constructor(context: Context) : LocationCallback() {
 
     fun getDistrictByLatLng(latitute: Double, longitude: Double): String {
         val address = geocoder.getFromLocation(latitute, longitude, 1).first()
-        return address.adminArea.removeSuffix("District").let { if (it == "Lisbon") "Lisboa" else it }
+        return address.adminArea.removeSuffix("district").let { if (it == "Lisbon") "Lisboa" else it }
     }
 
     override fun onLocationResult(locationResult: LocationResult) {
-        Log.i(TAG, locationResult.lastLocation.toString())
+        Log.i(TAG, "Got Location Result")
         lat = locationResult.lastLocation.latitude
         lng = locationResult.lastLocation.longitude
-        district = getDistrictByLatLng(lat!!, lng!!)
+        district = getDistrictByLatLng(lat, lng)
+        Log.i(TAG, district)
+
+        Log.i(TAG, "Will notify")
         notifyListeners(locationResult)
     }
 
@@ -53,9 +56,9 @@ class FusedLocation private constructor(context: Context) : LocationCallback() {
     companion object {
         private var listeners: MutableList<OnLocationChangedListener> = mutableListOf()
         private var instance: FusedLocation? = null
-        var lat: Double? = null
-        var lng: Double? = null
-        var district : String = ""
+        var lat: Double = District.LISBOA.lat
+        var lng: Double = District.LISBOA.lng
+        var district : String = "Lisboa"
 
 
         fun registerListener(listener: OnLocationChangedListener) {

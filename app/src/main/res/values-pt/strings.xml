@@ -60,4 +60,6 @@
     <string name="active_resources">Recursos Ativos</string>
     <string name="last_7_days">Últimos 7 dias</string>
     <string name="yesterday">Ontem</string>
+    <string name="active_fires_in">Fogos ativos em</string>
+    <string name="_0">0</string>
 </resources>

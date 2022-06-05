@@ -17,10 +17,7 @@ object Filter {
     fun filterByDistrict(fires: List<FireUi>): List<FireUi> {
         if (districtFilterIsSet()) {
             return fires.filter {
-                it.district
-                    .lowercase()
-                    .replace("ç", "c") //remove special chars from districts received from api
-                    .replace("é", "e") == Filter.district.lowercase()
+                stripSpecialChars(it.district) == district.lowercase()
             }
         }
         return fires
@@ -45,4 +42,13 @@ object Filter {
         Location.distanceBetween(lat1, lon1, lat2, lon2, results)
         return results[0].toDouble()
     }
+
+    fun setDistrictFilter(district: String) {
+        this.district = stripSpecialChars(district)
+    }
+
+    fun stripSpecialChars(specialCharsString: String) = specialCharsString
+        .lowercase()
+        .replace("ç", "c")
+        .replace("é", "e")
 }
