@@ -1,168 +1,219 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".FireDetailsFragment">
+
+    <!-- Error Message -->
+    <TextView
+        android:id="@+id/tv_error_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/ups_something_went_wrong"
+        android:textColor="@color/gradient_left"
+        android:textSize="25sp" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <LinearLayout
+            android:id="@+id/ll_fire_details"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="20dp"
             android:orientation="vertical">
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="20dp"/>
-
+            <!-- Localização -->
             <TextView
-                android:id="@+id/tv_personal_info_label"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/personalInformation"
-                android:layout_marginHorizontal="20dp"
-                android:paddingBottom="5dp"
-                android:textStyle="bold"
-                />
-
-
-            <TextView
-                android:id="@+id/nome"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginHorizontal="20dp"/>
-            <TextView
-                android:id="@+id/cc"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginHorizontal="20dp"/>
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="20dp"/>
-
-            <TextView
-                android:id="@+id/tv_date_time_label"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/date"
-                android:layout_marginHorizontal="20dp"
-                android:paddingBottom="5dp"
-                android:textStyle="bold"
-                />
-
-            <TextView
-                android:id="@+id/datetime"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginHorizontal="20dp"/>
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="20dp"/>
-
-            <TextView
-                android:id="@+id/tv_location_label"
-                android:layout_width="match_parent"
+                android:id="@+id/tv_localizacao_label"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/location"
-                android:layout_marginHorizontal="20dp"
-                android:paddingBottom="5dp"
-                android:textStyle="bold"
-                />
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/distrito"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginHorizontal="20dp"/>
+                android:id="@+id/tv_localizacao_district"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
             <TextView
-                android:id="@+id/concelho"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginHorizontal="20dp"/>
+                android:id="@+id/tv_localizacao_freguesia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
             <TextView
-                android:id="@+id/freguesia"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginHorizontal="20dp"/>
+                android:id="@+id/tv_localizacao_concelho"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+            <!-- /Localização -->
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="20dp"/>
+                android:layout_height="25dp" />
+
+            <!-- Status -->
+            <TextView
+                android:id="@+id/tv_estado_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/status"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/tv_resource_label"
+                android:id="@+id/tv_estado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="10dp"
+                android:textColor="@color/black"
+                app:drawableEndCompat="@drawable/circle"
+                />
+            <!-- /Status -->
+
+            <Space
                 android:layout_width="match_parent"
+                android:layout_height="25dp" />
+
+            <!-- DateTime -->
+            <TextView
+                android:id="@+id/tv_datetime_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/report_datetime"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_datetime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+            <!-- /DateTime -->
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="25dp" />
+
+            <!-- Observations -->
+            <TextView
+                android:id="@+id/tv_observation_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/observations"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_observations"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+            <!-- /Observations -->
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="25dp" />
+
+            <!-- Resources -->
+            <TextView
+                android:id="@+id/tv_resources_label"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/resources"
-                android:layout_marginHorizontal="20dp"
-                android:paddingBottom="5dp"
-                android:textStyle="bold"
-                />
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/operacionais"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginHorizontal="20dp"/>
+                android:id="@+id/tv_resources_aerial"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
             <TextView
-                android:id="@+id/veiculos"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginHorizontal="20dp"/>
+                android:id="@+id/tv_resources_terrain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
             <TextView
-                android:id="@+id/aereos"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginHorizontal="20dp"/>
+                android:id="@+id/tv_resources_man"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+            <!-- /Resources -->
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="20dp"/>
+                android:layout_height="25dp" />
 
+            <!-- Image -->
             <TextView
-                android:id="@+id/tv_other_info_label"
-                android:layout_width="match_parent"
+                android:id="@+id/tv_picture_label"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/otherInformation"
-                android:layout_marginHorizontal="20dp"
-                android:paddingBottom="5dp"
-                android:textStyle="bold"
-                />
-
-            <TextView
-                android:id="@+id/status"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginHorizontal="20dp"/>
-            <TextView
-                android:id="@+id/observacoes"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginHorizontal="20dp"/>
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="20dp"/>
-
-            <TextView
-                android:id="@+id/tv_other_picture_label"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:paddingBottom="5dp"
-                android:textStyle="bold"
-                />
+                android:text="@string/picture"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/iv_fire_picture"
                 android:layout_width="200dp"
                 android:layout_height="200dp"
-                android:layout_marginHorizontal="20dp"/>
+                android:layout_marginBottom="25dp"
+                android:layout_marginTop="10dp"/>
+            <!-- /Image -->
+
+
+            <!-- Autor -->
+            <TextView
+                android:id="@+id/tv_autor_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/submited_by"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_autor_nome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/tv_autor_cc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+            <!-- /Autor -->
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="25dp" />
+
+            <!-- Last Updated -->
+            <TextView
+                android:id="@+id/tv_last_updated"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="bottom|center"
+                android:text="@string/last_updated" />
+            <!-- /Last Updated -->
+
         </LinearLayout>
     </ScrollView>
 </FrameLayout>

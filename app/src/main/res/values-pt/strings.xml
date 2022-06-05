@@ -52,4 +52,9 @@
     <string name="radius">Raio</string>
     <string name="apply">Aplicar</string>
     <string name="clear_filters">Limpar</string>
+    <string name="select_district">Selecione o distrito</string>
+    <string name="submited_by">Submetido por:</string>
+    <string name="report_datetime">Data/Hora de Relato</string>
+    <string name="ups_something_went_wrong">Ups! Algo correu mal</string>
+    <string name="last_updated">Atualizado às</string>
 </resources>

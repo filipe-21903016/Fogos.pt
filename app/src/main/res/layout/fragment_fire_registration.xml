@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".FireRegistrationFragment">
 
     <LinearLayout
@@ -11,140 +11,148 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="10dp"
-            />
 
         <TextView
             android:id="@+id/tv_name_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/name"
             android:layout_marginHorizontal="20dp"
-            android:textStyle="bold"
+            android:layout_marginVertical="10dp"
+            android:text="@string/name"
             android:textColor="@color/black"
-            />
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
+            app:endIconMode="clear_text"
             app:hintEnabled="false"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            app:startIconDrawable="@drawable/ic_person">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_nome"
-                android:hint="@string/name"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:inputType="text"
-                />
+                android:hint="@string/name"
+                android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="20dp"/>
+            android:layout_height="5dp" />
 
         <TextView
             android:id="@+id/tv_cc_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/id_number"
             android:layout_marginHorizontal="20dp"
-            android:textStyle="bold"
+            android:layout_marginVertical="10dp"
+            android:text="@string/id_number"
             android:textColor="@color/black"
-            />
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:gravity="center_vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
+            app:endIconMode="clear_text"
             app:hintEnabled="false"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            app:startIconDrawable="@drawable/ic_badge">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_cc"
-                android:hint="@string/id_number"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:inputType="number"
-                />
+                android:hint="@string/id_number"
+                android:inputType="number"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
-
         <Space
             android:layout_width="match_parent"
-            android:layout_height="20dp"
-            />
-
-        <TextView
-            android:id="@+id/tv_date_time_label"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/date"
-            android:layout_marginHorizontal="20dp"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:background="@drawable/border">
-
-            <TextView
-                android:id="@+id/tv_date_time"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                />
-
-        </LinearLayout>
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            />
+            android:layout_height="5dp" />
 
         <TextView
             android:id="@+id/tv_district_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="10dp"
             android:text="@string/district"
-            android:layout_marginHorizontal="20dp"
-            android:textStyle="bold"
             android:textColor="@color/black"
-            />
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
-        <Spinner
-            android:id="@+id/spinner_distrito"
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
-            android:contentDescription="@string/hello_blank_fragment"
-            android:background="@drawable/spiner"
+            app:startIconDrawable="@drawable/ic_location"
+            app:hintEnabled="false">
 
-            />
-
+            <AutoCompleteTextView
+                android:id="@+id/ac_district"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:inputType="none"
+                android:hint="@string/select_district" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="20dp"
-            />
+            android:layout_height="5dp" />
+
+        <TextView
+            android:id="@+id/tv_observation_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="10dp"
+            android:text="@string/observations"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            app:hintEnabled="false"
+            app:startIconDrawable="@drawable/ic_notes">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_observation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:maxLines="4"
+                android:minLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="5dp" />
+
 
         <TextView
             android:id="@+id/tv_picture_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/picture"
             android:layout_marginHorizontal="20dp"
-            android:textStyle="bold"
+            android:layout_marginVertical="10dp"
+            android:text="@string/picture"
             android:textColor="@color/black"
-            />
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/bt_take_picture"
@@ -158,38 +166,7 @@
             android:id="@+id/iv_picture"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="10dp"
-            />
-
-        <TextView
-            android:id="@+id/tv_observation_label"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/observations"
-            android:layout_marginHorizontal="20dp"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            app:hintEnabled="false"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_observation"
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:inputType="text"
-                />
-        </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginHorizontal="20dp" />
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton

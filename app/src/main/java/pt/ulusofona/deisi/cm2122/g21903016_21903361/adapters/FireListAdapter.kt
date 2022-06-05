@@ -3,10 +3,8 @@ package pt.ulusofona.deisi.cm2122.g21903016_21903361.adapters
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.FireUi
-import pt.ulusofona.deisi.cm2122.g21903016_21903361.NavigationManager
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.databinding.ItemFireBinding
 import java.lang.StringBuilder
 

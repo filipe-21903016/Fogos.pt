@@ -1,13 +1,11 @@
-package pt.ulusofona.deisi.cm2122.g21903016_21903361.models
+package pt.ulusofona.deisi.cm2122.g21903016_21903361
 
-import android.util.DisplayMetrics
 import android.util.Log
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import pt.ulusofona.deisi.cm2122.g21903016_21903361.FireUi
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.interfaces.FireManagerService
-import pt.ulusofona.deisi.cm2122.g21903016_21903361.interfaces.FireResponse
+
 import retrofit2.HttpException
 import retrofit2.Retrofit
 
@@ -19,8 +17,7 @@ class FireManagerRetrofit(retrofit: Retrofit) : FireManager() {
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 val response = service.getActiveFires()
-                val fires = response.data
-
+                var fires = response.data
                 onFinished(fires.map {
                     FireUi(
                         id = it.id,
@@ -34,7 +31,8 @@ class FireManagerRetrofit(retrofit: Retrofit) : FireManager() {
                         status = it.status,
                         statusColor = it.statusColor,
                         lat = it.lat,
-                        lng = it.lng
+                        lng = it.lng,
+                        updated = it.updated.sec * 1000L,
                     )
                 })
             } catch (ex: HttpException) {
@@ -54,7 +52,7 @@ class FireManagerRetrofit(retrofit: Retrofit) : FireManager() {
             } catch (ex: HttpException) {
                 onFinished("Não disponível")
                 Log.e(TAG, ex.message())
-            } catch (ex: IndexOutOfBoundsException){
+            } catch (ex: IndexOutOfBoundsException) {
                 onFinished("Não disponível")
                 Log.e(TAG, "Risk for $district not found")
             }

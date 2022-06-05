@@ -1,10 +1,9 @@
-package pt.ulusofona.deisi.cm2122.g21903016_21903361.models
+package pt.ulusofona.deisi.cm2122.g21903016_21903361
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.apache.commons.codec.binary.Base64
-import pt.ulusofona.deisi.cm2122.g21903016_21903361.FireUi
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.interfaces.FireDao
 
 class FireManagerRoom(private val dao: FireDao) : FireManager() {
@@ -26,7 +25,8 @@ class FireManagerRoom(private val dao: FireDao) : FireManager() {
                 .toString(Charsets.UTF_8) else null,
             lat = fireUi.lat,
             lng = fireUi.lng,
-            statusColor = fireUi.statusColor
+            statusColor = fireUi.statusColor,
+            updated = fireUi.updated
         )
         CoroutineScope(Dispatchers.IO).launch {
             dao.insert(fire)
@@ -54,7 +54,8 @@ class FireManagerRoom(private val dao: FireDao) : FireManager() {
                     timestamp = fireUi.timestamp,
                     lat = fireUi.lat,
                     lng = fireUi.lng,
-                    statusColor = fireUi.statusColor
+                    statusColor = fireUi.statusColor,
+                    updated = fireUi.updated
                 )
             }
             dao.insertAll(fires)
@@ -85,7 +86,8 @@ class FireManagerRoom(private val dao: FireDao) : FireManager() {
                             Base64().decode(it.picture!!.toByteArray())
                             else null,
                         lat = it.lat,
-                        lng = it.lng
+                        lng = it.lng,
+                        updated = it.updated,
                     )
                 }
             )

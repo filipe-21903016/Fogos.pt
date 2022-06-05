@@ -17,6 +17,7 @@ class FireUi(
     val concelho: String? = null,
     val status: String? = null,
     val timestamp: Long,
+    val updated: Long,
     val operacionais: Int = 0,
     val aereos: Int = 0,
     val veiculos: Int = 0,
@@ -27,8 +28,13 @@ class FireUi(
     val lng:Double
 ) : Parcelable {
     fun getDateTime(): String {
-        val formatter = SimpleDateFormat("dd-MM-yyyy hh:mm")
+        val formatter = SimpleDateFormat("dd/MM/yyyy HH:mm")
         return formatter.format(timestamp)
+    }
+
+    fun lastUpdatedTime(): String{
+        val formatter = SimpleDateFormat("dd/MM/yyyy HH:mm")
+        return formatter.format(updated)
     }
 
     override fun toString(): String {

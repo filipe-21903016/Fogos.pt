@@ -1,9 +1,7 @@
-package pt.ulusofona.deisi.cm2122.g21903016_21903361.models
+package pt.ulusofona.deisi.cm2122.g21903016_21903361
 
 import android.annotation.SuppressLint
 import android.content.Context
-import pt.ulusofona.deisi.cm2122.g21903016_21903361.ConectivityUtil
-import pt.ulusofona.deisi.cm2122.g21903016_21903361.FireUi
 import java.lang.IllegalStateException
 
 class FireRepository(

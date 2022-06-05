@@ -8,6 +8,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import pt.ulusofona.deisi.cm2122.g21903016_21903361.NavigationManager
+import pt.ulusofona.deisi.cm2122.g21903016_21903361.R
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.databinding.FragmentDashboardBinding
 
 

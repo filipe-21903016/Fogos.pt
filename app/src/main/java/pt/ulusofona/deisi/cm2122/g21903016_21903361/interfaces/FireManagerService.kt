@@ -1,5 +1,7 @@
 package pt.ulusofona.deisi.cm2122.g21903016_21903361.interfaces
 
+import okhttp3.Call
+import okhttp3.ResponseBody
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -25,7 +27,8 @@ class FireResponse(
     val status: String,
     val statusColor: String,
     val lat: Double,
-    val lng: Double
+    val lng: Double,
+    val updated: DateTimeResponse
 )
 
 
@@ -36,3 +39,14 @@ interface FireManagerService {
     @GET("v1/risk")
     suspend fun getRiskForDistrict(@Query(value = "concelho", encoded = true) concelho: String) : RiskResponse
 }
+
+
+
+
+
+
+
+
+
+
+

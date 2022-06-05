@@ -3,7 +3,6 @@ package pt.ulusofona.deisi.cm2122.g21903016_21903361
 import android.content.Context
 import android.location.Location
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -14,12 +13,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.adapters.FireListAdapter
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.databinding.FragmentFireListBinding
-import pt.ulusofona.deisi.cm2122.g21903016_21903361.interfaces.OnLocationChangedListener
-import pt.ulusofona.deisi.cm2122.g21903016_21903361.models.Filter
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.viewmodels.FireViewModel
-import kotlin.math.acos
-import kotlin.math.cos
-import kotlin.math.sin
 
 class FireListFragment : Fragment(){
     private lateinit var binding: FragmentFireListBinding

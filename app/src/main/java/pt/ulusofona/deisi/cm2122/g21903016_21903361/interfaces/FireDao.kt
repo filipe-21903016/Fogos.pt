@@ -2,9 +2,7 @@ package pt.ulusofona.deisi.cm2122.g21903016_21903361.interfaces
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
-import androidx.room.Update
-import pt.ulusofona.deisi.cm2122.g21903016_21903361.models.FireRoom
-import retrofit2.http.DELETE
+import pt.ulusofona.deisi.cm2122.g21903016_21903361.FireRoom
 
 @Dao
 interface FireDao {

@@ -3,20 +3,16 @@ package pt.ulusofona.deisi.cm2122.g21903016_21903361
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.pm.ActivityInfo
-import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.SeekBar
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.databinding.FragmentFiltersBinding
-import pt.ulusofona.deisi.cm2122.g21903016_21903361.models.Filter
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.viewmodels.FireViewModel
 
 class FiltersFragment() : Fragment() {
@@ -39,38 +35,33 @@ class FiltersFragment() : Fragment() {
     }
 
     override fun onStart() {
-        var seekbar_radius = 0
+        var seekbarRadius = 0
 
         super.onStart()
         ArrayAdapter.createFromResource(
             activity as Context,
-            R.array.distritos_com_none,
-            android.R.layout.simple_spinner_item
-        ).also { arrayAdapter ->
-            arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            binding.spinnerDistrito.adapter = arrayAdapter
-        }
-        if (Filter.districtFilterIsSet())
-        {
-            val districts = context?.resources?.getStringArray(R.array.distritos_com_none)
-            binding.spinnerDistrito.setSelection(districts?.indexOf(Filter.district)?:0)
+            R.array.distritos,
+            R.layout.dropdown_item
+        ).also {
+            binding.acDistrict.setAdapter(it)
+            binding.acDistrict.setText(Filter.district)
         }
 
-        setupSeekbar{
-            seekbar_radius = it
+
+        setupSeekbar {
+            seekbarRadius = it
         }
 
         binding.btClearFilters.setOnClickListener {
             binding.seekbar.progress = 0
-            binding.spinnerDistrito.setSelection(0)
+            binding.acDistrict.clearComposingText()
             Filter.reset()
             NavigationManager.goToFireListFragment(parentFragmentManager)
         }
 
         binding.btSubmit.setOnClickListener {
-            Filter.district = if (binding.spinnerDistrito.selectedItem.toString() == "----") ""
-            else binding.spinnerDistrito.selectedItem.toString()
-            Filter.radius = seekbar_radius
+            Filter.district = binding.acDistrict.text.toString()
+            Filter.radius = seekbarRadius
             NavigationManager.goToFireListFragment(parentFragmentManager)
         }
     }
@@ -86,7 +77,7 @@ class FiltersFragment() : Fragment() {
         requireActivity().requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_FULL_SENSOR
     }
 
-    private fun setupSeekbar(onStop:(Int)->Unit) {
+    private fun setupSeekbar(onStop: (Int) -> Unit) {
         val step = 10
         val seek = binding.seekbar
         seek.max = 300 / step
@@ -100,7 +91,7 @@ class FiltersFragment() : Fragment() {
                 fromUser: Boolean
             ) {
                 cProgress = progress * step
-                binding.progressValue.text = "${getString(R.string.radius)}: ${(cProgress)}km"
+                binding.progressValue.text = "${cProgress}km"
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {}

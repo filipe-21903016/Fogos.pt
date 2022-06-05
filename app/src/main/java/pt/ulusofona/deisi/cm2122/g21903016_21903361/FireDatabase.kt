@@ -1,13 +1,12 @@
-package pt.ulusofona.deisi.cm2122.g21903016_21903361.models
+package pt.ulusofona.deisi.cm2122.g21903016_21903361
 
-import android.app.Application
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.interfaces.FireDao
 
-@Database(entities = [FireRoom::class], version = 5)
+@Database(entities = [FireRoom::class], version = 9)
 abstract class FireDatabase : RoomDatabase() {
     abstract fun fireDao(): FireDao
 

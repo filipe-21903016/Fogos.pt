@@ -1,12 +1,10 @@
 package pt.ulusofona.deisi.cm2122.g21903016_21903361
 
 import android.annotation.SuppressLint
-import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.databinding.FragmentRiskZoneBinding

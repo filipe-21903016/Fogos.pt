@@ -1,4 +1,4 @@
-package pt.ulusofona.deisi.cm2122.g21903016_21903361.models
+package pt.ulusofona.deisi.cm2122.g21903016_21903361
 
 enum class District(val lat: Double, val lng: Double){
     AVEIRO(40.6389,-8.6553),

@@ -1,16 +1,12 @@
 package pt.ulusofona.deisi.cm2122.g21903016_21903361.viewmodels
 
 import android.app.Application
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.location.Geocoder
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.ViewModel
-import com.google.android.gms.location.Geofence
+import pt.ulusofona.deisi.cm2122.g21903016_21903361.District
+import pt.ulusofona.deisi.cm2122.g21903016_21903361.FireRepository
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.FireUi
-import pt.ulusofona.deisi.cm2122.g21903016_21903361.models.*
-import java.io.ByteArrayOutputStream
 import java.util.*
 
 class FireViewModel(application: Application) : AndroidViewModel(application) {
@@ -21,46 +17,56 @@ class FireViewModel(application: Application) : AndroidViewModel(application) {
         model.getAllFires(onFinished)
     }
 
-    fun onNewRegistration(name: String, cc: String, district: String, picture: ByteArray?) {
+    fun onNewRegistration(
+        name: String,
+        cc: String,
+        district: String,
+        picture: ByteArray?,
+        observations: String?
+    ) {
         val districtEnum = District.valueOf(
             district.uppercase().replace(" ", "_")
         )
+        val timsetamp = System.currentTimeMillis()
+
         val fire = FireUi(
             id = UUID.randomUUID().toString(),
             name = name,
             cc = cc,
             district = district,
-            timestamp = System.currentTimeMillis(),
+            timestamp = timsetamp,
             picture = picture,
             lat = districtEnum.lat,
             lng = districtEnum.lng,
             concelho = district,
-            freguesia = district
+            freguesia = district,
+            observacoes = observations,
+            updated = timsetamp
         )
+
         model.insertFire(fire) {
             Log.i(TAG, "Fire:$fire was inserted")
         }
     }
 
-    fun onFireMarkerClick(latitute: Double, longitude: Double, onFinished: (FireUi?) -> Unit){
+    fun onFireMarkerClick(latitute: Double, longitude: Double, onFinished: (FireUi?) -> Unit) {
         onGetFires {
-           val selectedFire = it.find {
-                   fireUi -> fireUi.lat == latitute && fireUi.lng == longitude
-           }
+            val selectedFire = it.find { fireUi ->
+                fireUi.lat == latitute && fireUi.lng == longitude
+            }
             onFinished(selectedFire)
         }
     }
 
-    fun getDistrictByLatLng(latitute: Double, longitude: Double): String
-    {
+    fun getDistrictByLatLng(latitute: Double, longitude: Double): String {
         val geocoder = Geocoder(this.getApplication(), Locale.getDefault())
-        val address = geocoder.getFromLocation(latitute,longitude,1).first()
+        val address = geocoder.getFromLocation(latitute, longitude, 1).first()
         return address.adminArea.removeSuffix("District")
     }
 
-    fun onGetRisk(district: String, onFinished:(String) -> Unit){
+    fun onGetRisk(district: String, onFinished: (String) -> Unit) {
         //Geocoder return "Lisboa" in english the other districts are in portuguese
-        model.getRiskForDistrict(if (district == "Lisbon") "Lisboa" else district){
+        model.getRiskForDistrict(if (district == "Lisbon") "Lisboa" else district) {
             onFinished(it)
         }
     }

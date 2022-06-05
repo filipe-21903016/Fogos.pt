@@ -38,6 +38,9 @@ android {
 }
 
 dependencies {
+    //httpok
+    implementation 'com.squareup.okhttp3:okhttp:4.9.3'
+
     implementation 'commons-codec:commons-codec:1.15'
 
     //google maps

@@ -5,9 +5,11 @@
       <map>
         <entry key="../../../../../layout/custom_preview.xml" value="0.1" />
         <entry key="../../../Library/Android/sdk/platforms/android-32/data/res/layout/simple_spinner_dropdown_item.xml" value="0.2341485507246377" />
-        <entry key="..\:/Users/Tomas/AndroidStudioProjects/projeto-android-nativo-filipe-21903016/app/src/main/res/layout/fragment_fire_registration.xml" value="0.24728260869565216" />
         <entry key="app/src/main/res/drawable-v24/rounded_corner_progress.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/background_logo.xml" value="0.33" />
+        <entry key="app/src/main/res/drawable/border.xml" value="0.2055" />
+        <entry key="app/src/main/res/drawable/circle.xml" value="0.3015" />
+        <entry key="app/src/main/res/drawable/custom_name_input.xml" value="0.2055" />
         <entry key="app/src/main/res/drawable/fire_marker.xml" value="0.1395" />
         <entry key="app/src/main/res/drawable/gradient.xml" value="0.2085" />
         <entry key="app/src/main/res/drawable/ic_add.xml" value="0.2045" />
@@ -22,20 +24,23 @@
         <entry key="app/src/main/res/drawable/ic_logo_background.xml" value="0.19" />
         <entry key="app/src/main/res/drawable/ic_map.xml" value="0.1645" />
         <entry key="app/src/main/res/drawable/ic_outline_map.xml" value="0.1645" />
+        <entry key="app/src/main/res/drawable/ic_person.xml" value="0.2055" />
         <entry key="app/src/main/res/drawable/ic_photo.xml" value="0.1645" />
         <entry key="app/src/main/res/drawable/logo.xml" value="0.2" />
         <entry key="app/src/main/res/drawable/rounded_corner.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/seek_bar_progress.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/seek_thumb.xml" value="0.2605" />
+        <entry key="app/src/main/res/drawable/spiner.xml" value="0.2055" />
         <entry key="app/src/main/res/layout-land/fragment_fire_list.xml" value="0.20416666666666666" />
         <entry key="app/src/main/res/layout-land/fragment_risk_zone.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.22056159420289856" />
+        <entry key="app/src/main/res/layout/dropdown_item.xml" value="0.11481481481481481" />
         <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_filters.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/fragment_fire_details.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_fire_details.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_fire_list.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_fire_map.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_fire_registration.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_fire_registration.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_risk_zone.xml" value="0.4036458333333333" />
         <entry key="app/src/main/res/layout/item_fire.xml" value="0.4073272705078125" />
         <entry key="app/src/main/res/layout/nav_header_layout.xml" value="0.1" />

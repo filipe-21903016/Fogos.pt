@@ -52,6 +52,11 @@
     <string name="radius">Radius</string>
     <string name="apply">Apply</string>
     <string name="clear_filters">Clear</string>
+    <string name="select_district">Select district</string>
+    <string name="submited_by">Submited by:</string>
+    <string name="report_datetime">Date/Time of Report</string>
+    <string name="ups_something_went_wrong">Ups! Something went wrong</string>
+    <string name="last_updated">Last updated</string>
 
 
 </resources>
