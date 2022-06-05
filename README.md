@@ -1,48 +1,52 @@
 # Projeto Computação Movel - Fogos.pt
+
 <pre>
 Filipe Coutinho - a21903016
 Tomás Neto - a21903361
 </pre>
-## Screenshots dos ecrãs
 
+## Screenshots dos ecrãs
 
 ![](screenshots/dashboard.png)
 
-
 ![](screenshots/drawer.png)
-
 
 ![](screenshots/registo.png)
 
-
 ![](screenshots/lista.png)
 
+![](screenshots/lista_land.png)
 
-![](screenshots/detalhe.png)
+![](screenshots/filtros.png)
 
+![](screenshots/detalhe_local.png)
+
+![](screenshots/detalhe_remoto.png)
 
 ![](screenshots/mapa.png)
 
-
-![](screenshots/rotation.png)
-
-
 ## Funcionalidades
 
-| Critério                                              | Implementado  |Cotação|
-| ---------------------------                           |:-------------:| -----:|
-| Dashboard                                             | Sim           |   3   |
-| Apresentação dos incêndios - Lista                    | Sim           |  2,5  |
-| Apresentação dos incêndios - Lista - Rotação          | Sim           |  1,25 |
-| Apresentação dos incêndios - Mapa (imagem)            | Sim           |  0,25 |
-| Detalhe do incêndio                                   | Sim           |   2   |
-| Risco de zona                                         | Sim           |   2   |
-| Registo de incêndios                                  | Sim           |  3,5  |
-| Suporte multi-idioma                                  | Sim           |  0,5  |
-| Navegabilidade                                        | Sim           |   2   |
-| Extra                                                 | Não           |   3   |
-| Total                                                 | Valor:        |   17  |
+| Critério                                                  | Implementado  |Cotação|
+| ---------------------------                               |:-------------:| -----:|
+| Dashboard                                                 | Sim           |   2   |
+| Filtro por nome do distrito                               | Sim           |   1   |
+| Filtro por raio circundante à localização do dispositivo  | Sim           |  1,5  |
+| Apresentação dos incêndios - Lista c/ Rotação             | Sim           |  1,5  |
+| Apresentação dos incêndios - Mapa (com localização)       | Sim           |  2    |
+| Detalhe do incêndio                                       | Sim           |   0,5 |
+| Risco de zona                                             | Sim           |   1,5 |
+| Registo de incêndios                                      | Sim           |  2    |
+| Autonomia                                                 | Sim           |  1    |
+| Offline                                                   | Sim           |   3   |
+| Extra                                                     | Sim           | 1,5   |
+| Vídeo                                                     | Sim           | 2,5   |
+| Total                                                     | Valor:        |   18  |
 
 ## Previsão da nota
+18
 
-17
+## Link Vídeo
+
+
+
