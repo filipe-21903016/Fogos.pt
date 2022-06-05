@@ -32,18 +32,25 @@ class FireRepository(
     }
 
     fun getRiskForDistrict(district: String, onFinished: (String) -> Unit) {
-        remote.getRiskForDistrict(district) {
-            onFinished(it)
+        if (ConectivityUtil.isOnline(context)) {
+            remote.getRiskForDistrict(district) {
+                onFinished(it)
+            }
         }
     }
 
     fun getActiveResources(onFinished: (ActiveResources) -> Unit) {
-        remote.getActiveResources { onFinished(it) }
+        if (ConectivityUtil.isOnline(context)) {
+            remote.getActiveResources { onFinished(it) }
+        }
+
     }
 
     fun get7DaysTotalFires(onFinished: (List<TotalFires>) -> Unit) {
-        remote.get7DaysTotalFires {
-            onFinished(it)
+        if (ConectivityUtil.isOnline(context)) {
+            remote.get7DaysTotalFires {
+                onFinished(it)
+            }
         }
     }
 

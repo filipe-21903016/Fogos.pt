@@ -79,7 +79,7 @@ class FireMapFragment : Fragment(), OnLocationChangedListener, GoogleMap.OnMarke
     private fun placeCamera(latitude: Double, longitude: Double) {
         val cameraPosition = CameraPosition.Builder()
             .target(LatLng(latitude, longitude))
-            .zoom(10f)
+            .zoom(8f)
             .build()
         map?.animateCamera(
             CameraUpdateFactory.newCameraPosition(cameraPosition)

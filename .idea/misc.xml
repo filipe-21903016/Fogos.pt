@@ -33,6 +33,7 @@
         <entry key="app/src/main/res/drawable/spiner.xml" value="0.2055" />
         <entry key="app/src/main/res/layout-land/fragment_fire_list.xml" value="0.20416666666666666" />
         <entry key="app/src/main/res/layout-land/fragment_risk_zone.xml" value="0.1" />
+        <entry key="app/src/main/res/layout-land/item_fire.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.22056159420289856" />
         <entry key="app/src/main/res/layout/dropdown_item.xml" value="0.11481481481481481" />
         <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.1" />
