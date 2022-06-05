@@ -178,8 +178,6 @@
                     app:drawableStartCompat="@drawable/ic_location"
                     android:textSize="15sp"
                     app:drawableTint="@color/iconGray" />
-
-
             </LinearLayout>
 
 
