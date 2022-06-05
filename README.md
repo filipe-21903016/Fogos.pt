@@ -3,6 +3,7 @@
 <pre>
 Filipe Coutinho - a21903016
 Tomás Neto - a21903361
+https://youtu.be/3I7gM-ACmuQ
 </pre>
 
 ## Screenshots dos ecrãs
@@ -45,9 +46,6 @@ Tomás Neto - a21903361
 
 ## Previsão da nota
 18
-
-## Link Vídeo
-[https://youtu.be/3I7gM-ACmuQ]
 
 
 
