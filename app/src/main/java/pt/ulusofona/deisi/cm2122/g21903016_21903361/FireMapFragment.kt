@@ -9,9 +9,7 @@ import android.graphics.Paint
 import android.location.Geocoder
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
 import androidx.appcompat.app.AppCompatActivity
@@ -57,6 +55,7 @@ class FireMapFragment : Fragment(), OnLocationChangedListener, GoogleMap.OnMarke
             FusedLocation.registerListener(this)
             onMapReady(it)
         }
+        setHasOptionsMenu(true)
         return binding.root
     }
 
@@ -89,7 +88,7 @@ class FireMapFragment : Fragment(), OnLocationChangedListener, GoogleMap.OnMarke
 
     override fun onStart() {
         super.onStart()
-        binding.fabAddFire.setOnClickListener{
+        binding.fabAddFire.setOnClickListener {
             NavigationManager.goToFireRegistrationFragment(parentFragmentManager)
         }
     }
@@ -123,9 +122,12 @@ class FireMapFragment : Fragment(), OnLocationChangedListener, GoogleMap.OnMarke
 
     override fun onMapReady(map: GoogleMap) {
         viewModel.onGetFires {
-            it.forEach { fireUi ->
-                CoroutineScope(Dispatchers.Main).launch {
-                    createMarker(map, fireUi)
+            viewModel.onGetFires {
+                val d = Filter.filterByDistrict(it)
+                Filter.filterByRadius(d, FusedLocation.lat, FusedLocation.lng).forEach { fireUi ->
+                    CoroutineScope(Dispatchers.Main).launch {
+                        createMarker(map, fireUi)
+                    }
                 }
             }
         }
@@ -143,15 +145,35 @@ class FireMapFragment : Fragment(), OnLocationChangedListener, GoogleMap.OnMarke
         var paint = Paint()
         paint.color = color
         paint.isAntiAlias = true
-        canvas.drawCircle(canvas.width / 2f, canvas.height / 2f,canvas.width / 2f, paint)
+        canvas.drawCircle(canvas.width / 2f, canvas.height / 2f, canvas.width / 2f, paint)
 
         val quarterVertical = canvas.height / 4
         val quarterHorizontal = canvas.width / 4
 
-        vectorDrawable!!.setBounds(quarterHorizontal, quarterVertical, quarterHorizontal * 3,  quarterVertical * 3)
+        vectorDrawable!!.setBounds(
+            quarterHorizontal,
+            quarterVertical,
+            quarterHorizontal * 3,
+            quarterVertical * 3
+        )
 
         vectorDrawable.draw(canvas)
         return BitmapDescriptorFactory.fromBitmap(bitmap)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.filter_menu, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean = when (item.itemId) {
+        R.id.action_filter -> {
+            NavigationManager.goToFilterFragment(parentFragmentManager)
+            true
+        }
+        else -> {
+            super.onOptionsItemSelected(item)
+        }
     }
 
 }

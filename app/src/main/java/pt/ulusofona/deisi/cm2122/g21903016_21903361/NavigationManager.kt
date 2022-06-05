@@ -42,4 +42,9 @@ object NavigationManager {
         placeFragment(supportFragmentManager, FiltersFragment())
     }
 
+    fun popFragment(supportFragmentManager: FragmentManager)
+    {
+        supportFragmentManager.popBackStack()
+    }
+
 }

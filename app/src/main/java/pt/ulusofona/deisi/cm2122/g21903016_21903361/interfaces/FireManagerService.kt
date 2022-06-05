@@ -3,6 +3,7 @@ package pt.ulusofona.deisi.cm2122.g21903016_21903361.interfaces
 import okhttp3.Call
 import okhttp3.ResponseBody
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.models.ActiveResources
+import pt.ulusofona.deisi.cm2122.g21903016_21903361.models.TotalFires
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -11,6 +12,9 @@ class DateTimeResponse(val sec: Int)
 data class GetActiveFiresResponse(
     val sucess: Boolean,
     val data: List<FireResponse>
+)
+data class TotalFiresResponse(
+    val data: List<TotalFires>
 )
 
 data class ActiveResourcesResponse(val data: ActiveResources)
@@ -44,6 +48,9 @@ interface FireManagerService {
 
     @GET("v1/now")
     suspend fun getActiveResourcesCount(): ActiveResourcesResponse
+
+    @GET("v1/stats/week")
+    suspend fun get7DaysTotalFires(): TotalFiresResponse
 }
 
 

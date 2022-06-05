@@ -6,6 +6,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.interfaces.FireManagerService
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.models.ActiveResources
+import pt.ulusofona.deisi.cm2122.g21903016_21903361.models.TotalFires
 
 import retrofit2.HttpException
 import retrofit2.Retrofit
@@ -67,6 +68,17 @@ class FireManagerRetrofit(retrofit: Retrofit) : FireManager() {
                 onFinished(
                     response.data
                 )
+            } catch (ex: HttpException) {
+                Log.e(TAG, ex.message())
+            }
+        }
+    }
+
+    override fun get7DaysTotalFires(onFinished: (List<TotalFires>) -> Unit) {
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val response = service.get7DaysTotalFires()
+                onFinished(response.data)
             } catch (ex: HttpException) {
                 Log.e(TAG, ex.message())
             }

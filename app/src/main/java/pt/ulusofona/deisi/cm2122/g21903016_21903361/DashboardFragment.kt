@@ -47,6 +47,13 @@ class DashboardFragment : Fragment(), OnLocationChangedListener{
             }
         }
 
+        viewModel.onGetWeekTotalFires { week, yesterday ->
+            CoroutineScope(Dispatchers.Main).launch {
+                binding.tvYesterdayFires.text = yesterday.toString()
+                binding.tvWeekFires.text = week.toString()
+            }
+        }
+
         binding.fabAddFire.setOnClickListener{
             NavigationManager.goToFireRegistrationFragment(parentFragmentManager)
         }
@@ -65,5 +72,10 @@ class DashboardFragment : Fragment(), OnLocationChangedListener{
 
     override fun onLocationChanged(latitude: Double, longitude: Double) {
         binding.tvDistrict.text = FusedLocation.district
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        FusedLocation.unregisterListener(this)
     }
 }

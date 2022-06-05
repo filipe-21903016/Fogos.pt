@@ -66,7 +66,15 @@ class FireViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    fun onGetActiveResources(onFinished: (ActiveResources) -> Unit){
+    fun onGetActiveResources(onFinished: (ActiveResources) -> Unit) {
         model.getActiveResources(onFinished)
+    }
+
+    fun onGetWeekTotalFires(onFinished: (Int, Int) -> Unit) {
+        model.get7DaysTotalFires {
+            val week = it.sumOf { it.total }
+            val yesterday = it.last().total
+            onFinished(week,yesterday)
+        }
     }
 }

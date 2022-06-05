@@ -6,6 +6,7 @@ import kotlinx.coroutines.launch
 import org.apache.commons.codec.binary.Base64
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.interfaces.FireDao
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.models.ActiveResources
+import pt.ulusofona.deisi.cm2122.g21903016_21903361.models.TotalFires
 
 class FireManagerRoom(private val dao: FireDao) : FireManager() {
     override fun insertFire(fireUi: FireUi, onFinished: () -> Unit) {
@@ -107,6 +108,10 @@ class FireManagerRoom(private val dao: FireDao) : FireManager() {
     }
 
     override fun getActiveResources(onFinished: (ActiveResources) -> Unit) {
+        throw NotImplementedError()
+    }
+
+    override fun get7DaysTotalFires(onFinished: (List<TotalFires>) -> Unit) {
         throw NotImplementedError()
     }
 

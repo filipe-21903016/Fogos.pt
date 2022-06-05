@@ -41,7 +41,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/burnt"
                     android:textColor="@color/black"
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -49,7 +49,7 @@
                     android:layout_height="wrap_content"
                     android:text="120"
                     android:textColor="@color/black"
-                    android:textSize="14sp" />
+                    android:textSize="12sp" />
 
 
             </LinearLayout>
@@ -81,7 +81,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/active_resources"
                     android:textColor="@color/black"
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     android:textStyle="bold"
                     android:layout_margin="10dp"/>
 
@@ -89,34 +89,32 @@
                     android:id="@+id/tv_resources_aerial"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
+                    android:textColor="@color/gradient_right"
                     android:drawablePadding="10dp"
                     app:drawableStartCompat="@drawable/ic_plane"
-                    app:drawableTint="@color/black"
+                    app:drawableTint="@color/iconGray"
                     android:padding="5dp"
-                    android:text="5"/>
+                    />
 
                 <TextView
                     android:id="@+id/tv_resources_terrain"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
+                    android:textColor="@color/gradient_right"
                     android:drawablePadding="10dp"
                     app:drawableStartCompat="@drawable/ic_fire_truck"
-                    app:drawableTint="@color/black"
-                    android:padding="5dp"
-                    android:text="0"/>
+                    app:drawableTint="@color/iconGray"
+                    android:padding="5dp" />
 
                 <TextView
                     android:id="@+id/tv_resources_man"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
+                    android:textColor="@color/gradient_right"
                     android:drawablePadding="10dp"
                     app:drawableStartCompat="@drawable/ic_man"
-                    app:drawableTint="@color/black"
-                    android:padding="5dp"
-                    android:text="30"/>
+                    app:drawableTint="@color/iconGray"
+                    android:padding="5dp" />
 
 
             </LinearLayout>
@@ -143,13 +141,13 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <!--
-                    <TextView
+
+                    <!--<TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/ic_location"
-                    android:backgroundTint="@color/black"/>
-                -->
+                    android:backgroundTint="@color/black"/>-->
+
 
 
                 <TextView
@@ -157,18 +155,18 @@
                     android:layout_height="wrap_content"
                     android:text="@string/currentDistrict"
                     android:textColor="@color/black"
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_district"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:textSize="14sp"
+                    android:textColor="@color/gradient_right"
                     android:padding="10dp"
+                    android:gravity="center"
                     app:drawableStartCompat="@drawable/ic_location"
-                    app:drawableTint="@color/black" />
+                    app:drawableTint="@color/iconGray" />
 
 
             </LinearLayout>
@@ -200,15 +198,38 @@
                     android:layout_height="wrap_content"
                     android:text="@string/totalFires"
                     android:textColor="@color/black"
-                    android:textSize="14sp"
+                    android:padding="10sp"
+                    android:textSize="12sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="4"
-                    android:textColor="@color/black"
-                    android:textSize="14sp" />
+                    android:text="@string/yesterday"
+                    android:textColor="@color/iconGray"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tv_yesterday_fires"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="120"
+                    android:textColor="@color/gradient_right"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/last_7_days"
+                    android:textColor="@color/iconGray"
+                    android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/tv_week_fires"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="96"
+                    android:textColor="@color/gradient_right"
+                    android:textSize="15sp" />
 
 
             </LinearLayout>
@@ -227,19 +248,6 @@
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
-        <!--
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/bt_add_fire"
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:contentDescription="@string/hello_blank_fragment"
-            android:gravity="center"
-            android:text="@string/submit"
-            android:textStyle="bold"
-            app:icon="@drawable/ic_add"
-            app:iconGravity="textStart"
-            app:cornerRadius="10dp"/>
-            -->
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
             android:id="@+id/fab_add_fire"
             android:layout_width="wrap_content"

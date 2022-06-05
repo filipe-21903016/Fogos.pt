@@ -56,13 +56,13 @@ class FiltersFragment() : Fragment() {
             binding.seekbar.progress = 0
             binding.acDistrict.clearComposingText()
             Filter.reset()
-            NavigationManager.goToFireListFragment(parentFragmentManager)
+            NavigationManager.popFragment(parentFragmentManager)
         }
 
         binding.btSubmit.setOnClickListener {
             Filter.district = binding.acDistrict.text.toString()
             Filter.radius = seekbarRadius
-            NavigationManager.goToFireListFragment(parentFragmentManager)
+            NavigationManager.popFragment(parentFragmentManager)
         }
     }
 

@@ -15,7 +15,7 @@ import pt.ulusofona.deisi.cm2122.g21903016_21903361.adapters.FireListAdapter
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.databinding.FragmentFireListBinding
 import pt.ulusofona.deisi.cm2122.g21903016_21903361.viewmodels.FireViewModel
 
-class FireListFragment : Fragment(){
+class FireListFragment : Fragment() {
     private lateinit var binding: FragmentFireListBinding
     private lateinit var viewModel: FireViewModel
     private var adapter = FireListAdapter(::onFireClick)
@@ -49,14 +49,16 @@ class FireListFragment : Fragment(){
         binding.rvFires.adapter = adapter
 
         viewModel.onGetFires {
-            val d = filterByDistrict(it)
-            updateFires(filterByRadius(d, FusedLocation.lat, FusedLocation.lng))
+            val d = Filter.filterByDistrict(it)
+            updateFires(Filter.filterByRadius(d, FusedLocation.lat, FusedLocation.lng))
         }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean = when (item.itemId) {
         R.id.action_filter -> {
-            NavigationManager.goToFilterFragment(parentFragmentManager)
+            NavigationManager.goToFilterFragment(
+                parentFragmentManager
+            )
             true
         }
         else -> {
@@ -85,37 +87,5 @@ class FireListFragment : Fragment(){
             binding.rvFires.visibility = View.GONE
             binding.tvErrorMessage.visibility = View.VISIBLE
         }
-    }
-
-    private fun distance(lat1: Double, lon1: Double, lat2: Double, lon2: Double): Double {
-        val results = FloatArray(10)
-        Location.distanceBetween(lat1, lon1, lat2, lon2, results)
-        return results[0].toDouble()
-    }
-
-    private fun filterByDistrict(fires: List<FireUi>): List<FireUi> {
-        if (Filter.districtFilterIsSet()) {
-            return fires.filter {
-                it.district
-                    .lowercase()
-                    .replace("ç", "c") //remove special chars from districts received from api
-                    .replace("é", "e") == Filter.district.lowercase()
-            }
-        }
-        return fires
-    }
-
-    private fun filterByRadius(
-        fires: List<FireUi>,
-        latitude: Double?,
-        longitude: Double?
-    ): List<FireUi> {
-        if (Filter.radiusFilterIsSet() && latitude != null && longitude != null) {
-            val filtered =  fires.filter { f ->
-                distance(latitude, longitude, f.lat, f.lng) <= Filter.radius * 1000
-            }
-            return filtered
-        }
-        return fires
     }
 }
