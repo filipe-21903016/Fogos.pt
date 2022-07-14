@@ -44,8 +44,8 @@ Tomás Neto - a21903361
 | Vídeo                                                     | Sim           | 2,5   |
 | Total                                                     | Valor:        |   18  |
 
-## Previsão da nota
-18
+## Nota
+17,5 valores
 
 
 
